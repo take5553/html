@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>backup</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -543,6 +543,6 @@ header, .context-menu, .megamenu-content, footer{
 </style>
 </head>
 <body class='typora-export os-windows'>
-<div id='write'  class=''><h1><a name="wordpress編" class="md-header-anchor"></a><span>WordPress編</span></h1><p><span>WordPressを導入する。ただし、Raspberry Pi上でWordPressを本格的に運用するにはマシンパワーが少し足りないかもしれない。どこまでできるかやってみる。</span></p><ul><li><span>（任意）ドキュメントルート内にWordPress用のディレクトリを作成</span></li><li><a href='mariadb.html'><span>Raspberry PiにMy SQLをインストール</span></a></li><li><span>Raspberry PiにWordPressをインストール</span></li><li><span>WordPressのデータベースをセットアップ</span></li><li><span>WordPressをセットアップ</span></li></ul><p>&nbsp;</p></div>
+<div id='write'  class=''><h1><a name="バックアップについて" class="md-header-anchor"></a><span>バックアップについて</span></h1><p><span>ある程度構築を進めると、もし何かでOSをリセットしないといけないとなった時に復帰するまでにいくつもの手順を踏まないといけなくなり時間がかかる。</span></p><p><span>そこで、microSDカードの中身を丸ごとバックアップする。</span></p><h2><a name="win32diskimagerについて" class="md-header-anchor"></a><span>Win32DiskImagerについて</span></h2><h3><a name="ダウンロード" class="md-header-anchor"></a><span>ダウンロード</span></h3><p><a href='https://sourceforge.net/projects/win32diskimager/'><span>Win32 Disk Imager download </span><span>|</span><span> SourceForge</span><span>.</span><span>net</span></a></p><p><img src="image/backup/image-20201004170035056.png" referrerpolicy="no-referrer" alt="image-20201004170035056"></p><p><span>ここでダウンロードできる。</span></p><h3><a name="使い方" class="md-header-anchor"></a><span>使い方</span></h3><p><img src="image/backup/image-20201004164614949.png" referrerpolicy="no-referrer" alt="image-20201004164614949"></p><p><span>Raspberry Piのヘッドレスインストールで使うソフト。SDカードの中身を「イメージ」として丸ごと1つのファイルとして保存したり、書き込んだりする。</span></p><p><span>保存の方法は以下。</span></p><ul><li><span>先に空の</span><code>.img</code><span>ファイルを準備し、「Image File」欄のファイルピッカーでその</span><code>.img</code><span>ファイルを選択する。</span></li><li><span>microSDカードをPCに接続すると、「Device」にSDカードのドライブレターが表示されるのでそれを選択。</span></li><li><span>Readボタンをクリック</span></li></ul><p><span>逆にバックアップしたイメージファイルからSDカードに書き込むときは、同じ手順でWriteボタンをクリックすればよい。</span></p></div>
 </body>
 </html>
