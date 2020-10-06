@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>accessproblem</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
@@ -156,6 +156,79 @@ mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 @media print {
   .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
 }
 
 
@@ -543,6 +616,9 @@ header, .context-menu, .megamenu-content, footer{
 </style>
 </head>
 <body class='typora-export os-windows'>
-<div id='write'  class=''><h1><a name="wordpress編" class="md-header-anchor"></a><span>WordPress編</span></h1><p><span>WordPressを導入する。ただし、Raspberry Pi上でWordPressを本格的に運用するにはマシンパワーが少し足りないかもしれない。どこまでできるかやってみる。</span></p><p><a href='../wordpressblog/'><span>動かしているWordPress</span></a></p><ul><li><p><a href='wordpressdirectory.html'><span>（任意）ドキュメントルート内にWordPress用のディレクトリを作成</span></a></p></li><li><p><a href='install.html'><span>Raspberry PiにMy SQLとWordPressをインストール</span></a></p></li><li><p><a href='accessproblem.html'><span>インストール直後のWordPressの表示がおかしい問題</span></a></p></li><li><p><span>ローカル上に開発環境を整える</span></p></li><li><p><span>WordPressを理解する</span></p><ul><li><span>最小構成のページを作成する</span></li><li><span>ファイル分割について知る</span></li><li></li></ul></li><li><p><span>MariaDBを理解する</span></p><ul><li><span>SQL文について</span></li><li><span>WordPressが使用するDBの構成について</span></li><li></li></ul></li></ul><p>&nbsp;</p></div>
+<div id='write'  class=''><h1><a name="インストール直後のwordpressの表示がおかしい問題" class="md-header-anchor"></a><span>インストール直後のWordPressの表示がおかしい問題</span></h1><p><span>同一ネットワーク内からアクセスすると</span></p><p><img src="image/accessproblem/image-20201005220342832.png" referrerpolicy="no-referrer" alt="image-20201005220342832"></p><p><span>このような表示になるが、外部ネットワークからアクセスするとこうなる。</span></p><p><img src="image/accessproblem/image-20201005220549816.png" referrerpolicy="no-referrer" alt="image-20201005220549816"></p><p><span>これの対策を考える。</span></p><h2><a name="環境" class="md-header-anchor"></a><span>環境</span></h2><ul><li><p><span>ローカル（PC側）</span></p><ul><li><span>Windows10</span></li><li><span>PowerShell 5.1</span></li></ul></li><li><p><span>リモート（Raspberry Pi）</span></p><ul><li><span>Raspberry Pi 3B+</span></li><li><span>Raspberry Pi OS 10.4</span></li><li><span>Nginx 1.14.2</span></li><li><span>PHP 7.3.19-1~deb10u1</span></li><li><span>MariaDB 10.3</span></li><li><span>WordPress 5.5.1-ja</span></li></ul></li></ul><h2><a name="原因" class="md-header-anchor"></a><span>原因</span></h2><p><span>Raspberry Piにインストール直後のWordPressのアドレスは、WordPressアドレス・サイトアドレスともに</span><code>http://(Raspberry PiのローカルIP)/wordpressblog</code><span>となっている。</span></p><p><img src="image/accessproblem/image-20201005221113252.png" referrerpolicy="no-referrer" alt="image-20201005221113252"></p><p><span>この状態で外部ネットワークからRaspberry Pi上のWordPressにアクセスすると、ソースのいたるところにローカルIPが表れている。検索をかけたら30か所もあった。</span></p><p><img src="image/accessproblem/image-20201005231531240.png" referrerpolicy="no-referrer" alt="image-20201005231531240"></p><p><span>これはつまり表示が崩れるのはcssが正しく読めていないということ。</span></p><p><span>ただ、問題なのはWordPressアドレスとサイトアドレスを外部向けのURL（このサイトでは</span><code>https://arcticstreet.ddns.net/wordpressblog</code><span>）に修正すると、今度は家の中からアクセスしたときに表示が崩れる。</span></p><h2><a name="対策" class="md-header-anchor"></a><span>対策</span></h2><p><span>Raspberry Pi上でWordPressがインストールされたフォルダに行き、</span><code>wp-config.php</code><span>をテキストエディタで開く。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="shell"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ cd</span> ~/www/html/wordpressblog</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ sudo</span> nano wp-config.php</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><span>以下を、このファイルの最終行である</span><code>require_once ABSPATH . &#39;wp-settings.php&#39;</code><span>より前に書く。これより前ならどこでもよい。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="php"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="php"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">if</span> (<span class="cm-variable-2">$_SERVER</span>[<span class="cm-string">'HTTP_HOST'</span>] <span class="cm-operator">==</span> <span class="cm-string">'192.168.1.201'</span>) {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">define</span>(<span class="cm-string">'WP_SITEURL'</span>, <span class="cm-string">'http://192.168.1.201/wordpressblog'</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">define</span>(<span class="cm-string">'WP_HOME'</span>, <span class="cm-string">'http://192.168.1.201/wordpressblog'</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">} <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">define</span>(<span class="cm-string">'WP_SITEURL'</span>, <span class="cm-string">'http://arcticstreet.ddns.net/wordpressblog'</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">define</span>(<span class="cm-string">'WP_HOME'</span>, <span class="cm-string">'http://arcticstreet.ddns.net/wordpressblog'</span>);</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 161px;"></div><div class="CodeMirror-gutters" style="display: none; height: 161px;"></div></div></div></pre><h2><a name="解説" class="md-header-anchor"></a><span>解説</span></h2><p><span>本当にこれでいいのか？</span></p><blockquote><p><strong><span>注:</span></strong><span> HTTP_HOST はリクエストの HTTP HOST ヘッダ値から PHP によって動的に作成されているため</span><a href='https://en.wikipedia.org/wiki/File_inclusion_vulnerability'><span>ファイル混入脆弱性</span></a><span>が発生する可能性があります。</span></p><p><span>参考：</span><a href='https://ja.wordpress.org/support/article/editing-wp-config-php/#wp_siteurl'><span>wp</span><span>-</span><span>config</span><span>.</span><span>php の編集 </span><span>|</span><span> WordPress</span><span>.</span><span>org 日本語</span></a></p></blockquote><p><span>ファイルインクルード脆弱性のこと。</span></p><blockquote><p><span>test.phpというファイルがあり、引数にファイルを指定してそのファイル名に拡張子=phpを付加して表示するとする。</span>
+<a href='http://example.co.jp/test.php?filename=' target='_blank' class='url'>http://example.co.jp/test.php?filename=</a><strong><span>welcome</span></strong></p><p><span>そこで攻撃者は以下のURLを発行してユーザ名の一覧の取得を試みることが可能となる。</span>
+<a href='http://example.co.jp/test.php?filename=' target='_blank' class='url'>http://example.co.jp/test.php?filename=</a><strong><span>../../../../../../../../../../passwd%00</span></strong></p><p><span>%00を付加しているのは、ファイル名をpasswd%00.phpにすることによりphpが無視されpasswd として処理させるため。</span>
+<span>要するに</span><a href='http://security/cyber-attack/directory-traversal.html'><span>ディレクトリトラバーサル</span></a><span>の応用である。</span></p><p><a href='https://securitychecklist.net/security/cyber-attack/file-include-vulnerability.html'><span>ファイルインクルードの脆弱性とは</span><span>(</span><span>file</span><span>-</span><span>include</span><span>-</span><span>vulnerability</span><span>)</span><span> </span><span>|</span><span> サイバー攻撃大辞典</span></a></p></blockquote><p><span>でも今回の場合</span><code>192.168.1.201</code><span>か</span><code>arcticstreet.ddns.net</code><span>の2択で、しかも設定値は2通りともこちらが決めているので、上記のような攻撃は考えにくい。</span></p><p><span>もし「それでも、ハッカーが何してくるか分からない！こわい！」という人は</span></p><ul><li><span>WordPressアドレスとサイトアドレスを外部公開用アドレスにし、WordPressページがどう見えるかを確認するときは常に外部ネットワークからアクセスする</span></li><li><span>Raspberry Piの中に（またはローカル（Windows）上に）もう一つWordPressをインストールし、「外部公開用」「同一ネットワーク内アクセス用」としてそれぞれ別々にWordPressアドレスとサイトアドレスを設定し、見た目を変えた場合は2つのWordPressを同期させる</span></li></ul><p><span>とかしたらどうでしょうか。実際今回の解決策を思いつくまではこの2案で検討してた。</span></p></div>
 </body>
 </html>
