@@ -211,15 +211,54 @@ add_theme_support('post-thumbnails');
 
   →`.article_summary`内の`img`タグへのスタイリングが原因なので、アイキャッチ画像は`thumnail`クラスを付与した`div`タグで包んで、その配下の`img`タグにスタイリングを施す。
 
+  `index.php`
+
+  ~~~php+HTML
+  <div class="border_inner">
+      <div class="article_summary">
+          <div class="thumbnail">    <!-- ← divタグ追記 -->
+              <?php
+                  if ( has_post_thumbnail()) {
+                      the_post_thumbnail( 'thumbnail' );
+                  } else {
+                      echo '<img src=' . get_template_directory_uri() . '/image/rs-no_image_yoko.jpg" alt="No Image">';
+                  }
+              ?>
+          </div>
+          <section>
+              <div class="article_summary_header">
+  ~~~
+
+  `mystyle.css`
+
+  ~~~css
+  .article_summary .thumbnail img{  /* ← .thumbnail追記 */
+      border: black solid 1px;
+      margin-right:10px;
+      height: 150px;
+  }
+  ~~~
+
+  
+
 * 記事へのリンクがデフォルト色
 
   →`.article_summary_header`内の`a`タグに`text-decoration: none`を施す。
 
+  `mystyle.css`
+
+  ~~~css
+  /* どこか適当な場所に以下を追記 */
+  
+  .article_summary_header a{
+      text-decoration: none;
+      color: black;
+  }
+  ~~~
+
 * そもそもサムネイルの大きさ、これでいいのか？
 
   →No Image画像を画像編集ソフト（というかWindows付属のPaint）で編集して150x150に縮めた。
-
-（もういちいち修正コードは書きません）
 
 変えたのがこちら。
 
