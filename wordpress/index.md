@@ -2,6 +2,8 @@
 
 WordPressを導入して遊ぶ。よくあるWordPressの使い方であったり便利なプラグイン紹介とかはせず、カスタムテーマの自作を通して「どのファイルを開きどうやって編集すれば自分好みにカスタマイズできるか」を知ることを目標とする。
 
+基本的にはWordPressプラグインは一切入れずに、HTMLやCSSも自分で全部自分で書く。
+
 [動かしているWordPress](../wordpressblog/)
 
 - [ドキュメントルート内にWordPress用のディレクトリを作成](wordpressdirectory.html)
