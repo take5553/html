@@ -1,13 +1,13 @@
 # WordPress編
 
-WordPressを導入する。ただし、Raspberry Pi上でWordPressを本格的に運用するにはマシンパワーが少し足りないかもしれない。どこまでできるかやってみる。
+WordPressを導入して遊ぶ。よくあるWordPressの使い方であったり便利なプラグイン紹介とかはせず、カスタムテーマの自作を通して「どのファイルを開きどうやって編集すれば自分好みにカスタマイズできるか」を知ることを目標とする。
 
 [動かしているWordPress](../wordpressblog/)
 
 - [ドキュメントルート内にWordPress用のディレクトリを作成](wordpressdirectory.html)
 - [Raspberry PiにMy SQLとWordPressをインストール](install.html)
 - [インストール直後のWordPressの表示がおかしい問題](accessproblem.html)
-- WordPressの仕組みを理解する（カスタムテーマ）
+- WordPressのいじり方を知る（カスタムテーマ）
   * [最小構成のページを作成する](customtheme1.html)
   * [`index.php`や`mystyle.css`を編集したのにアップしたら表示が変わらない問題](cacheproblem.html)
   * [ファイル分割について知る](customtheme2.html)
