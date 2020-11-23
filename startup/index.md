@@ -4,7 +4,7 @@
 
 * 初期立ち上げ
   * [（通常）Raspberry Piの立ち上げからリモート接続まで](startup1.html)
-  * （上級）Raspberry Piをモニター無し（ヘッドレス）で立ち上げる
+  * [（上級）Raspberry Piをモニター無し（ヘッドレス）で立ち上げる](headlessinstall.html)
 * [Linuxの概要](aboutlinux.html)
 * [PowerShellについて](aboutpowershell.html)
 * [SSH接続](aboutssh.html)
