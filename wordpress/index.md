@@ -20,6 +20,7 @@ WordPressを導入して遊ぶ。よくあるWordPressの使い方であった�
   * [記事単独のページを作る](customtheme-single.html)
   * [（任意）コードのハイライトを設定する](customtheme-codehighlight.html)
   * カテゴリー一覧ページを作る
+  * 記事単独ページにコメント欄を作る
   * 404ページを作る
   * WordPressに独自機能を持たせる
   * まとめ
