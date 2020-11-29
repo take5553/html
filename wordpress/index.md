@@ -24,11 +24,10 @@ WordPressを導入して遊ぶ。よくあるWordPressの使い方であった�
   * [記事に「投稿日付」と「所属カテゴリタグ」を付ける](customtheme-dateandcategory.html)
   * [記事単独ページにコメント欄を作る](customtheme-comments.html)
   * [404ページを作る](customtheme-404.html)
-  * WordPressに独自機能を持たせる
-  * まとめ
-- MariaDBを理解する
+  * [WordPressに独自機能を持たせる](customtheme-originalfunction.html)
+  * [まとめ](matome.html)
+- MariaDB
   * [DBに保存されているWordPress記事の中身を見る](checkdb.html)
-  * SQL文について
 - トラブルシューティング
   * [パーマリンク設定を「基本」以外にすると記事が保存できなくなる問題](permalink.html)
 
