@@ -78,3 +78,7 @@
 ![image-20201129175700405](image/customtheme-404/rs-image-20201129175700405.png)
 
 まあいいんじゃないか。
+
+## 参考
+
+[404エラーページの作成 \- WordPress Codex 日本語版](https://wpdocs.osdn.jp/404%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%9A%E3%83%BC%E3%82%B8%E3%81%AE%E4%BD%9C%E6%88%90)
