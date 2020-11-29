@@ -22,7 +22,7 @@ WordPressを導入して遊ぶ。よくあるWordPressの使い方であった�
   * [カテゴリー一覧ページを作る](customtheme-categories.html)
   * [記事表示ループを別ファイルに切り分ける](customtheme-separatephp.html)
   * [記事に「投稿日付」と「所属カテゴリタグ」を付ける](customtheme-dateandcategory.html)
-  * 記事単独ページにコメント欄を作る
+  * [記事単独ページにコメント欄を作る](customtheme-comments.html)
   * 404ページを作る
   * WordPressに独自機能を持たせる
   * まとめ

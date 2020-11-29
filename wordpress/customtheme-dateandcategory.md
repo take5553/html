@@ -107,3 +107,8 @@
 リンクの色が気に入らないけど、まあこんなもんか。
 
 ![image-20201129160154772](image/customtheme-dateandcategory/rs-image-20201129160154772.png)
+
+## 参考
+
+[テンプレートタグ/get the date \- WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/get_the_date)
+[テンプレートタグ/the category \- WordPress Codex 日本語版](https://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/the_category)
