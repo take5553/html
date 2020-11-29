@@ -207,3 +207,8 @@ Raspberry Piにアップロードして確認。
 ![image-20201129111613646](image/customtheme-categories/rs-image-20201129111613646.png)
 
 英語カテゴリーへのリンクが表示されていないけど、記事が一つも無いから表示しないっぽい。賢い。
+
+## 参考
+
+[テンプレートタグ/single cat title \- WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/single_cat_title)
+[テンプレートタグ/wp list categories \- WordPress Codex 日本語版](http://wpdocs.osdn.jp/%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%82%BF%E3%82%B0/wp_list_categories)
