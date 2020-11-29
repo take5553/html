@@ -69,6 +69,28 @@
 
 `div`タグに`noarticles`クラスを付与し、再スタイリングした。
 
+`mystyle.css`（適当なところに以下を追記）
+
+~~~css
+/* 404ページ用 */
+.noarticles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noarticles h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.noarticles img{
+    margin: 20px 0;
+}
+~~~
+
 使用画像。
 
 ![謝罪をする人のイラスト（男性）](image/customtheme-404/pose_syazai_man.png)
