@@ -1,8 +1,9 @@
-# PHP編
+# PHP（掲示板作成）編
 
 掲示板システムを作成する。
 
-* はじめに
-* PHPの環境
-* Hello World
+* 準備
+  * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
+  * GitHubにリモートリポジトリ作成、XAMPPインストール
 * 
+
