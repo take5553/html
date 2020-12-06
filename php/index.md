@@ -4,6 +4,7 @@
 
 * 準備
   * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
-  * GitHubにリモートリポジトリ作成、XAMPPインストール
+  * [GitHubにリモートリポジトリ作成、XAMPPインストール](preparation2.html)
+  * VSCodeの拡張機能を追加
 * 
 
