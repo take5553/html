@@ -5,8 +5,14 @@
 * 準備
   * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
   * [GitHubにリモートリポジトリ作成、XAMPPインストール](preparation2.html)
-* [VSCodeの拡張機能①「PHP Intelephense」とPHP書初め](startphp.html)
-* VSCodeの拡張機能②「PHP Debug」でデバッグをしてみる
+  
+* VSCodeに慣れる
+
+  * [VSCodeの拡張機能①「PHP Intelephense」とPHP書初め](startphp.html)
+
+  * VSCodeの拡張機能②「PHP Debug」でデバッグをしてみる
+
 * トラブルシューティング
-  * [VSCode上でPHP Debugが動かない問題](troubleshooting.html)
+  
+  * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
 
