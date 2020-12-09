@@ -7,7 +7,7 @@
 * ローカル
   * Windows 10
   * VSCode 1.51.1
-  * PHP 8.0.0
+  * XAMPP 7.4.13　※[XAMPP 8.0.0はデバッグできない可能性あり](troubleshooting.html)
 
 ## PHP Debug
 
@@ -15,46 +15,32 @@
 
 ![image-20201206203649652](image/debug/rs-image-20201206203649652.png)
 
-インストールして使うにはいくつか手順が必要。
+インストールして使うには以下の手順が必要。
 
 1. PHP Debugをインストール
-2. XDebugをインストール
+2. XDebugを有効化
 3. `launch.json`の編集
 
 ### PHP Debugをインストール
 
 これはインストールボタンを押すだけ。
 
-### XDebugをインストール
+### XDebugを有効化
 
-これはまず`index.php`に`phpinfo();`と書き込み保存。ブラウザからアクセスしてPHPの情報を表示させる。
-
-![image-20201206204721577](image/debug/rs-image-20201206204721577.png)
-
-これを`Ctrl + A`で丸ごと全部選択し、`Ctrl + C`でコピー。
-
-然る後、[Xdebug: Support — Tailored Installation Instructions](https://xdebug.org/wizard)に飛び、コピーした内容をペーストし「Analyse my phpinfo() output」をクリック。
-
-![image-20201206205053549](image/debug/rs-image-20201206205053549.png)
-
-そうすると自分の環境に合わせてカスタマイズしたXDebugがダウンロードできる。素敵。
-
-![image-20201206205210657](image/debug/rs-image-20201206205210657.png)
-
-DLLがダウンロードできるので、それを`C:\xampp\php\ext`に保存。（または各自のXAMPPのインストールフォルダ配下の`\php\ext`フォルダ。以下適宜読み替え）
-
-その後、`C:\xampp\php\php.ini`を開き、以下の行を追加。DLL名は各自の環境により変わる可能性あり。
+`C:\xampp\php\php.ini`に以下を追記。
 
 ~~~php
 [XDebug]
 xdebug.remote_enable = 1
 xdebug.remote_autostart = 1
-zend_extension = C:\xampp\php\ext\php_xdebug-3.0.1-8.0-vs16-x86_64.dll
+zend_extension = C:\xampp\php\ext\php_xdebug.dll
 ~~~
 
 そしてApacheを再起動。
 
-再度`phpinfo();`が書かれた`index.php`をブラウザで表示させて、XDebugの欄が増えているか確認する。（表示されない人はApacheの再起動をするか、ブラウザをリロードする）
+確認するためには、ドキュメントルートに`phpinfo();`と書かれた`index.php`を作成し、ブラウザから`localhost/index.php`にアクセスしPHP情報を表示させて、XDebugの欄が増えているか確認する。
+
+※以下の画像のXDebugのバージョンが3.0.1となっているけど、XAMPP付属のXDebugはそれよりバージョンが低い可能性がある。でもそれで特に問題ない。
 
 ![image-20201206210155588](image/debug/rs-image-20201206210155588.png)
 
@@ -72,9 +58,7 @@ VSCodeの左側のアイコンから「実行」（Gitの下）をクリック�
 
 ![image-20201206211019103](image/debug/image-20201206211019103.png)
 
-`launch.json`が開くので中身を以下のようにする。
-
-※実際にはある程度最初から書かれていて、追記するのは`Listen for XDebug`ブロックの`"pathMappings"`の項目と、`Launch currently open script`ブロックの`"pathMappings"`と`"runtimeExecutable"`の項目だけ。
+`launch.json`が開くので、そのまま保存して閉じる。
 
 ~~~json
 {
@@ -87,10 +71,7 @@ VSCodeの左側のアイコンから「実行」（Gitの下）をクリック�
             "name": "Listen for XDebug",
             "type": "php",
             "request": "launch",
-            "port": 9000,
-            "pathMappings": {
-                "${workspaceRoot}" : "${workspaceRoot}"
-            }
+            "port": 9000
         },
         {
             "name": "Launch currently open script",
@@ -98,17 +79,13 @@ VSCodeの左側のアイコンから「実行」（Gitの下）をクリック�
             "request": "launch",
             "program": "${file}",
             "cwd": "${fileDirname}",
-            "port": 9000,
-            "pathMappings": {
-                "C:\\xampp\\htdocs\\test" : "${workspaceRoot}"
-            },
-            "runtimeExecutable": "C:\\xampp\\php\\php.exe"
+            "port": 9000
         }
     ]
 }
 ~~~
 
-保存をして一応VSCodeを再起動。
+保存をしてVSCodeを再起動。
 
 ## デバッグをする
 
@@ -119,3 +96,42 @@ VSCodeの左側のアイコンから「実行」（Gitの下）をクリック�
 デバッグペインの上部のドロップボックスから「Launch currently open script」を選択し、開始ボタンをクリック。
 
 ![image-20201206212406136](image/debug/image-20201206212406136.png)
+
+VSCode下部のアクティビティーバーがオレンジになる。
+
+![image-20201209231643083](image/debug/rs-image-20201209231643083.png)
+
+この状態のままブラウザから`localhost/index.php`にアクセスしてみる。
+
+そうすると、ブラウザ上では変化が起きないが、VSCode上で処理が途中で止まる。
+
+![image-20201209231810038](image/debug/rs-image-20201209231810038.png)
+
+画面上部に表示されているステップイン![image-20201209231906487](image/debug/image-20201209231906487.png)をクリックすれば1行ずつ実行していく。コードが少ないので少し分かりにくいけど、今は`foreach`ループの2回目の状態。左側に現在の`$name`に格納されている変数が表示されていて、`$data`配列の2つ目の要素が格納されているのが分かる。
+
+![image-20201209232104067](image/debug/image-20201209232104067.png)
+
+こうやって1行1行処理を実行して、動かしながら問題がある個所を特定するのが正しいデバッグ。動かないからと言って適当にコードを変えて何回も実行するのはあまりよろしくない。
+
+### 最低限の使い方
+
+![image-20201209232339842](image/debug/image-20201209232339842.png)
+
+再生ボタンみたいなのが「続行」。そこから順番に
+
+* 続行・・・現在の行から処理を再開する
+* ステップオーバー・・・1行ずつ実行（自作関数などはジャンプせずにまとめて実行する）
+* ステップイン・・・1行ずつ実行（自作関数などがあればそちらにジャンプする）
+* ステップアウト・・・ジャンプ先の残りの処理をすべて終わらせ、ジャンプ元に戻る
+* 再起動・・・もう一度最初からやり直し
+* 停止・・・停止
+
+この中でステップオーバーとステップアウトはデバッグに慣れてからでよい。つまりステップインさえ分かっておけばOK。
+
+1. コードの途中でブレークポイントを作る
+2. 途中まで実行し、ブレークポイントからステップインで1行ずつ実行
+3. 処理がどうなっているのか見る
+
+そうやってデバッグしてるとだんだん「いちいち1行ずつ実行して鬱陶しいなぁ」なんて思うようになるから、そうなったらステップアウトやステップオーバーの使い方を見てみるといい。
+
+このPHP編でも、機会があればデバッグの実例を（身をもって）紹介していきたい。

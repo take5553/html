@@ -9,8 +9,10 @@
 * VSCodeに慣れる
 
   * [VSCodeの拡張機能①「PHP Intelephense」とPHP書初め](startphp.html)
-
-  * VSCodeの拡張機能②「PHP Debug」でデバッグをしてみる
+  * [VSCodeの拡張機能②「PHP Debug」でデバッグをしてみる](debug.html)
+  * VSCodeの拡張機能③「php cs fixer」と`index.php`の整形
+  * VSCodeの拡張機能④「PHP DocBlocker」でコードの説明を書く
+  * VSCodeの拡張機能⑤「その他いろいろ」
 
 * トラブルシューティング
   
