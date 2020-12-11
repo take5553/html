@@ -9,11 +9,12 @@
 
 ## 拡張機能概要
 
-* PHP Debug（デバッグ機能　要Xdebug）
-* PHP Intelephense（コーディングサポート　要php-language-server）
-* PHP DocBlocker（コーディングサポート）
-* php cs fixer（コードフォーマッター　要php-cs-fixer.phar）
-* Log File Highlighter（ログファイルサポート）
-* Bracket Pair Colorizer 2（かっこ色分け）
-* TODO Hilight（`TODO:`をハイライトしてくれる）
-* GitLens（Gitサポート）
+- [x] PHP Debug（デバッグ機能　要Xdebug）
+- [x] PHP Intelephense（コーディングサポート）
+- [ ] php cs fixer（コードフォーマッター　要php-cs-fixer.phar）
+- [ ] PHP DocBlocker（コーディングサポート）
+- [ ] 
+- [ ] Log File Highlighter（ログファイルサポート）
+- [ ] Bracket Pair Colorizer 2（かっこ色分け）
+- [ ] TODO Hilight（`TODO:`をハイライトしてくれる）
+- [ ] GitLens（Gitサポート）
