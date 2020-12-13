@@ -12,10 +12,13 @@
   * [VSCodeの拡張機能③「php cs fixer」でコードの整形](fixcode.html)
   * [VSCodeの拡張機能④「PHP DocBlocker」でコードの説明を書く](docblock.html)
   * [VSCodeの拡張機能⑤「その他いろいろ」](otherextensions.html)
-* コーディング
+* コーディング準備
   * [Emmetを使ってHTMLの準備](htmlform.html)
   * [データベースの準備](makedb.html)
-  * 記事の投稿処理
+  * [Raspberry Pi上でも動くことを確認](onraspberrypi.html)
+  * [PHPファイルにDBへのログインパスワードを直書きしないようにする](hidepassword.html)
+* 実装
+  * 記事投稿処理
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)

@@ -181,7 +181,7 @@ divタグは大体クラス名をセットで書くので、CSS的な書き方�
 
 ### formタグ：`form:(メソッド名)#(ID)`
 
-※メソッドとか送信先とかは後で解説。
+※メソッドとか送信先とかは[HTTPメソッド　GETとPOSTの違い \- Qiita](https://qiita.com/ryuuuuuuuuuu/items/94f75183bd700a8b4c15)を参照、または自分でググる。
 
 POST送信する入力フォームを作るには`form:post`と打ちエンターを押す。
 
