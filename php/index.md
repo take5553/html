@@ -13,9 +13,9 @@
   * [VSCodeの拡張機能④「PHP DocBlocker」でコードの説明を書く](docblock.html)
   * [VSCodeの拡張機能⑤「その他いろいろ」](otherextensions.html)
 * コーディング
-  * HTMLの準備
-  * データベースの準備
-  * データベースへの書き込み
+  * [Emmetを使ってHTMLの準備](htmlform.html)
+  * [データベースの準備](makedb.html)
+  * 記事の投稿処理
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
