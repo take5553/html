@@ -11,8 +11,8 @@
 
 - [x] PHP Debug（デバッグ機能　要Xdebug）
 - [x] PHP Intelephense（コーディングサポート）
-- [ ] php cs fixer（コードフォーマッター　要php-cs-fixer.phar）
-- [ ] PHP DocBlocker（コーディングサポート）
+- [x] php cs fixer（コードフォーマッター　要php-cs-fixer.phar）
+- [x] PHP DocBlocker（コーディングサポート）
 - [ ] 
 - [ ] Log File Highlighter（ログファイルサポート）
 - [ ] Bracket Pair Colorizer 2（かっこ色分け）
