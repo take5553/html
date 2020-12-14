@@ -1,4 +1,4 @@
-# データベースの準備
+# データベースの準備と動作確認
 
 掲示板用のデータベースを作成する。今回はデータベースの勉強も兼ねているのでXAMPP付属のphpMyAdminは使わずに進める。
 
@@ -366,6 +366,8 @@ phpMyAdminから確認すると、ちゃんとデータが入っている。
 
 ワークフォルダのトップに`checkdb.php`という名前でファイルを新規作成し、以下を貼り付け。`(bbsユーザーのパスワード)`を書き換える。
 
+※パスワードの直書きはよろしくない。（後述）
+
 ~~~php
 <?php
  $dsn = 'mysql:dbname=bbs;host=localhost';
@@ -400,5 +402,49 @@ OK。
 
 DBに対する作業は記録されないけど、`checkdb.php`だけ記録しておく。
 
-※このときDBへのログインパスワードを`checkdb.php`に直書きしてしまっているので、[対策してから](hidepassword.html)プッシュすることをオススメします。とりあえずコミットだけなら大丈夫。
+（以下追記）
 
+※このときDBへのログインパスワードを`checkdb.php`に直書きしてしまっているので、対策してからプッシュすること。
+
+対策
+
+1. `checkdb.php`のパスワード直書き部分を`$_SERVER['PHP_BBS']`に書き換える。
+
+   ~~~php
+    $password = $_SERVER['PHP_BBS'];
+   ~~~
+
+2. Apacheの設定ファイル`httpd.conf`をXAMPPのコントロールパネルから開き`SetEnv PHP_BBS '(bbsユーザーのパスワード)'`を以下の場所に書き加える。
+
+   ~~~
+   <Directory "D:\work\HTML\raspberrypi-server\test\html\bbs">
+       #
+       # Possible values for the Options directive are "None", "All",
+       # or any combination of:
+       #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+       #
+       # Note that "MultiViews" must be named *explicitly* --- "Options All"
+       # doesn't give it to you.
+       #
+       # The Options directive is both complicated and important.  Please see
+       # http://httpd.apache.org/docs/2.4/mod/core.html#options
+       # for more information.
+       #
+       Options Indexes FollowSymLinks Includes ExecCGI
+   
+       #
+       # AllowOverride controls what directives may be placed in .htaccess files.
+       # It can be "All", "None", or any combination of the keywords:
+       #   AllowOverride FileInfo AuthConfig Limit
+       #
+       AllowOverride All
+   
+       #
+       # Controls who can get stuff from this server.
+       #
+       Require all granted
+       SetEnv PHP_BBS '(bbsユーザーのパスワード)' #←ここに追記
+   </Directory>
+   ~~~
+
+   

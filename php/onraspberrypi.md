@@ -1,10 +1,8 @@
-# Raspberry Pi上でも動くことを確認
+# Raspberry Pi上でもデータベースが動くことを確認
 
 [前回](makedb.html)と同様のデータベースをRaspberry Pi上のMySQLサーバーにも作成し、`checkdb.php`を動かすまで。
 
 実は今まですべてローカル上でやっていたということに気付いてびっくり。
-
-※この記事ではうっかりDBへのログインパスワードをPHPファイルに直書きした状態でRaspberry Piにアップしているので、[次回の記事](hidepassword.html)も併せて読み慎重に進めてください。
 
 ## 環境
 
@@ -158,6 +156,22 @@ $ chmod -R 770 .vscode
 
 ※Nginxの設定で隠しファイルや隠しディレクトリへのアクセスを禁止できると思うけど、また今度。
 
+## Nginxの設定値に書き込む
+
+`sudo`コマンドが必要なので`takeshi`ユーザーでログインしなおして以下のコマンドを打つ。
+
+```
+$ sudo nano /etc/nginx/fastcgi.conf
+```
+
+以下を末尾に追記。
+
+```
+fastcgi_param  PHP_BBS            (DBのbbsユーザーのパスワード);
+```
+
+特にダブル・シングルクォーテーションで囲まなくてもよい。
+
 ## 動作確認
 
 ブラウザから`http://192.168.1.201/php-bbs/checkdb.php`にアクセスする。
@@ -166,9 +180,4 @@ $ chmod -R 770 .vscode
 
 無事動いている。
 
-## `git pull origin master`を自動化
-
-PowerShellスクリプトを組む。
-
-（編集中）
 

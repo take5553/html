@@ -35,3 +35,8 @@
 
 [WordPressではなく自作ブログシステムでブログを書く理由 \- ブログ道楽](https://blog.httqs.com/log/2)
 [初めての個人WEBサービスを作り始める前にやるべき設計](https://www.muratayusuke.com/2016/01/16/how_to_design_web_app/)
+
+
+[【プログラミング構築】入力したデータをPOST送信でデータベースに登録しよう \| 株式会社LIG](https://liginc.co.jp/272916)
+[【プログラミング構築】掲示板のデータを更新・削除しよう \| 株式会社LIG](https://liginc.co.jp/284266)
+

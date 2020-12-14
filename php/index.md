@@ -14,12 +14,19 @@
   * [VSCodeの拡張機能⑤「その他いろいろ」](otherextensions.html)
 * コーディング準備
   * [Emmetを使ってHTMLの準備](htmlform.html)
-  * [データベースの準備](makedb.html)
-  * [Raspberry Pi上でも動くことを確認](onraspberrypi.html)
-  * [PHPファイルにDBへのログインパスワードを直書きしないようにする](hidepassword.html)
+  * [データベースの準備と動作確認](makedb.html)
+  * [Raspberry Pi上でもデータベースが動くことを確認](onraspberrypi.html)
+  * GitHubからRaspberry PiにPullする処理を自動化
+  * PHPUnitでテストを試し書き
+  * CRUDとMVCとOOPとTDDについて
+  * postsテーブルの修正
 * 実装
-  * 記事投稿処理
+  * 記事表示
+  * 投稿
+  * 記事編集
+  * 削除
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
+  * [PHPファイルにDBへのログインパスワードを直書きしないようにする](hidepassword.html)
 
