@@ -16,7 +16,7 @@
   * [Emmetを使ってHTMLの準備](htmlform.html)
   * [データベースの準備と動作確認](makedb.html)
   * [Raspberry Pi上でもデータベースが動くことを確認](onraspberrypi.html)
-  * GitHubからRaspberry PiにPullする処理を自動化
+  * [GitHubからRaspberry PiにPullする処理を自動化](autopull.html)
   * PHPUnitでテストを試し書き
   * CRUDとMVCとOOPとTDDについて
   * postsテーブルの修正

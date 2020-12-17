@@ -40,3 +40,4 @@
 [【プログラミング構築】入力したデータをPOST送信でデータベースに登録しよう \| 株式会社LIG](https://liginc.co.jp/272916)
 [【プログラミング構築】掲示板のデータを更新・削除しよう \| 株式会社LIG](https://liginc.co.jp/284266)
 
+[JavaScript \- フォームからの入力によるXSS対策として、エスケープさせる特殊文字は「<」と「>」だけでは不十分なのでしょうか？｜teratail](https://teratail.com/questions/308577?campaignid=10a8116fd4)
