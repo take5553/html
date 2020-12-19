@@ -19,8 +19,8 @@
   * [GitHubからRaspberry PiにPullする処理を自動化](autopull.html)
   * [PHPUnitでテストを試し書き](phpunit.html)
     * [デバッグでテスト失敗を乗り越える](testanddebug.html)
-    * テストの罠
-  * CRUDとMVCとOOPとTDDについて
+    * [テストの世界](testcoverage.html)
+  * [CRUDとMVCとOOPとTDD、そして今回の開発方針](crudmvcooptdd.html)
   * postsテーブルの修正
 * 実装
   * 記事表示
