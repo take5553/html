@@ -17,7 +17,8 @@
   * [データベースの準備と動作確認](makedb.html)
   * [Raspberry Pi上でもデータベースが動くことを確認](onraspberrypi.html)
   * [GitHubからRaspberry PiにPullする処理を自動化](autopull.html)
-  * PHPUnitでテストを試し書き
+  * [PHPUnitでテストを試し書き](phpunit.html)
+    * デバッグでテスト失敗を乗り越える
   * CRUDとMVCとOOPとTDDについて
   * postsテーブルの修正
 * 実装
