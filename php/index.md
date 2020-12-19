@@ -18,7 +18,8 @@
   * [Raspberry Pi上でもデータベースが動くことを確認](onraspberrypi.html)
   * [GitHubからRaspberry PiにPullする処理を自動化](autopull.html)
   * [PHPUnitでテストを試し書き](phpunit.html)
-    * デバッグでテスト失敗を乗り越える
+    * [デバッグでテスト失敗を乗り越える](testanddebug.html)
+    * テストの罠
   * CRUDとMVCとOOPとTDDについて
   * postsテーブルの修正
 * 実装
