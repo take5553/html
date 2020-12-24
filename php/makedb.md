@@ -288,7 +288,7 @@ OK。
 `INSERT`、`SELECT`、`UPDATE`が最低限必要なので、それだけ与える。
 
 ~~~mysql
-[(none)]> grant insert, select, update on bbs.* to bbs@localhost;
+[(none)]> grant insert, select, update, create on bbs.* to bbs@localhost;
 Query OK, 0 rows affected (0.003 sec)
 ~~~
 

@@ -129,6 +129,8 @@ Apacheの右にある「Config」をクリック。メモ帳が立ち上がる�
 
 これで、テスト環境は整った。こんなんだったら、[WordPressのローカル環境を整えるとき](../wordpress/localenvironment.html)にLocalを使わずにXAMPPを使っておけばよかったね。
 
+※後日追記：`bbs/`を付けるのが面倒だったからapacheのドキュメントルートの場所をワークフォルダ（自分の場合は`D:\work\HTML\raspberrypi-server\test\html\bbs`）に設定した。今後はブラウザから`localhost`にアクセスすれば、ワークフォルダのファイルが表示される、ということにする。
+
 ## VSCodeにPHP実行ファイルの場所を教える
 
 [前回](preparation.html)VSCodeから「PHP実行ファイルの場所を教えてくれ」と言われていたので教える。

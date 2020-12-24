@@ -21,10 +21,11 @@
     * [デバッグでテスト失敗を乗り越える](testanddebug.html)
     * [テストの世界](testcoverage.html)
   * [CRUDとMVCとOOPとTDD、そして今回の開発方針](crudmvcooptdd.html)
-  * postsテーブルの修正
+  * [postsテーブルの修正](fixpoststable.html)
 * 実装
+  * [投稿](post.html)
+    * [投稿機能のテストを書く](posttest.html)
   * 記事表示
-  * 投稿
   * 記事編集
   * 削除
 * トラブルシューティング
