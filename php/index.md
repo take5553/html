@@ -23,9 +23,10 @@
   * [CRUDとMVCとOOPとTDD、そして今回の開発方針](crudmvcooptdd.html)
   * [postsテーブルの修正](fixpoststable.html)
 * 実装
-  * [投稿](post.html)
-    * [投稿機能のテストを書く](posttest.html)
-  * 記事表示
+  * [投稿機能の追加](post.html)
+  * [投稿機能のテストを書く](posttest.html)
+  * 記事表示のテストを書く
+  * 記事表示機能の追加
   * 記事編集
   * 削除
 * トラブルシューティング
