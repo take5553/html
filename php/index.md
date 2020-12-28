@@ -26,7 +26,7 @@
   * [投稿機能の追加](post.html)
   * [投稿機能のテストを書く](posttest.html)
   * [記事表示機能の追加](getposts.html)
-  * 記事表示のテストを書く
+  * [記事表示のテストを書く](getpoststest.html)
   * 記事編集
   * 削除
 * トラブルシューティング

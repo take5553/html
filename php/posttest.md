@@ -898,6 +898,188 @@ OK (6 tests, 14 assertions)
 
 OK。
 
+### データプロバイダを使った整理
+
+PHPUnitではデータプロバイダメソッドという、データを提供する目的のメソッドが作れるらしい。これを使うとさらにコードが整理できる。
+
+[2\. PHPUnit 用のテストの書き方 — PHPUnit latest Manual](https://phpunit.readthedocs.io/ja/latest/writing-tests-for-phpunit.html#writing-tests-for-phpunit-data-providers)
+
+データプロバイダメソッドはただの`public`メソッドだけど、テストメソッドの引数に合うような配列を返すように作れば、配列の要素の数だけ繰り返しテストしてくれる。しかもテストメソッドの前に`@dataProvider (データプロバイダ名)`というアノテーションを使えばちゃんと読んでくれるらしい。
+
+例えばこんな形。
+
+~~~php
+<?php
+use PHPUnit\Framework\TestCase;
+
+class DataTest extends TestCase
+{
+    /**
+     * @dataProvider additionProvider
+     */
+    public function testAdd($a, $b, $expected)
+    {
+        $this->assertSame($expected, $a + $b);
+    }
+
+    public function additionProvider()
+    {
+        return [
+            'adding zeros'  => [0, 0, 0],
+            'zero plus one' => [0, 1, 1],
+            'one plus zero' => [1, 0, 1],
+            'one plus one'  => [1, 1, 3]
+        ];
+    }
+}
+~~~
+
+データプロバイダで作る配列を連想配列にして名前を付けておけば、テストに失敗したときに分かりやすく表示してくれるらしい。以下では最後のデータである`one plus one`で失敗しているけど、そのことを表示してくれている。
+
+~~~shell
+$ phpunit DataTest
+PHPUnit 4.6.0 by Sebastian Bergmann and contributors.
+
+...F
+
+Time: 0 seconds, Memory: 5.75Mb
+
+There was 1 failure:
+
+1) DataTest::testAdd with data set "one plus one" (1, 1, 3)
+Failed asserting that 2 is identical to 3.
+
+/home/sb/DataTest.php:9
+
+FAILURES!
+Tests: 4, Assertions: 4, Failures: 1.
+~~~
+
+これを使って、データを作って渡すを繰り返している失敗テストメソッドと、ついでに成功テストのメソッドも一つにしてしまう。
+
+以下完成例。
+
+`tests/GetFormActionTest.php`
+
+~~~php
+<?php
+
+use phpDocumentor\Reflection\Types\Boolean;
+use PHPUnit\Framework\TestCase;
+
+require('config/properties_for_test.php');
+require('model/GetFormAction.php');
+
+class GetFormActionTest extends TestCase
+{
+    /**
+     * @dataProvider postDataProvider
+     */
+    public function testSaveDBPostData($data, $expected)
+    {
+
+        // 1. GetFormActionインスタンスを生成
+        $action = new GetFormAction();
+
+        // 2. 投稿
+        $actual_postResult = $action->SaveDBPostData($data);
+
+        // 3. アサーションメソッドで確認
+        $this->assertEquals($expected, $actual_postResult);
+        
+        // 4. SQL文で直接記事を取得を試みる
+        try {
+            $pdo = new PDO(PDO_DSN, DATABASE_USER, DATABASE_PASSWORD);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        } catch (PDOException $e) {
+            print('Error:'.$e->getMessage());
+            die();
+        }
+        if ($data['name'] == '') {
+            $searchKey = $data['email'];
+        } else {
+            $searchKey = $data['name'];
+        }
+        $sql = "select * from posts where name = '$searchKey'";
+        $stmt = $pdo->query($sql);
+        $actual_fetch = $stmt->fetch();
+
+        // 5. アサーションメソッドで確認
+        $this->assertEquals($expected, is_array($actual_fetch));
+        if (is_array($actual_fetch) == true) {
+            // $actual_fetchが配列なら記事が取得できているはず
+            $this->assertEquals($data['name'], $actual_fetch['name']);
+            $this->assertEquals($data['email'], $actual_fetch['email']);
+            $this->assertEquals($data['post_body'], $actual_fetch['body']);
+            $this->assertEquals($data['password'], $actual_fetch['password']);
+        }
+        
+        // 6. 後片付け
+        if (is_array($actual_fetch) == true) {
+            $sql = "delete from posts where name = '$data[name]'";
+            $stmt = $pdo->query($sql);
+        }
+        $pdo = null;
+    }
+
+    public function postDataProvider()
+    {
+        return [
+            'Successful' => [[
+                'name' => 'testpost',
+                'email' => 'hoge@hoge.hoge',
+                'post_body' => 'これはテストです',
+                'password' => 'password'
+            ],true],
+            'withoutName' => [[
+                'name' => '',
+                'email' => 'hoge@hoge.hoge',
+                'post_body' => 'これはテストです',
+                'password' => 'password'
+            ],false],
+            'withoutEmail' => [[
+                'name' => 'testpost',
+                'email' => '',
+                'post_body' => 'これはテストです',
+                'password' => 'password'
+            ],false],
+            'withoutBody' => [[
+                'name' => 'testpost',
+                'email' => 'hoge@hoge.hoge',
+                'post_body' => '',
+                'password' => 'password'
+            ],false],
+            'withoutPassword' => [[
+                'name' => 'testpost',
+                'email' => 'hoge@hoge.hoge',
+                'post_body' => 'これはテストです',
+                'password' => ''
+            ],false],
+            'withLongName' => [[
+                'name' => '12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901',
+                'email' => 'hoge@hoge.hoge',
+                'post_body' => 'これはテストです',
+                'password' => 'password'
+            ],false]
+        ];
+    }
+}
+~~~
+
+テストコードは一つなのに、テスト実施回数は6回、アサーションは16回も実行してくれる。すごい。
+
+~~~shell
+> ./phpunit tests/GetFormActionTest.php
+PHPUnit 9.0.0 by Sebastian Bergmann and contributors.
+
+......                                                              6 / 6 (100%)
+
+Time: 00:00.609, Memory: 4.00 MB
+
+OK (6 tests, 16 assertions)
+~~~
+
 ## 学んだこと
 
 テストを先に書くならば
