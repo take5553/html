@@ -27,10 +27,12 @@
   * [投稿機能のテストを書く](posttest.html)
   * [記事表示機能の追加](getposts.html)
   * [記事表示のテストを書く](getpoststest.html)
+  * 記事編集機能の設計
   * 記事編集
   * 削除
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
   * [PHPファイルにDBへのログインパスワードを直書きしないようにする](hidepassword.html)
+  * [URLからPHPに渡されるパラメーターについて](aboutquerystrings.html)
 

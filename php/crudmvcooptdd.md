@@ -95,6 +95,14 @@ Q：「ユーザーの『記事投稿』という入力に対して、ModelやVi
 
 普通は`index.php`には定数の定義とか書いといて、その後ControllerにあたるPHPファイルを呼び出して、それに仕事をさせるということが多いけど。
 
+※追記
+
+`tonteki`や`buri-daikon`がパラメーターであるというのは少し語弊があるらしい。サーバーの設定によってはパラメーターとして引き渡されない可能性があり、WordPress内では`/wordpressblog/tonteki/`とか`/wordpressblog/buri-daikon/`という文字列を受け取り、それを内部に設定したルールに応じてパラメーターに変換し直しているらしい。
+
+何だかよく分からないけど、とにかくサーバーからもらえる情報のうち、最低限のものだけもらってWordPress内部で加工し直している、ということ。
+
+詳しくは[こちら](aboutquerystrings.html)。
+
 ## OOP
 
 [OOPとは \- Google 検索](https://www.google.com/search?q=OOP%E3%81%A8%E3%81%AF&oq=OOP%E3%81%A8%E3%81%AF&aqs=chrome..69i57j0j0i5i30l3.2413j0j7&sourceid=chrome&ie=UTF-8)
