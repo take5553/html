@@ -19,8 +19,77 @@
 イメージとしては
 
 * `https://arcticstreet.ddns.net/bbs/`で掲示板にアクセス
-* `https://arcticstreet.ddns.net/bbs/edit/(id番号)/`でそのID番号を持つ記事の編集ページにアクセス
+* `https://arcticstreet.ddns.net/bbs/edit/(id番号)`でそのID番号を持つ記事の編集ページにアクセス
 
-という風にしたい。ここで`edit/(id番号)/`をリクエストパラメーターという扱いにする。
+という風にしたい。ここで`edit/(id番号)`をリクエストパラメーターという扱いにする。ただし、勝手にそういう扱いになるのではなく、サーバーの設定との合わせ技でそれが実現できる。
 
-ただし、勝手にそういう扱いになるのではなく、サーバーの設定との合わせ技でそれが実現できる。
+と思ったけど、[設定を頑張ってもサーバーでは都合よく解釈してくれないらしい。](aboutquerystrings.html)
+
+それにウチの環境は
+
+* 開発環境（Windows）・・・Apache（XAMPP）
+* 本番環境（Raspberry Pi）・・・Nginx
+
+という面倒な状態なので、現状でどちらにも対応できるようにしたい。ApacheとNginxではPHPに渡されるパラメーターに若干の違いが出る。もちろん同じような挙動にすることもできるけど、そのためにはNginxのチューニングが必要。
+
+で、どちらでもデフォルトで上記の`edit/(id番号)`という文字列がゲットできるのは`$_SERVER['REQUEST_URI']`となる。
+
+> `REQUEST_URI`
+>
+> ページにアクセスするために指定された URI。例えば、 '`/index.html`'
+>
+> [PHP: $\_SERVER \- Manual](https://www.php.net/manual/ja/reserved.variables.server.php)
+
+ちょっとあっさりすぎてよく分からないけど、`https://arcticstreet.ddns.net/bbs/edit/(id番号)/`でアクセスしたときは`$_SERVER['REQUEST_URI'] = /bbs/edit/(id番号)/`という文字列が格納される。この文字列をPHP側で上手く解釈することでリクエストパラメーター扱いにできるということ。
+
+ちなみにリクエストパラメーターとしてクエリストリング（`index.php?a=b&hoge=huga`というような、`?`がつくURLの`?`より後ろの文字列）を使えば簡単にパラメーターをゲットできるけど、なんかURLがごちゃごちゃするのはかっこ悪くない？そう思うのは自分だけ？
+
+## 設計
+
+もっと細かいところを考えることもできそうだけど、ある程度でとどめておく。
+
+### 遷移URL
+
+`https://arcticstreet.ddns.net/bbs/edit/(id番号)`
+
+* 異常系の挙動
+  * `/bbs`以降の`/edit`と`/(id番号)`の順番は変わってはいけない。
+  * `/edit`は固定。
+  * `/(id番号)`の記述
+    * 半角数字（`/1234`）・・・許可
+    * 半角数字＋`/`（`/1234/`）・・・許可
+    * 半角数字＋`/`＋何か（`/1234/hogehoge`）・・・`/`以降を無視
+    * それ以外・・・不正なURLとしページ遷移しない
+
+### Model
+
+* `$_SERVER['REQUEST_URI']`の解釈
+  * 名前・・・`GetParam`
+  * 引数・・・無し（`$_SERVER['REQUEST_URI']`はスーパーグローバルなのでわざわざ渡さなくても良い）
+  * 戻り値・・・`array $params`
+    * `$params`の中身・・・`mode`, `id`
+  * 処理後の状態・・・`$params['mode']`が空白か
+
+* 遷移直後の記事取得
+  * 名前・・・`GetDBOnePostData`
+  * 引数・・・`int $postId`
+  * 戻り値
+    * 正常終了・・・1次元配列
+    * 取得できなかった場合・・・`false`（配列ではない）
+* 編集後「更新」ボタン押下時のDB更新
+  * 名前・・・`UpdateDBPostData`
+  * 引数・・・`array $data`
+    * `$data`の中身：`id`, `name`, `post_body`, `password`
+  * 戻り値
+    * 正常終了・・・`true`
+    * DB更新できなかった場合・・・`false`
+  * 処理後の状態
+    * 正常終了・・・引数のデータがDBに保存されている
+    * DB更新できなかった場合・・・引数のデータはDBに存在していない
+
+### View
+
+遷移後・・・`edit.php`
+
+更新後・・・`post.php`
+

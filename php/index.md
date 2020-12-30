@@ -5,6 +5,7 @@
 * 準備
   * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
   * [GitHubにリモートリポジトリ作成、XAMPPインストール](preparation2.html)
+  
 * VSCodeに慣れる
 
   * [VSCodeの拡張機能①「PHP Intelephense」とPHP書初め](startphp.html)
@@ -12,6 +13,7 @@
   * [VSCodeの拡張機能③「php cs fixer」でコードの整形](fixcode.html)
   * [VSCodeの拡張機能④「PHP DocBlocker」でコードの説明を書く](docblock.html)
   * [VSCodeの拡張機能⑤「その他いろいろ」](otherextensions.html)
+  
 * コーディング準備
   * [Emmetを使ってHTMLの準備](htmlform.html)
   * [データベースの準備と動作確認](makedb.html)
@@ -22,14 +24,22 @@
     * [テストの世界](testcoverage.html)
   * [CRUDとMVCとOOPとTDD、そして今回の開発方針](crudmvcooptdd.html)
   * [postsテーブルの修正](fixpoststable.html)
+  
 * 実装
-  * [投稿機能の追加](post.html)
-  * [投稿機能のテストを書く](posttest.html)
-  * [記事表示機能の追加](getposts.html)
-  * [記事表示のテストを書く](getpoststest.html)
-  * 記事編集機能の設計
+
+  * 投稿
+    * [投稿機能の追加](post.html)
+    * [投稿機能のテストを書く](posttest.html)
+  * 記事表示
+    * [記事表示機能の追加](getposts.html)
+    * [記事表示のテストを書く](getpoststest.html)
   * 記事編集
+    * [記事編集機能の設計](plannningedit.html)
+    * 記事編集機能のテストを書く
+    * 記事編集機能の追加
+
   * 削除
+
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
