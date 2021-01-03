@@ -43,3 +43,8 @@
 
 * Python：何用というより、コンピューターを自動で動かす用？
 
+## 参考
+
+[「オブジェクト指向エクササイズ」でクセの強いコードを矯正しよう \| ALTUS\-FIVE](https://www.altus5.co.jp/blog/programming/2019/09/24/object-oriented-programming-exercise/)
+[オブジェクト指向エクササイズを取り入れてみる](https://zenn.dev/morio_pg/articles/3b5cabd3e3ea26509b18)
+[おすすめオブジェクト指向練習方法 \| サイバーエージェント 公式エンジニアブログ](https://ameblo.jp/principia-ca/entry-11876117369.html)
