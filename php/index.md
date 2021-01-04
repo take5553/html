@@ -34,7 +34,7 @@
     * [記事表示機能の追加](getposts.html)
     * [記事表示のテストを書く](getpoststest.html)
   * 記事編集
-    * [記事編集機能の設計](plannningedit.html)
+    * [記事編集機能の設計](planningedit.html)
     * 記事編集機能のテストを書く
     * 記事編集機能の追加
 
