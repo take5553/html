@@ -9,12 +9,7 @@
   - VSCode 1.51.1
   - XAMPP 7.4.13
   - MariaDB 10.4.17
-- リモート
-  - Raspberry Pi 3B+
-  - Raspberry Pi OS 10.4
-  - Nginx 1.14.2
-  - PHP 7.3.19-1~deb10u1
-  - MariaDB 10.3.23
+- リモートにはアップしない
 
 ## テスト
 
@@ -294,7 +289,7 @@ public function testUpdateDBPostData($originalPostData)
     $this->assertNotEquals($wrongData['post_body'], $actual_fetch['post_body']);
 
     // 8. 後片付け
-    $sql = "delete from posts where where id = $wrongData[id]";
+    $sql = "delete from posts where id = $wrongData[id]";
     $smt = self::$pdo->query($sql);
 }
 ~~~
