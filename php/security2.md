@@ -1,4 +1,4 @@
-# コード見直し　～セキュリティを考慮する②～
+# コード見直し　～セキュリティを考慮する②～　パスワードハッシュ
 
 パスワードの暗号化。
 
@@ -67,25 +67,20 @@ public function SaveDBPostData($data)
         return false;
     }
 
-    // 投稿データのエスケープ
-    foreach ($data as $key => $value) {
-        $escapedData[$key] = htmlentities($value, ENT_HTML5 | ENT_QUOTES, "UTF-8");
-    }
-
     // 以下を追記
     // パスワードのハッシュ化
-    $escapedData['password'] = password_hash($escapedData['password'], PASSWORD_DEFAULT);
-    if ($escapedData['password'] === false) {
+    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+    if ($data['password'] === false) {
         return false;
     }
     // ここまで
 
     // 投稿された記事をDBに保存
     $smt = $this->pdo->prepare('insert into posts (name,email,body,password,posted_at,updated_at) values(:name,:email,:body,:password,now(),now())');
-    $smt->bindParam(':name', $escapedData['name'], PDO::PARAM_STR);
-    $smt->bindParam(':email', $escapedData['email'], PDO::PARAM_STR);
-    $smt->bindParam(':body', $escapedData['body'], PDO::PARAM_STR);
-    $smt->bindParam(':password', $escapedData['password'], PDO::PARAM_STR);
+    $smt->bindParam(':name', $data['name'], PDO::PARAM_STR);
+    $smt->bindParam(':email', $data['email'], PDO::PARAM_STR);
+    $smt->bindParam(':body', $data['body'], PDO::PARAM_STR);
+    $smt->bindParam(':password', $data['password'], PDO::PARAM_STR);
     return $smt->execute();
 }
 ~~~
@@ -100,30 +95,24 @@ public function UpdateDBPostData(array $data)
         return false;
     }
 
-    // 投稿データのエスケープ
-    foreach ($data as $key => $value) {
-        $escapedData[$key] = htmlentities($value, ENT_HTML5 | ENT_QUOTES, "UTF-8");
-    }
-
     // パスワードを確認
     $old_data = $this->GetDBOnePostData((int)$data['id']);
-    // 確認条件を変更
-    if (! password_verify($escapedData['password'], $old_data['password'])) {
+    if (! password_verify($data['password'], $old_data['password'])) { // ←条件を変更
         return false;
     }
 
     // 編集された記事をDBに保存
     $smt = $this->pdo->prepare('update posts set name=:name, email=:email, body=:body where id=:id');
-    $smt->bindParam(':name', $escapedData['name'], PDO::PARAM_STR);
-    $smt->bindParam(':email', $escapedData['email'], PDO::PARAM_STR);
-    $smt->bindParam(':body', $escapedData['body'], PDO::PARAM_STR);
-    $id = (int)$escapedData['id'];
+    $smt->bindParam(':name', $data['name'], PDO::PARAM_STR);
+    $smt->bindParam(':email', $data['email'], PDO::PARAM_STR);
+    $smt->bindParam(':body', $data['body'], PDO::PARAM_STR);
+    $id = (int)$data['id'];
     $smt->bindParam(':id', $id, PDO::PARAM_INT);
     return $smt->execute();
 }
 ~~~
 
-`DeleteDBPostData`→同様にパスワード確認条件を変更。ついでに投稿データのエスケープも追加。
+`DeleteDBPostData`→同様にパスワード確認条件を変更。
 
 ~~~php
 public function DeleteDBPostData($data)
@@ -133,17 +122,9 @@ public function DeleteDBPostData($data)
         return false;
     }
 
-    // 以下を追記
-    // 投稿データのエスケープ
-    foreach ($data as $key => $value) {
-        $escapedData[$key] = htmlentities($value, ENT_HTML5 | ENT_QUOTES, "UTF-8");
-    }
-    // ここまで
-
     // パスワードを確認
     $old_data = $this->GetDBOnePostData((int)$data['id']);
-    // 確認条件を変更
-    if (! password_verify($escapedData['password'], $old_data['password'])) {
+    if (! password_verify($data['password'], $old_data['password'])) { // ←条件を変更
         return false;
     }
 
@@ -169,11 +150,10 @@ public function DeleteDBPostData($data)
 $this->assertEquals($expected, is_array($actual_fetch));
 if (is_array($actual_fetch) == true) {
     // $actual_fetchが配列なら記事が取得できているはず
-    $this->assertEquals(htmlentities($data['name'], ENT_HTML5 | ENT_QUOTES, "UTF-8"), $actual_fetch['name']);
-    $this->assertEquals(htmlentities($data['email'], ENT_HTML5 | ENT_QUOTES, "UTF-8"), $actual_fetch['email']);
-    $this->assertEquals(htmlentities($data['body'], ENT_HTML5 | ENT_QUOTES, "UTF-8"), $actual_fetch['body']);
-    // ↓ここを変更
-    $this->assertTrue(password_verify(htmlentities($data['password'], ENT_HTML5 | ENT_QUOTES, "UTF-8"), $actual_fetch['password']));
+    $this->assertEquals($data['name'], $actual_fetch['name']);
+    $this->assertEquals($data['email'], $actual_fetch['email']);
+    $this->assertEquals($data['body'], $actual_fetch['body']);
+    $this->assertTrue(password_verify($data['password'], $actual_fetch['password'])); // ←ここを変更
 }
 
 (略)
@@ -185,12 +165,12 @@ if (is_array($actual_fetch) == true) {
 (略)
 
 // 3. SQL文で直接記事を登録
-$hashed_password = password_hash($data['password'], PASSWORD_DEFAULT);  //　←ここを変更
+$hashed_password = password_hash($data['password'], PASSWORD_DEFAULT); // ←ここを変更
 $smt = self::$pdo->prepare('insert into posts (name,email,body,password,posted_at,updated_at) values(:name,:email,:body,:password,now(),now())');
 $smt->bindParam(':name', $data['name'], PDO::PARAM_STR);
 $smt->bindParam(':email', $data['email'], PDO::PARAM_STR);
 $smt->bindParam(':body', $data['body'], PDO::PARAM_STR);
-$smt->bindParam(':password', $hashed_password, PDO::PARAM_STR);  // ←ここも変更
+$smt->bindParam(':password', $hashed_password, PDO::PARAM_STR); // ←ここも変更
 $smt->execute();
 
 (略)
