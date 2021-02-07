@@ -33,7 +33,9 @@ public function GetDBOnePostData(int $postId)
 
 `index.php`
 
-セッション切れの救済措置を`view/edit.php`に移した。理由は`Post`インスタンスはDBから引き出したデータなので、基本的に編集を受け付けるようには作るつもりがないから。
+セッション切れの救済措置を`view/edit.php`に移した。
+
+理由は`Post`インスタンスはDBから引き出したデータなので、基本的に編集を受け付けるようには作るつもりがないから。
 
 ~~~php
 (略)
@@ -65,7 +67,9 @@ public function GetDBOnePostData(int $postId)
 
 `view/edit.php`
 
-`<input>`や`<textarea>`にデータを配置する処理を変更。ここで本文を出力するときに`htmlentities`と`preg_replace`の関係がややこしくなってしまったので、`Post`の`TheBody()`の出力は`htmlentites`を通さないことにした。
+`<input>`や`<textarea>`にデータを配置する処理を変更。
+
+ここで本文を出力するときに`htmlentities`と`preg_replace`の関係がややこしくなってしまったので、`Post`の`TheBody()`の出力は`htmlentites`を通さないことにした。
 
 ~~~php+HTML
 (略)

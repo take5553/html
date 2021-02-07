@@ -5,7 +5,6 @@
 * 準備
   * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
   * [GitHubにリモートリポジトリ作成、XAMPPインストール](preparation2.html)
-  
 * VSCodeに慣れる
 
   * [VSCodeの拡張機能①「PHP Intelephense」とPHP書初め](startphp.html)
@@ -13,7 +12,6 @@
   * [VSCodeの拡張機能③「php cs fixer」でコードの整形](fixcode.html)
   * [VSCodeの拡張機能④「PHP DocBlocker」でコードの説明を書く](docblock.html)
   * [VSCodeの拡張機能⑤「その他いろいろ」](otherextensions.html)
-  
 * コーディング準備
   * [Emmetを使ってHTMLの準備](htmlform.html)
   * [データベースの準備と動作確認](makedb.html)
@@ -24,7 +22,6 @@
     * [テストの世界](testcoverage.html)
   * [CRUDとMVCとOOPとTDD、そして今回の開発方針](crudmvcooptdd.html)
   * [postsテーブルの修正](fixpoststable.html)
-  
 * 実装
 
   * 投稿
@@ -56,8 +53,14 @@
     * [`GetFormAction`クラスのメソッドを整理](ooprefactoring1.html)
     * [記事データをファーストクラスコレクションとしてラップ](ooprefactoring2.html)
     * [`GetDBOnePostData`の戻り値を`Post`インスタンスに変更](ooprefactoring3.html)
-    * ユーザーの入力を受け取るクラスを追加
-  
+    * [オブジェクト指向まとめ](ooprefactoring4.html)
+* アップロード
+  * [アップロード＆デバッグ①](upload.html)
+  * [アップロード＆デバッグ②](upload2.html)
+  * [アップロード＆デバッグ③](upload3.html)
+* 見た目を整える
+  * 
+
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)

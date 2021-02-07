@@ -7,7 +7,7 @@
 * ローカル
   * Windows 10
   * VSCode 1.51.1
-  * XAMPP 7.4.13　※[XAMPP 8.0.0はデバッグできない可能性あり](troubleshooting.html)
+  * XAMPP 7.4.13　※[XAMPP 8.0.0はデバッグできない可能性あり](troubleshooting1.html)
 
 ## PHP Debug
 
