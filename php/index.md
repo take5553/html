@@ -61,7 +61,7 @@
 * Bootstrapで見た目を整える
   * [記事部分](bootstrap1.html)
   * [入力部分](bootstrap2.html)
-  * エラーメッセージ
+  * [エラーメッセージ](bootstrap3.html)
   * 全体調整
   * まとめ
   
