@@ -1,4 +1,4 @@
-# Bootstrapで見た目を整える　～入力部分～
+# Bootstrap 5で見た目を整える　～入力部分～
 
 今回もBootstrap 5を使って進めていく。
 
