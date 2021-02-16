@@ -63,8 +63,8 @@
   * [入力部分](bootstrap2.html)
   * [エラーメッセージ](bootstrap3.html)
   * [全体調整](bootstrap4.html)
-  * まとめ
-  
+* まとめ
+  * 振り返って
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
