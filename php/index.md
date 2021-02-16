@@ -58,9 +58,13 @@
   * [アップロード＆デバッグ①](upload.html)
   * [アップロード＆デバッグ②](upload2.html)
   * [アップロード＆デバッグ③](upload3.html)
-* 見た目を整える
-  * 
-
+* Bootstrapで見た目を整える
+  * [記事部分](bootstrap1.html)
+  * [入力部分](bootstrap2.html)
+  * エラーメッセージ
+  * 全体調整
+  * まとめ
+  
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
