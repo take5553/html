@@ -2,6 +2,8 @@
 
 掲示板システムを作成する。VSCodeを使って開発していく。
 
+成果物はトップページにある掲示板。
+
 * 準備
   * [ワークフォルダ作成、VSCode準備、Gitリポジトリ（ローカル）作成](preparation.html)
   * [GitHubにリモートリポジトリ作成、XAMPPインストール](preparation2.html)
@@ -64,7 +66,7 @@
   * [エラーメッセージ](bootstrap3.html)
   * [全体調整](bootstrap4.html)
 * まとめ
-  * 振り返って
+  * [振り返って](summary.html)
 * トラブルシューティング
   
   * [VSCode上でPHP Debugが動かない問題](troubleshooting1.html)
