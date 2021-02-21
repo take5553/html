@@ -32,7 +32,7 @@
 
 こちらは作った結果のみ公開。
 
-* Python（GPIO）編
+* [Python（GPIO）編](bbs-led/)
 
   掲示板に書き込みがあったらLEDでお知らせ。
 
