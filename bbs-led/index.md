@@ -6,6 +6,8 @@ BBSに新規書き込みがあった場合、LEDでお知らせするように�
   * [基本アイディア](research.html)
   * [GPIOと配線](research2.html)
   * [`mysql-connector-python`の使い方](research3.html)
-  * CRONジョブ
+  * [ファイルの読み書き](research4.html)
 * やってみた
 
+* 事後調査
+  * CRONジョブ
