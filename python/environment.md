@@ -41,7 +41,62 @@ Pythonは必要に応じてパッケージをどんどん入れたりする。�
 
 ## 仮想環境の実験
 
+[仮想環境: Python環境構築ガイド \- python\.jp](https://www.python.jp/install/ubuntu/virtualenv.html)に沿ってやってみる
 
+適当にフォルダを作る。
+
+~~~shell
+$ mkdir sample1
+$ cd sample1
+~~~
+
+仮想環境を作って実行。頭に`(.venv)`と出る。
+
+~~~shell
+$ python3 -m venv .venv #少し時間がかかる
+$ . .venv/bin/activate
+(.venv) $
+~~~
+
+これで仮想環境に入ったので、`pyserial`というモジュールをインストールしてみる。
+
+~~~shell
+(.venv) $ python3 -m pip install pyserial #少し時間がかかる
+~~~
+
+インストールしたパッケージリストを見てみる。
+
+~~~shell
+(.venv) $ python3 -m pip list
+Package       Version
+------------- -------
+pip           18.1
+pkg-resources 0.0.0
+pyserial      3.5
+setuptools    40.8.0
+~~~
+
+仮想環境から抜ける。
+
+~~~shell
+(.venv) $ deactivate
+$
+~~~
+
+この状態でパッケージリストを見る。
+
+~~~shell
+$ python3 -m pip list
+Package             Version
+------------------- -----------
+acme                0.31.0
+asn1crypto          0.24.0
+astroid             2.1.0
+asttokens           1.1.13
+...
+~~~
+
+全然違うリストが出てきた。Raspberry PiのOSがインストールしたものも含まれてるっぽい。
 
 ## まとめ
 

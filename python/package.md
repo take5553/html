@@ -2,8 +2,6 @@
 
 ## 概要
 
-
-
 [Python基礎講座\(14 モジュールとパッケージ\) \- Qiita](https://qiita.com/Usek/items/86edfa0835292c80fff5)
 [【python】pipとは？コマンド一覧と使い方を実例で解説 \- Qiita](https://qiita.com/yuta-38/items/730bf91526f92fe0b41a)
 
@@ -120,22 +118,25 @@ Pythonの記事を見るとちょいちょい見かけるワード。前提知�
 
 ## `pip`と`pipenv`の違い
 
+`pip`は単にパッケージのインストール。
 
+`pipenv`は自動で仮想環境を作って、そこにインストールしてくれるかどうか。
 
 [4\.5\. pipenv \- ゼロから学ぶ Python](https://rinatz.github.io/python-book/ch04-05-pipenv/)
 [Pipenvを使ったPython開発まとめ \- Qiita](https://qiita.com/y-tsutsu/items/54c10e0b2c6b565c887a)
 
 ## `pip`と`apt`の違い
 
+`apt`は
 
+* Pythonパッケージをシステムと同じ場所にインストールする
+* Debianリポジトリ？からダウンロード（`pip`コマンドではPyPl`からダウンロード）
 
 [apt\-getインストールとpipインストール](https://qastack.jp/ubuntu/431780/apt-get-install-vs-pip-install)
 [【パッケージ管理】aptとpipのインストール先と内部処理 \- Qiita](https://qiita.com/obukoh/items/f6828d3088a9fe5c71c8)
 [UbuntuでPythonのモジュールをインストールしたいとき、aptとpipのどちらを使って入れようか？と思った話](https://yutarine.blogspot.com/2018/07/ubuntu-python-apt-pip.html#:~:text=%E3%81%BE%E3%81%9Fapt%E3%81%A8pip%E3%81%A7%E3%81%AF,pip%E3%81%AF%E6%AC%A0%E3%81%8B%E3%81%9B%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82)
 
 ## ライブラリインストール例
-
-
 
 `pypdf2`
 [Pythonライブラリのインストール － pipの使い方 \| ガンマソフト株式会社](https://gammasoft.jp/python/python-library-install/)

@@ -8,7 +8,7 @@
 #!/usr/bin/env python
 ~~~
 
-
+答えは以下。
 
 [Pythonプログラムの\#\!/usr/bin/env pythonの意味を現役エンジニアが解説【初心者向け】 \| TechAcademyマガジン](https://techacademy.jp/magazine/22254)
 [Pythonプログラムの先頭行の \#\! シバン（Shebang）について \| ガンマソフト株式会社](https://gammasoft.jp/python/python-shebang/)
@@ -23,7 +23,7 @@
 # -*- coding: <encoding name> -*-
 ~~~
 
-
+答えは以下。
 
 [Python で文頭に記載する文字コードの「アレ」の名称（なんちゃら UTF\-8 みたいなやつ） \- Qiita](https://qiita.com/KEINOS/items/6efc1147b917d7811b5b)
 [pythonのcodingを調べ試して \- Qiita](https://qiita.com/kaizen_nagoya/items/55e92e0636cbcd0c80be)
