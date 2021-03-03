@@ -23,7 +23,7 @@ import mysql.connector as mydb
 
 # コネクションの作成
 connect = mydb.connect(
-    host='hostname',
+    host='localhost',
     port='3306',
     user='bbs',
     password=(パスワード),
