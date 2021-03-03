@@ -29,9 +29,17 @@ MySQL-Connectorをグローバルにインストールする。
 $ python3 -m pip install mysql-connector-python
 ~~~
 
+`upload`ユーザーがGPIOの操作をできるように権限を与える。一旦ログアウトして`takeshi`ユーザーでログインし以下を打つ。
+
+~~~shell
+$ sudo usermod -G gpio upload
+~~~
+
+もう一度ログアウトして`upload`ユーザーでログインしておく。
+
 ## メインスクリプト
 
-`bbs-led.py`というファイルを新規作成し以下を記述。
+`bbs-led.py`というファイルを適当な場所に新規作成し以下を記述。
 
 ~~~python
 import mysql.connector as mydb
