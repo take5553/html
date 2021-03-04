@@ -27,6 +27,10 @@
 * [PHP（掲示板作成）編](php/)
 
   掲示板システムを自作する。
+  
+* [Python（Kaggle）編](kaggle/)
+
+  相棒のRaspberry Piと共にデータ分析コンペティション「Kaggle」に挑む。
 
 ## やってみた
 
