@@ -203,4 +203,17 @@ test1.ipynb
 (.venv) $ deactivate
 ~~~
 
-次に起動する場合はまた仮想環境を実行してから`jupyter notebook`を打つ。
+## 次回起動時
+
+~~~shell
+$ cd ~/jupyter
+$ . .venv/bin/activate
+$ jupyter notebook
+~~~
+
+そののちに、メインPCのブラウザから
+
+~~~
+http://192.168.1.201:8888/
+~~~
+
