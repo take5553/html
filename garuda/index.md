@@ -8,11 +8,10 @@ Garuda Dragonized Editionのイメージ（公式HPより）
 
 ![Garuda Linux Dragonized](image/index/garuda-dr460nized.webp)
 
-
-
 * 前提知識
   * [OSについて](intro_aboutOS.html)
   * [デスクトップ環境について](intro_aboutDE.html)
-
 * [インストール](install.html)
+* 使い方
+  * パッケージマネージャー
 
