@@ -70,6 +70,7 @@
    自分の場合はメインPCで`kaggle.json`を開き中身（たった1行だけ）をコピー。Raspberry Pi上で`kaggle.json`を新規作成しNanoエディタで開きペーストして直接入力した。
 
    ~~~shell
+   $ mkdir ~/.kaggle
    $ nano ~/.kaggle/kaggle.json
    ~~~
 

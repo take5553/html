@@ -50,7 +50,7 @@ $ . .venv/bin/activate
 設定ファイルを作成し開く。
 
 ~~~shell
-(.venv) $ jupyter notebook -generate-config
+(.venv) $ jupyter notebook --generate-config
 (.venv) $ nano ~/.jupyter/jupyter_notebook_config.py
 ~~~
 
