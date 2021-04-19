@@ -13,5 +13,7 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [デスクトップ環境について](intro_aboutDE.html)
 * [インストール](install.html)
 * 使い方
-  * パッケージマネージャー
+  * [パッケージマネージャー](pacman.html)
+  * [Xrdpをインストール（※失敗）](xrdp.html)
+  * Windowsとファイル共有
 
