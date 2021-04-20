@@ -15,5 +15,6 @@ Garuda Dragonized Editionのイメージ（公式HPより）
 * 使い方
   * [パッケージマネージャー](pacman.html)
   * [Xrdpをインストール（※失敗）](xrdp.html)
-  * Windowsとファイル共有
+  * [Windowsとファイル共有](samba.html)
+  * Garuda Welcome
 
