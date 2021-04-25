@@ -8,13 +8,23 @@ Garuda Dragonized Editionのイメージ（公式HPより）
 
 ![Garuda Linux Dragonized](image/index/garuda-dr460nized.webp)
 
+## トラブルシューティング
+
+[こちらへ](troubleshooting.html)
+
+## コンテンツ
+
 * 前提知識
   * [OSについて](intro_aboutOS.html)
   * [デスクトップ環境について](intro_aboutDE.html)
 * [インストール](install.html)
-* 使い方
+* 使い始め
   * [パッケージマネージャー](pacman.html)
   * [Xrdpをインストール（※失敗）](xrdp.html)
   * [Windowsとファイル共有](samba.html)
-  * Garuda Welcome
+* 初期アプリ
+  * [Garuda Welcome](garuda_welcome.html)
+  * [Kate - 高度なテキストエディタ](kate.html)
+  * [KDE Connect](kdeconnect.html)
+* 普段使い
 
