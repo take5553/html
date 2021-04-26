@@ -26,5 +26,8 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [Garuda Welcome](garuda_welcome.html)
   * [Kate - 高度なテキストエディタ](kate.html)
   * [KDE Connect](kdeconnect.html)
-* 普段使い
+* 普段使いを目指して
+  * [1日目　`yay`を入れてAUR(Arch User Repository)の使い勝手を良くする。](day01_yay.html)
+  * [2日目　Typoraを入れてマークダウンを書く](day02_typora.html)
+  * 3日目　SSH接続でラズパイに接続
 
