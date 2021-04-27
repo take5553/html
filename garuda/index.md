@@ -29,5 +29,6 @@ Garuda Dragonized Editionのイメージ（公式HPより）
 * 普段使いを目指して
   * [1日目　`yay`を入れてAUR(Arch User Repository)の使い勝手を良くする。](day01_yay.html)
   * [2日目　Typoraを入れてマークダウンを書く](day02_typora.html)
-  * 3日目　SSH接続でラズパイに接続
+  * [3日目　SSH接続でRaspberry Piにログイン](day03_ssh.html)
+  * 4日目　Raspberry PiからWebサーバーのドキュメントルートをDL
 
