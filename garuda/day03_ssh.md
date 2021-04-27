@@ -14,7 +14,7 @@ Garuda LinuxからSSHでRaspberry Piに接続する。できれば[今まで](..
 
 パーミッションを「600」にすればいいので、以下のように設定。
 
-![Screenshot_詳細なパーミッション_1](Z:/Screenshot_詳細なパーミッション_1.png)
+![Screenshot_詳細なパーミッション_1](image/day03_ssh/Screenshot_詳細なパーミッション_1-1619534775110.png)
 
 そしてKonsoleで以下を打つと入れる。
 
