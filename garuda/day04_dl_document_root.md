@@ -35,4 +35,15 @@ $ git clone raspberrypi:/home/takeshi/www/html/.git
 
 メインPCで編集をしてRaspberry Piに`push`したとして、それをGaruda Linuxの方で`pull`しないと同期しない。
 
-試しにやってみる。
+メインPCの方で[以前に作ったスクリプト](../webserver/syncgit.html)を実行。
+
+その後にGaruda Linuxの方で以下を実行。
+
+~~~shell
+$ git pull origin master
+~~~
+
+そうするとGaruda Linuxの方にも反映された。
+
+逆にGaruda Linuxの方で更新をして、Raspberry Piに`push`する。
+
