@@ -31,5 +31,10 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [2日目　Typoraを入れてマークダウンを書く](day02_typora.html)
   * [3日目　SSH接続でRaspberry Piにログイン](day03_ssh.html)
   * [4日目　Raspberry PiからWebサーバーのドキュメントルートをDL&UL](day04_dl_document_root.html)
-  * 5日目　サブディスプレイを接続
+  * [5日目　サブディスプレイを接続](day05_subscreen.html)
+  * [6日目　キーボードとマウスをWindowsと共有＆切り替え](day06_sharing_keyboard_and_mouse.html)
+  * 7日目　このサイトのコンテンツをGaruda Linuxで編集＆アップ
+* メモ
+  * conky
+  * Laptop用設定
 
