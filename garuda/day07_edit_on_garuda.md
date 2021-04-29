@@ -53,3 +53,7 @@ $ chmod +x syncgit
 $ syncgit
 ~~~
 
+![image-20210429212426017](image/day07_edit_on_garuda/image-20210429212426017.png)
+
+上手くいった。
+
