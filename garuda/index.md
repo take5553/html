@@ -34,8 +34,8 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [5日目　サブディスプレイを接続](day05_subscreen.html)
   * [6日目　キーボードとマウスをWindowsと共有＆切り替え](day06_sharing_keyboard_and_mouse.html)
   * [7日目　このサイトのコンテンツをGaruda Linuxで編集＆アップ自動化](day07_edit_on_garuda.html)
-  * 8日目　Laptop用設定を適用する
+  * [8日目　Laptop用設定を適用する](day08_turning_for_laptop.html)
+  * 9日目　conkyを設定してみる
 * メモ
   * conky
-  * Laptop用設定
 
