@@ -36,6 +36,5 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [7日目　このサイトのコンテンツをGaruda Linuxで編集＆アップ自動化](day07_edit_on_garuda.html)
   * [8日目　Laptop用設定を適用する](day08_turning_for_laptop.html)
   * 9日目　conkyを設定してみる
-* メモ
-  * conky
+  * 10日目　画像の拡大縮小
 
