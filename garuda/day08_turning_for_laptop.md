@@ -1,14 +1,20 @@
-# 8日目　Laptop用設定を適用する
+# 8日目　ノートPC用設定を適用する（※失敗）
 
-Garuda LinuxはデスクトップPC用に最適化されているものらしいので、ラップトップPC用に設定を変更する。こうすることで変にCPUを使って温度が上がりすぎたりするのを防いでくれるらしい。
+※上手くいかなかったので戻しました。以下記録として。
+
+
+
+Garuda LinuxはデスクトップPC用に最適化されているものらしい。自分はノートPCにGaruda Linuxを入れているので、ノートPC用に設定を変更する。こうすることで変にCPUを使って温度が上がりすぎたりするのを防いでくれるらしい。
 
 参考：[[GUIDE] Configuring Garuda Linux for Laptop - Garuda Community - Garuda Linux Forum](https://forum.garudalinux.org/t/guide-configuring-garuda-linux-for-laptop/7685)
+
+※パフォーマンスが低下する（全体が重くなる）可能性があるので自己判断で。自分はCPU速度が6分の1になるときが出てきた。
 
 ## 手順
 
 ### システムをアップデートしておく
 
-「パックマン、シュー」
+いつもの「パックマン、シュー」
 
 ~~~shell
 $ sudo pacman -Syu
@@ -24,13 +30,15 @@ $ yay -Syu
 $ pacman -R performance-tweaks gamemode
 ~~~
 
-これはCPUをフル稼働させて、特にラップトップでは危険らしい。ちなみに`gamemode`は入っていないと怒られる場合は`performance-tweaks`のみで良い。
+これはCPUをフル稼働させて、特にノートでは危険らしい。ちなみに`gamemode`は入っていないと怒られる場合は`performance-tweaks`のみで良い。
 
 ### Linuxカーネルの削除
 
 マジで？
 
-子曰く「Garuda LinuxにはLinux Zenが組み込まれておるはずじゃが、それはデスクトップ用じゃ。ラップトップには普通のLinux、または安定版のLinux LTSを入れるのじゃ。」
+子曰く「Garuda LinuxにはLinux Zenが組み込まれておるはずじゃが、それはデスクトップ用じゃ。ノートには普通のLinux、または安定版のLinux LTSを入れるのじゃ。」
+
+ほんまかいな？とりあえずやってみる。
 
 先にLinuxとLinux LTSを入れる。
 
@@ -94,7 +102,7 @@ $ sudo systemctl start thermald
 
 `auto-cpufreq`は、CPUがある一定温度に達するとCPUの周波数（またはスピード）を勝手に制限してくれるらしい。`thermald`はCPUがある一定温度に達すると勝手に頑張ってファンとか回して温度を下げようとしてくれるらしい。
 
-ある一定温度って何度やねん。
+ある一定温度って何度？
 
 ## 再起動
 
@@ -104,3 +112,12 @@ $ sudo systemctl start thermald
 
 ![image-20210429231702360](image/day08_turning_for_laptop/image-20210429231702360.png)
 
+## 適用してみて
+
+温度がそんなに上がってなかったのに、1度CPU速度が400MHzに落ちるときがあった（通常は2.4GHz）。はっきり言ってそこまで下がったら使うどころではない。一応動くけど、突然そうなったら「とりあえず動いてる間に必要なものを保存してシャットダウンしよ」としか思わない。
+
+ハード的に危険な状態になる前の警告として捉えればいいんだけど、温度が上がっていない状態でそんなことになるのはちょっとなぁ。
+
+## その後
+
+400MHzに張り付いて動かない状態が続いて、再起動してもダメだったので直前のSnapShotに戻した。
