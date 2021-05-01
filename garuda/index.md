@@ -36,6 +36,6 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [7日目　このサイトのコンテンツをGaruda Linuxで編集＆アップ自動化](day07_edit_on_garuda.html)
   * [8日目　Laptop用設定を適用する（※失敗）](day08_turning_for_laptop.html)
   * [9日目　conkyを設定してみる](day09_conky.html)
-  * [10日目　画像の拡大縮小](day10_fish_script_with_dnd.html)
+  * [10日目　D&Dで動く(fish shell)スクリプトを書く（画像縮小）](day10_fish_script_with_dnd.html)
   * 
 
