@@ -42,3 +42,31 @@ $ makepkg -si
 ![Screenshot_6](image/troubleshooting/Screenshot_6.png)
 
 無事直りました。
+
+## Konsoleを立ち上げたら`starship`が警告を発している
+
+Konsoleを立ち上げて以下が表示されたとき。
+
+~~~
+[WARN] - (starship::configs::starship_root): Unknown config key 'docker'
+[WARN] - (starship::configs::starship_root): Did you mean 'docker_context'?
+[WARN] - (starship::configs::starship_root): Unknown config key 'haskell'
+[WARN] - (starship::configs::starship_root): Did you mean 'shell'?
+[WARN] - (starship::configs::starship_root): Unknown config key 'docker'
+[WARN] - (starship::configs::starship_root): Did you mean 'docker_context'?
+[WARN] - (starship::configs::starship_root): Unknown config key 'haskell'
+[WARN] - (starship::configs::starship_root): Did you mean 'shell'?
+[WARN] - (starship::configs::starship_root): Unknown config key 'docker'
+[WARN] - (starship::configs::starship_root): Did you mean 'docker_context'?
+[WARN] - (starship::configs::starship_root): Unknown config key 'haskell'
+[WARN] - (starship::configs::starship_root): Did you mean 'shell'?
+[WARN] - (starship::configs::character): Unknown config key 'use_symbol_for_status
+~~~
+
+システムアップデート→`starship`をアップデート→コンフィグファイルの一つをコピー。
+
+~~~shell
+$ sudo pacman -Syu starship
+$ cp /etc/skel/.config/starship.toml ~/.config/starship.toml
+~~~
+
