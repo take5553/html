@@ -21,7 +21,7 @@ Garuda Dragonized Editionのイメージ（公式HPより）
 * 使い始め
   * [パッケージマネージャー](pacman.html)
   * [Xrdpをインストール（※失敗）](xrdp.html)
-  * [Windowsとファイル共有](samba.html)
+  * [Windowsとファイル共有（Samba）](samba.html)
 * 初期アプリ
   * [Garuda Welcome](garuda_welcome.html)
   * [Kate - 高度なテキストエディタ](kate.html)
@@ -38,5 +38,6 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [9日目　conkyを設定してみる](day09_conky.html)
   * [10日目　D&Dで動く(fish shell)スクリプトを書く（画像縮小）](day10_fish_script_with_dnd.html)
   * [11日目　conkyを使ってGaruda Linux Forumの最新スレッドを表示する](day11_garuda_forum_with_conky.html)
-  * 
+  * [12日目　今更ながらファイアーウォールの設定　（※失敗）](day12_firewall.html)
+  * 13日目　ファイアーウォールの設定再び
 
