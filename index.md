@@ -39,10 +39,18 @@
 * [Python（GPIO）編](bbs-led/)
 
   掲示板に書き込みがあったらLEDでお知らせ。
-  
+
+## 他のLinux
+
+Raspberry Pi以外のLinuxについて。
+
 * [Garuda Linux編](garuda/)
 
-  Raspberry Piじゃないけど、かっこよさに惹かれて手を出してみる。
+  かっこよさに惹かれて手を出してみる。
+  
+* [Ubuntu Server編](ubuntuserver/)
+
+  一家に1サーバー時代到来。ファイルサーバーと、ついでに色々。
 
 ## 未分類
 
