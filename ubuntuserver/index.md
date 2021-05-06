@@ -7,4 +7,7 @@
 * [ドライブ増設](add_a_drive.html)
 * [Samba導入](samba.html)
 * [Linuxからファイルサーバーにアクセス](samba_from_linux.html)
+* [GitLabを導入](gitlab.html)
+* [GitLabにtakeshiユーザーを追加](use_gitlab.html)
+* 
 
