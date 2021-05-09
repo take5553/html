@@ -39,6 +39,10 @@
 * [Python（GPIO）編](bbs-led/)
 
   掲示板に書き込みがあったらLEDでお知らせ。
+  
+* [Python（GUIアプリ）編](python_gui/)
+
+  15分ルールを実践するためのアプリ。
 
 ## 他のLinux
 
