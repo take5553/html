@@ -7,4 +7,5 @@
   * [パッケージについて](package.html)
   * [Pythonのコードの1行目と2行目によく書かれているアレ](shebang.html)
 * 実践
+  * [自分用チートシート](cheetsheet.html)
 

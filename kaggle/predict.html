@@ -211,6 +211,79 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 
 
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
@@ -599,9 +672,9 @@ header, .context-menu, .megamenu-content, footer{
 
 
 
-</style><title>index</title>
+</style><title>predict</title>
 </head>
 <body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='pythonkaggle）編'><span>Python（Kaggle）編</span></h1><p><span>Raspberry Piで機械学習に挑む。</span></p><h2 id='準備'><span>準備</span></h2><ul><li><a href='devenv.html'><span>環境構築（Jupyter Notebook）</span></a></li><li><a href='register.html'><span>Kaggleに登録しコンペに参加する手順</span></a></li><li><a href='libraries.html'><span>Pythonのライブラリの導入</span></a></li></ul><h3 id='ディープラーニング'><span>ディープラーニング</span></h3><ul><li><a href='predict.html'><span>予測について</span></a></li><li></li></ul><h2 id='タイタニックコンペ'><span>タイタニックコンペ</span></h2><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h1 id='予測について'><span>予測について</span></h1><p><span>自分用のまとめ。</span></p><p><img src="image/predict/dnn-structure.png" referrerpolicy="no-referrer" alt="ディープニューラルネットワークの構成（入力層、中間層、出力層）"></p><p><span>引用元：</span><a href='https://axa.biopapyrus.jp/deep-learning/nn.html' target='_blank' class='url'>https://axa.biopapyrus.jp/deep-learning/nn.html</a></p><h2 id='基本'><span>基本</span></h2><p><span>第0層：入力層</span></p><ul><li><p><span>1レコード：</span><code>n</code><span>次元の行ベクトル</span></p></li><li><p><code>m</code><span>個のレコードを一度に処理</span></p><ul><li><span>つまり入力は</span><code>x</code><span>：</span><code>(m, n)</code><span>行列となる。</span></li></ul></li></ul><p><span>第1層：中間層（または隠れ層）</span></p><ul><li><p><span>ニューロン数を</span><code>n1</code><span>個とする</span></p><ul><li><p><code>W1</code><span>：重み（</span><code>(n, n1)</code><span>の行列）</span></p><ul><li><span>1つのニューロンへの入力ルートは</span><code>n</code><span>個あるので、入力に対する重みは</span><code>n</code><span>次元の列ベクトルで表される。それが</span><code>n1</code><span>個のニューロンが集まっているので、重みは</span><code>(n, n1)</code><span>の行列となる。</span></li></ul></li><li><p><code>b1</code><span>：バイアス（</span><code>n1</code><span>次元の行ベクトル）</span></p><ul><li><span>ニューロン1つに対し、バイアスが一つある。</span><code>n1</code><span>個のニューロンがあるのでバイアスの要素数は</span><code>n1</code><span>個となる。</span></li><li><span>Pythonではブロードキャスト機能により</span><code>b1</code><span>のコピーが</span><code>m</code><span>個集まった</span><code>(m, n1)</code><span>行列に拡張される。</span></li></ul></li></ul></li></ul><ul><li><p><span>活性化関数を</span><code>h1</code><span>とする</span></p></li><li><p><span>第1層を通過した後を</span><code>z1</code><span>（=</span><code>(m, n1)</code><span>行列）と表す。</span></p><ul><li><span>1レコードの内容が1つのニューロンへ（重み付きで）入力されて1つの値に変換される。</span><code>n1</code><span>個のニューロンがあるのでそれぞれの結果を行ベクトルにまとめると次元は</span><code>n1</code><span>次元となる。つまり1つのレコードの中身が</span><code>n</code><span>次元から</span><code>n1</code><span>次元へと変化した、と言える。</span></li><li><code>m</code><span>個のレコードがあるので</span><code>z1</code><span>は</span><code>(m, n1)</code><span>行列となる</span></li></ul></li><li><p><span>実装は以下。</span></p><pre lang="python" spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">a1</span> = <span class="cm-variable">np</span>.<span class="cm-property">dot</span>(<span class="cm-variable">x</span>, <span class="cm-variable">W1</span>) <span class="cm-operator">+</span> <span class="cm-variable">b1</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">z1</span> = <span class="cm-variable">h1</span>(<span class="cm-variable">a1</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></li></ul><p><span>第2層：中間層（または隠れ層）</span></p><ul><li><p><span>ニューロン数を</span><code>n2</code><span>とする。</span></p></li><li><p><span>重みは</span><code>W2</code><span>：</span><code>(n1, n2)</code><span>行列</span></p></li><li><p><span>バイアスは</span><code>b2</code><span>：</span><code>n2</code><span>次元の行ベクトル→Pythonのブロードキャストにより</span><code>(n1, n2)</code><span>行列へ拡張</span></p></li><li><p><span>活性化関数は</span><code>h2</code></p></li><li><p><span>通過後を</span><code>z2</code><span>：</span><code>(m, n2)</code><span>行列とする</span></p></li><li><p><span>実装は以下。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">a2</span> = <span class="cm-variable">np</span>.<span class="cm-property">dot</span>(<span class="cm-variable">z1</span>, <span class="cm-variable">W2</span>) <span class="cm-operator">+</span> <span class="cm-variable">b2</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">z2</span> = <span class="cm-variable">h2</span>(<span class="cm-variable">a2</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></li></ul><p><span>第3層：出力層</span></p><ul><li><p><span>ニューロン数（出力パターン数）を</span><code>p</code><span>とする。</span></p></li><li><p><span>重みは</span><code>W3</code><span>：</span><code>(n2, p)</code><span>行列</span></p></li><li><p><span>バイアスは</span><code>b3</code><span>：</span><code>p</code><span>次元の行ベクトル→Pythonのブロードキャストにより</span><code>(n2, p)</code><span>行列へと拡張</span></p></li><li><p><span>活性化関数は</span><code>h3</code></p></li><li><p><span>通過後を</span><code>y</code><span>：</span><code>(m, p)</code><span>行列とする。</span></p></li><li><p><span>実装は以下。</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">a3</span> = <span class="cm-variable">np</span>.<span class="cm-property">dot</span>(<span class="cm-variable">z2</span>, <span class="cm-variable">W3</span>) <span class="cm-operator">+</span> <span class="cm-variable">b3</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">z3</span> = <span class="cm-variable">h3</span>(<span class="cm-variable">a3</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></li></ul><h1 id='まとめ'><span>まとめ</span></h1><ul><li><span>予測とは1レコード（</span><code>n</code><span>次元の行ベクトル）を別の形（</span><code>p</code><span>次元の行ベクトル）へ変化させること。</span></li><li><span>予測は</span><code>m</code><span>レコードまとめて処理することができる。</span></li></ul><p>&nbsp;</p></div></div>
 </body>
 </html>
