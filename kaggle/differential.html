@@ -599,9 +599,9 @@ header, .context-menu, .megamenu-content, footer{
 
 
 
-</style><title>index</title>
+</style><title>differential</title>
 </head>
 <body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='pythonkaggle）編'><span>Python（Kaggle）編</span></h1><p><span>Raspberry Piで機械学習に挑む。</span></p><h2 id='準備'><span>準備</span></h2><ul><li><a href='devenv.html'><span>環境構築（Jupyter Notebook）</span></a></li><li><a href='register.html'><span>Kaggleに登録しコンペに参加する手順</span></a></li><li><a href='libraries.html'><span>Pythonのライブラリの導入</span></a></li></ul><h3 id='ディープラーニング'><span>ディープラーニング</span></h3><ul><li><a href='predict.html'><span>予測について</span></a></li><li><a href='differential.html'><span>微分について</span></a></li><li><a href='activate_function.html'><span>活性化関数について</span></a></li></ul><h2 id='タイタニックコンペ'><span>タイタニックコンペ</span></h2><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h1 id='微分について'><span>微分について</span></h1><p><span>普通微分と言えば高校で習うアレ。</span></p><h2 id='偏微分'><span>偏微分</span></h2><p><code>f</code><span>が多変数関数だった場合、一つの変数に注目し、後は定数だと見なして微分を行うことを偏微分という。</span></p><h2 id='勾配'><span>勾配</span></h2><p><span>すべての変数の偏微分をベクトルとしてまとめたもの。</span></p><h2 id='微分の求め方'><span>微分の求め方</span></h2><h3 id='解析的な求め方'><span>解析的な求め方</span></h3><p><span>公式とか使って求めるやり方。</span></p><h3 id='数値微分'><span>数値微分</span></h3><p><span>微分の定義（極限を使ったアレ）のみで求めるやり方。</span></p><h3 id='メリット・デメリット'><span>メリット・デメリット</span></h3><p><span>解析的な求め方で求める場合は人間が頭の中で計算し、それを式としてプログラムに与える（例えば</span><code>x**2</code><span>に対しての</span><code>2x</code><span>）ので早いけど計算ミスしたら終わり。</span></p><p><span>数値微分ではとにかくガッツリ計算して求めるので、場合によっては遅いけど信頼できる。</span></p><h2 id='微分の意味'><span>微分の意味</span></h2><p><code>x=t</code><span>における</span><code>f(x)</code><span>の微分というのは、</span><code>t</code><span>がちょっと変化したときに</span><code>f(x)</code><span>の出力がどれだけ変化するかを表すものであり、それは</span></p><p><code>t</code><span>の変化の（結果に対する）影響度</span></p><p><span>と言える。</span></p><p><span>もし入力が多変数（あるいは行列）だった場合、勾配のそれぞれの要素はそのまま「その場所の要素の（結果に対する）影響度」と言える。</span></p><p><span>影響が大きいものは大きく、影響が小さいものは小さく動かせば、効率よく最小値に向かうことができるんじゃね？ということ。</span></p><p>&nbsp;</p></div></div>
 </body>
 </html>

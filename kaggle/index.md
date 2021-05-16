@@ -11,7 +11,8 @@ Raspberry Piで機械学習に挑む。
 ### ディープラーニング
 
 * [予測について](predict.html)
-* 
+* [微分について](differential.html)
+* [活性化関数について](activate_function.html)
 
 ## タイタニックコンペ
 
