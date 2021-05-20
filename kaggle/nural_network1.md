@@ -24,7 +24,7 @@ class TwoLayerNet:
     def gradient(self, x, t):
         pass
     
-    def update(self, grad, rate):
+    def learn(self, x, t):
         pass
     
     def accuracy(self, x, t):
@@ -194,14 +194,14 @@ class SoftmaxWithLoss:
         dx = (self.y - self.t) / batch_size
         return dx
     
-    def softmax(x):
+    def softmax(self, x):
         c = np.max(x)
         exp_x = np.exp(x - c)
         sum_exp_x = np.sum(exp_x)
         return exp_x / sum_exp_x
     
     #t:one-hot
-    def cross_entropy_error(y, t):
+    def cross_entropy_error(self, y, t):
         if y.ndim == 1:
             t.reshape(1, t.size)
             y.reshape(1, y.size)
@@ -214,16 +214,104 @@ class SoftmaxWithLoss:
 
 ## 実装
 
-`TwoLayerNet`を実装する。レイヤーオブジェクトは別ファイル`layers`に書き出して`import`するものとする。
+`TwoLayerNet`を実装する。レイヤーオブジェクトは別ファイル`layers`に書き出して`import`するものとする。また、`numerical_gradient`の計算部分も別ファイル`functions`に書き出して`import`する。（後述）
 
 ~~~python
 from layers import *
+from functions import numerical_gradient
 from collections import OrderedDict
 import numpy as np
 
 class TwoLayerNet:
     
     params = {}
+	layers = OrderedDict()
     
+    def __init__(self, input_size, hidden_size, output_size, learning_rate, weight_init_std=0.01):
+        self.params['W1'] = weight_init_std * np.random.randn(input_size, hidden_size)
+        self.params['b1'] = np.zeros(hidden_size)
+        self.params['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
+        self.params['b2'] = np.zeros(output_size)
+        
+        self.layers['Affine1'] = Affine(self.params['W1'], self.params['b1'])
+        self.layers['Relu'] = Relu()
+        self.layers['Affine2'] = Affine(self.params['W2'], self.params['b2'])
+        
+        self.lastLayer = SoftmaxWithLoss()
+        self.learning_rate = learning_rate
+    
+    def predict(self, x):
+        for layer in self.layers.values():
+            x = layer.forward(x)
+        return x
+    
+    def loss(self, x, t):
+        y = self.predict(x)
+        return self.lastLayer.forward(y, t)
+    
+    def gradient(self, x, t):
+        self.loss(x, t)
+        dout = 1
+        dout = self.lastLayer.backward(dout)
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+        grads = {}
+        grads['W1'] = self.layers['Affine1'].dW
+        grads['b1'] = self.layers['Affine1'].db
+        grads['W2'] = self.layers['Affine2'].dW
+        grads['b2'] = self.layers['Affine2'].db
+        return grads
+    
+    def learn(self, x, t):
+        grads = self.gradient(x, t)
+        params['W1'] -= learning_rate * grad['W1']
+        params['b1'] -= learning_rate * grad['b1']
+        params['W2'] -= learning_rate * grad['W2']
+        params['b2'] -= learning_rate * grad['b2']
+    
+    def accuracy(self, x, t):
+        y = self.predict(x)
+        y = np.argmax(y, axis=1)
+        if t.ndim != 1:
+            t = np.argmax(t, axis=1)
+        accuracy = np.sum(y == t) / float(x.shape[0])
+        return accuracy
+    
+    def numerical_gradient(self, x, t):
+        loss_W = lambda W: self.loss(x, t)
+        grads = {}
+        grads['W1'] = numerical_gradient(loss_W, self.params['W1'])
+        grads['b1'] = numerical_gradient(loss_W, self.params['b1'])
+        grads['W2'] = numerical_gradient(loss_W, self.params['W2'])
+        grads['b2'] = numerical_gradient(loss_W, self.params['b2'])
+        return grads
+~~~
+
+`functions.py`
+
+~~~python
+import numpy as np
+
+def numerical_gradient(f, x):
+    h = 1e-4
+    if x.ndim == 1:
+        x.reshape(1, x.size)
+    grad = np.zeros_like(x)
+    
+    for idx in range(x.shape[0]):
+        tmp_val = x[idx]
+        
+        x[idx] = tmp_val + h
+        fxh1 = f(x)
+        
+        x[idx] = tmp_val - h
+        fxh2 = f(x)
+        
+        grad[idx] = (fxh1 - fxh2) / (2*h)
+        x[idx] = tmp_val
+        
+    return grad
 ~~~
 
