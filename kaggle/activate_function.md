@@ -1,6 +1,43 @@
  # 活性化関数について
 
-## 中間層
+活性化関数はニューラルネットワークの各層（中間層または出力層）にセットする。入力をアフィン変換した後、活性化関数を通して次の層への出力（または最終的な予測）を決める。
+
+## アフィン変換
+
+普通の行列の積と和の計算。
+
+* `W`：重み（中身は計算前にすでに決定されている）
+* `b`：バイアス（上に同じ）
+
+~~~python
+def Affine(x):
+	return np.dot(x, W) + b
+~~~
+
+計算グラフによる誤差逆伝播法の実装
+
+~~~python
+class Affine:
+    def __init__(self, W, b):
+        self.W = W
+        self.b = b
+        self.x = None
+        self.dW = None
+        self.db = None
+        
+    def forward(self, x):
+        self.x = x
+        out = np.dot(x, self.W) + self.b
+        return out
+    
+    def backward(self, dout):
+        dx = np.dot(dout, self.W.T)
+        self.dW = np.dot(self.x.T, dout)
+        self.db = np.sum(dout, axis=0)
+        return dx
+~~~
+
+## 中間層に使われる活性化関数
 
 ### ステップ関数
 
@@ -60,7 +97,9 @@ class Relu:
         return dx
 ~~~
 
-## 出力層
+## 出力層に使われる活性化関数
+
+層としては恒等関数やソフトマックス関数で出力して終わりだけど、学習では層の活性化関数に応じて使う損失関数が決まってくるらしいので、ここではセットで紹介する。
 
 ### 恒等関数
 
@@ -68,30 +107,29 @@ class Relu:
 
 回帰問題（回答が連続的な値）に使われる。
 
-#### 2乗和誤差
+#### 損失関数：2乗和誤差
 
 ~~~python
 def mean_squared_error(y, t):
     return 0.5 * np.sum((y - t)**2)
 ~~~
 
-
-
 ### ソフトマックス関数
 
 ~~~python
 def softmax(x):
-    c = np.max(x)
-    exp_x = np.exp(x - c)
-    sum_exp_x = np.sum(exp_x)
-    return exp_x / sum_exp_x
+    c = np.max(x, axis=-1, keepdims=True)
+    exp_a = np.exp(x - c)
+    sum_exp_a = np.sum(exp_a, axis=-1, keepdims=True)
+    y = exp_a / sum_exp_a
+    return y
 ~~~
 
 入力を正規化（和が1になる形に）して出力。この関数を使うなら評価関数に交差エントロピー誤差を使う。
 
 分類問題（回答が離散的な値）に使われる。
 
-#### 交差エントロピー誤差
+#### 損失関数：交差エントロピー誤差
 
 `y`：予測の結果
 
@@ -100,8 +138,8 @@ def softmax(x):
   ~~~python
   def cross_entropy_error(y, t):
       if y.ndim == 1:
-          t.reshape(1, t.size)
-          y.reshape(1, y.size)
+          t = t.reshape(1, t.size)
+          y = y.reshape(1, y.size)
       
       batch_size = y.shape[0]
       return -np.sum(t * np.log(y + 1e-7)) / batch_size
@@ -112,8 +150,8 @@ def softmax(x):
   ~~~python
   def cross_entropy_error(y, t):
       if y.ndim == 1:
-          t.reshape(1, t.size)
-          y.reshape(1, y.size)
+          t = t.reshape(1, t.size)
+          y = y.reshape(1, y.size)
       
       batch_size = y.shape[0]
       return -np.sum(np.log(y[np.arange(batch_size), t] + 1e-7)) / batch_size
@@ -136,34 +174,7 @@ class SoftmaxWithLoss:
     
     def backward(self, dout=1):
         batch_size = self.t.shape[0]
-        dx = (self.y - self.t) / batch_size
-        return dx
-~~~
-
-## アフィン変換
-
-これはどの層の計算、というわけじゃなくて、普通の行列の積と和の計算。
-
-計算グラフによる誤差逆伝播法の実装
-
-~~~python
-class Affine:
-    def __init__(self, W, b):
-        self.W = W
-        self.b = b
-        self.x = None
-        self.dW = None
-        self.db = None
-        
-    def forward(self, x):
-        self.x = x
-        out = np.dot(x, self.W) + self.b
-        return out
-    
-    def backward(self, dout):
-        dx = np.dot(dout, self.W.T)
-        self.dW = np.dot(self.x.T, dout)
-        self.db = np.sum(dout, axis=0)
+        dx = (self.y - self.t) * (dout / batch_size)
         return dx
 ~~~
 

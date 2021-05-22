@@ -40,5 +40,6 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [11日目　conkyを使ってGaruda Linux Forumの最新スレッドを表示する](day11_garuda_forum_with_conky.html)
   * [12日目　今更ながらファイアーウォールの設定　（※失敗）](day12_firewall.html)
   * [13日目　ファイアーウォールの設定再び](day13_firewall_with_ufw.html)
+  * [14日目　VSCodeをセットアップ](day14_code.html)
   * 
 

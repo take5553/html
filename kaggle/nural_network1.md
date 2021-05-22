@@ -1,4 +1,6 @@
-# 2層だけのニューラルネットワークの作り方
+# ニューラルネットワーク（2層ver）
+
+参考：[ゼロから作るDeep Learningで素人がつまずいたことメモ: まとめ - Qiita](https://qiita.com/segavvy/items/4e8c36cac9c6f3543ffd)
 
 ## 概要
 
@@ -191,20 +193,21 @@ class SoftmaxWithLoss:
     
     def backward(self, dout=1):
         batch_size = self.t.shape[0]
-        dx = (self.y - self.t) / batch_size
+        dx = (self.y - self.t) * (dout / batch_size)
         return dx
     
     def softmax(self, x):
-        c = np.max(x)
-        exp_x = np.exp(x - c)
-        sum_exp_x = np.sum(exp_x)
-        return exp_x / sum_exp_x
+        c = np.max(x, axis=-1, keepdims=True)
+        exp_a = np.exp(x - c)  # オーバーフロー対策
+        sum_exp_a = np.sum(exp_a, axis=-1, keepdims=True)
+        y = exp_a / sum_exp_a
+        return y
     
     #t:one-hot
     def cross_entropy_error(self, y, t):
         if y.ndim == 1:
-            t.reshape(1, t.size)
-            y.reshape(1, y.size)
+            t = t.reshape(1, t.size)
+            y = y.reshape(1, y.size)
 
         batch_size = y.shape[0]
         return -np.sum(t * np.log(y + 1e-7)) / batch_size
@@ -266,10 +269,10 @@ class TwoLayerNet:
     
     def learn(self, x, t):
         grads = self.gradient(x, t)
-        params['W1'] -= learning_rate * grad['W1']
-        params['b1'] -= learning_rate * grad['b1']
-        params['W2'] -= learning_rate * grad['W2']
-        params['b2'] -= learning_rate * grad['b2']
+        self.params['W1'] -= self.learning_rate * grads['W1']
+        self.params['b1'] -= self.learning_rate * grads['b1']
+        self.params['W2'] -= self.learning_rate * grads['W2']
+        self.params['b2'] -= self.learning_rate * grads['b2']
     
     def accuracy(self, x, t):
         y = self.predict(x)
@@ -295,23 +298,58 @@ class TwoLayerNet:
 import numpy as np
 
 def numerical_gradient(f, x):
-    h = 1e-4
-    if x.ndim == 1:
-        x.reshape(1, x.size)
+    h = 1e-4 # 0.0001
     grad = np.zeros_like(x)
     
-    for idx in range(x.shape[0]):
+    it = np.nditer(x, flags=['multi_index'])
+    while not it.finished:
+        idx = it.multi_index
         tmp_val = x[idx]
-        
         x[idx] = tmp_val + h
-        fxh1 = f(x)
+        fxh1 = f(x) # f(x+h)
         
-        x[idx] = tmp_val - h
-        fxh2 = f(x)
-        
+        x[idx] = tmp_val - h 
+        fxh2 = f(x) # f(x-h)
         grad[idx] = (fxh1 - fxh2) / (2*h)
-        x[idx] = tmp_val
+        
+        x[idx] = tmp_val # 値を元に戻す
+        it.iternext()   
         
     return grad
 ~~~
 
+## 実装が正しいかどうか確認
+
+数値微分で求める勾配と誤差逆伝播法で求める勾配を比較する。
+
+使用するデータはMNISTで、[GitHub - oreilly-japan/deep-learning-from-scratch: 『ゼロから作る Deep Learning』(O'Reilly Japan, 2016)](https://github.com/oreilly-japan/deep-learning-from-scratch)から`mnist.py`を借用する。
+
+~~~python
+from mnist import load_mnist
+from twolayernet import TwoLayerNet
+import numpy as np
+
+(x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, one_hot_label=True)
+network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10, learning_rate=0.1)
+
+x_batch = x_train[:3]
+t_batch = t_train[:3]
+
+grad_numerical = network.numerical_gradient(x_batch, t_batch)
+grad_backprop = network.gradient(x_batch, t_batch)
+
+for key in grad_numerical.keys():
+    diff = np.average( np.abs(grad_backprop[key] - grad_numerical[key]))
+    print(key + ":" + str(diff))
+~~~
+
+出力が以下。
+
+~~~
+W1:3.656435397525128e-10
+b1:2.063888007807868e-09
+W2:6.301500123914619e-09
+b2:1.3986855674774644e-07
+~~~
+
+なかなかいい誤差じゃないか。

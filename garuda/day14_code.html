@@ -212,6 +212,87 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 
 
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
@@ -600,9 +681,9 @@ header, .context-menu, .megamenu-content, footer{
 
 
 
-</style><title>index</title>
+</style><title>day14_code</title>
 </head>
 <body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='garuda-linux編'><span>Garuda Linux編</span></h1><p><span>かっこよさに惹かれてGaruda KDE Dr460nized(Dragonized) Editionをインストールしてみた。そのときに得られた知見を書いておく。</span></p><p><a href='https://garudalinux.org/'><span>Garuda Linux </span><span>|</span><span> Home</span></a></p><p><span>Garuda Dragonized Editionのイメージ（公式HPより）</span></p><p><img src="image/index/garuda-dr460nized.webp" referrerpolicy="no-referrer" alt="Garuda Linux Dragonized"></p><h2 id='トラブルシューティング'><span>トラブルシューティング</span></h2><p><a href='troubleshooting.html'><span>こちらへ</span></a></p><h2 id='コンテンツ'><span>コンテンツ</span></h2><ul><li><p><span>前提知識</span></p><ul><li><a href='intro_aboutOS.html'><span>OSについて</span></a></li><li><a href='intro_aboutDE.html'><span>デスクトップ環境について</span></a></li></ul></li><li><p><a href='install.html'><span>インストール</span></a></p></li><li><p><span>使い始め</span></p><ul><li><a href='pacman.html'><span>パッケージマネージャー</span></a></li><li><a href='xrdp.html'><span>Xrdpをインストール（※失敗）</span></a></li><li><a href='samba.html'><span>Windowsとファイル共有（Samba）</span></a></li></ul></li><li><p><span>初期アプリ</span></p><ul><li><a href='garuda_welcome.html'><span>Garuda Welcome</span></a></li><li><a href='kate.html'><span>Kate - 高度なテキストエディタ</span></a></li><li><a href='kdeconnect.html'><span>KDE Connect</span></a></li></ul></li><li><p><span>普段使いを目指して</span></p><ul><li><a href='day01_yay.html'><span>1日目　</span><code>yay</code><span>を入れてAUR(Arch User Repository)の使い勝手を良くする。</span></a></li><li><a href='day02_typora.html'><span>2日目　Typoraを入れてマークダウンを書く</span></a></li><li><a href='day03_ssh.html'><span>3日目　SSH接続でRaspberry Piにログイン</span></a></li><li><a href='day04_dl_document_root.html'><span>4日目　Raspberry PiからWebサーバーのドキュメントルートをDL&amp;UL</span></a></li><li><a href='day05_subscreen.html'><span>5日目　サブディスプレイを接続</span></a></li><li><a href='day06_sharing_keyboard_and_mouse.html'><span>6日目　キーボードとマウスをWindowsと共有＆切り替え</span></a></li><li><a href='day07_edit_on_garuda.html'><span>7日目　このサイトのコンテンツをGaruda Linuxで編集＆アップ自動化</span></a></li><li><a href='day08_turning_for_laptop.html'><span>8日目　Laptop用設定を適用する（※失敗）</span></a></li><li><a href='day09_conky.html'><span>9日目　conkyを設定してみる</span></a></li><li><a href='day10_fish_script_with_dnd.html'><span>10日目　D&amp;Dで動く(fish shell)スクリプトを書く（画像縮小）</span></a></li><li><a href='day11_garuda_forum_with_conky.html'><span>11日目　conkyを使ってGaruda Linux Forumの最新スレッドを表示する</span></a></li><li><a href='day12_firewall.html'><span>12日目　今更ながらファイアーウォールの設定　（※失敗）</span></a></li><li><a href='day13_firewall_with_ufw.html'><span>13日目　ファイアーウォールの設定再び</span></a></li><li><a href='day14_code.html'><span>14日目　VSCodeをセットアップ</span></a></li><li></li></ul></li></ul><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h1 id='14日目vscodeをセットアップ'><span>14日目　VSCodeをセットアップ</span></h1><p><span>おなじみのVSCodeをGaruda Linuxにセットアップする。</span></p><p><span>インストールするだけなら簡単なので、ここでは例としてPythonの開発環境構築までもっていく。</span></p><h2 id='vscodeのインストール'><span>VSCodeのインストール</span></h2><pre lang="shell" spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="shell"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ yay</span> <span class="cm-attribute">-S</span> code</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>自分はGaruda Linuxインストール時のUltimateへのアップグレードですでに入れていた。</span></p><h3 id='日本語化'><span>日本語化</span></h3><p><a href='../php/preparation.html'><span>以前の記事</span></a><span>で紹介した拡張機能でのやり方でできる。</span></p><ul><li><span>拡張機能ペインを開き、「japanese」で検索</span></li><li><span>「Japanese Language Pack for Visual Studio Code」があるはずなのでそれをインストール</span></li></ul><h2 id='python周り'><span>Python周り</span></h2><p><span>拡張機能で「python」と打てば、Microsoftが配布する「Python extension for Visual Studio Code」がヒットするはず。</span></p><p><img src="image/day14_code/rs-image-20210522101450462.png" referrerpolicy="no-referrer" alt="image-20210522101450462"></p><p><span>その他Linter、Formatterなどを整える。以下が参考になる。</span></p><p><a href='https://qiita.com/firedfly/items/00c34018581c6cec9b84'><span>VS Code コーディング規約を快適に守る - Qiita</span></a></p><h2 id='ターミナル'><span>ターミナル</span></h2><p><span>文字の雰囲気が少し違うのでいつも使っているKonsoleのものに合わせる。</span></p><p><span>設定（ctrl + ,）から</span><code>terminal.font</code><span>で検索すると「Terminal &gt; Integrated: Font Family」というのが出てくるので、そこに以下を入力。</span></p><pre lang="" spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.5px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">FantasqueSansMono Nerd Font Mono</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>そうするといつもの雰囲気のフォントになる。（VSCodeの再起動を要求されるかも）</span></p><p><img src="image/day14_code/image-20210522105639412.png" referrerpolicy="no-referrer" alt="image-20210522105639412"></p><p>&nbsp;</p></div></div>
 </body>
 </html>
