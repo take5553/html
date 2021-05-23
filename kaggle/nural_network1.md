@@ -26,13 +26,16 @@ class TwoLayerNet:
     def gradient(self, x, t):
         pass
     
-    def learn(self, x, t):
-        pass
-    
     def accuracy(self, x, t):
         pass
     
     def numerical_gradient(self, x, t):
+        pass
+    
+    def save(self, fileName):
+        pass
+    
+    def load(self, fileName):
         pass
 ~~~
 
@@ -66,13 +69,6 @@ class TwoLayerNet:
 
   `loss`を実行し損失を得て、それを使って各レイヤーの逆伝播を実行、出力された勾配を戻す。
 
-* `learn`
-
-  `gradient`を実行し勾配を得て、それと学習率を使用して、重みとバイアスを更新する。
-
-学習時は`learn`をループで回す。本番では`predict`で正解を求める。
-
-`loss`はprivate扱いをしてもいい。
 
 ### 予測と学習に無関係なメソッド
 
@@ -83,6 +79,14 @@ class TwoLayerNet:
 * `numberical_gradient`
 
   数値微分で勾配を求め、それを戻す。（`gradient`が正しいかどうか確認する目的で使用）
+  
+* `save`
+
+  学習したパラメーターをファイルにセーブする
+
+* `load`
+
+  `save`で保存したパラメーターを読み込む
 
 
 ## フィールド
@@ -224,6 +228,7 @@ from layers import *
 from functions import numerical_gradient
 from collections import OrderedDict
 import numpy as np
+import pickle
 
 class TwoLayerNet:
     
@@ -267,13 +272,6 @@ class TwoLayerNet:
         grads['b2'] = self.layers['Affine2'].db
         return grads
     
-    def learn(self, x, t):
-        grads = self.gradient(x, t)
-        self.params['W1'] -= self.learning_rate * grads['W1']
-        self.params['b1'] -= self.learning_rate * grads['b1']
-        self.params['W2'] -= self.learning_rate * grads['W2']
-        self.params['b2'] -= self.learning_rate * grads['b2']
-    
     def accuracy(self, x, t):
         y = self.predict(x)
         y = np.argmax(y, axis=1)
@@ -290,6 +288,16 @@ class TwoLayerNet:
         grads['W2'] = numerical_gradient(loss_W, self.params['W2'])
         grads['b2'] = numerical_gradient(loss_W, self.params['b2'])
         return grads
+
+    def save(self, fileName):
+        with open(fileName, 'wb') as f:
+            pickle.dump(self.params, f)
+    
+    def load(self, fileName):
+        with open(fileName, 'rb') as f:
+            self.params = pickle.load(f)
+            self.layers.clear()
+            self._setLayers
 ~~~
 
 `functions.py`
