@@ -43,6 +43,10 @@
 * [Python（GUIアプリ）編](python_gui/)
 
   15分ルールを実践するためのアプリ。
+  
+* [PCにGPIOを編](ft232h/)
+
+  Raspberry PiにあるGPIOをPCに持たせる
 
 ## 他のLinux
 
