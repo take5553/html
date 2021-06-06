@@ -5,6 +5,7 @@ Webサーバー（Nginx）を導入し、HTMLファイルを作ってアップ�
 - Webサーバー稼働
   - [Webサーバー(Nginx)をインストールし、HTMLファイルを外部に公開](nginx.html)
   - [URLを`https://`でもアクセスできるようにする（Let's Encrypt使用）](letsencrypt.html)
+    * 使用ドメインが変わった→[Let's Encryptの証明書のドメイン変更](letsencrypt2.html)
 - HTMLファイル作成
   - [HTMLファイル作成ツールとしてのTyporaの紹介とMarkdown記法について](typora.html)
   - [Typoraのテーマについて](typoratheme.html)
