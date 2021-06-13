@@ -59,6 +59,10 @@ Raspberry Pi以外のLinuxについて。
 * [Ubuntu Server編](ubuntuserver/)
 
   一家に1サーバー時代到来。ファイルサーバーと、ついでに色々。
+  
+* [Red Hat Enterprise Linux（RHEL）編](rhel/)
+
+  完全に興味本位。
 
 ## 未分類
 
