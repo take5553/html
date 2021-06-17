@@ -99,5 +99,3 @@ plt.show()
 
 ![image-20210522160003730](image/use_nural_network/image-20210522160003730.png)
 
-## 実験
-

@@ -2,14 +2,7 @@
 
 参加から回答提出まで。
 
-## 環境
-
-- ローカル
-  - Windows 10
-- リモート
-  - Raspberry Pi 3B+
-  - Raspberry Pi OS 10.4
-  - Python 3.7.3
+サーバーPCとしてRaspberry Piを使うことを想定。
 
 ## Kaggleに登録
 
@@ -20,7 +13,7 @@
 
 ## コンペに参加する（メインPCから）
 
-ここではチュートリアルとして有名なタイタニック号生存者予測コンペに参加してみる。Windows等、ブラウザベースでデータを取得・提出する手順を紹介する。Raspberry Piから直接データをDL・提出する方法は後述。
+ここではチュートリアルとして有名なタイタニック号生存者予測コンペに参加してみる。Windows等、ブラウザベースでデータを取得・提出する手順を紹介する。Raspberry Piなどのサーバー機から直接データをDL・提出する方法は後述。
 
 1. Kaggleの検索欄に「titanic」と打ち、「Titanic - Machine Learning from Disaster」というページにアクセス。
 
@@ -47,9 +40,9 @@
 
 7. Titanicコンペのページ上部にある「Submit Predictions」をクリックし、アップする提出ファイルをD&Dで登録し、適当に説明を書いて「Make Submission」をクリックするとアップされてスコアが表示される（らしい）。
 
-## コンペに参加する（Raspberry Piから）
+## コンペに参加する（サーバー機から）
 
-上記の方法だとDLしたデータをRaspberry Piに送り、提出データをRaspberry Piから取得しアップするという若干面倒な手順を踏まないといけない。ならば直接Raspberry PiにDLし、Raspberry Piから直接提出データをアップできるようにする。
+上記の方法だとDLしたデータ等をRaspberry Pi等に送受信したりする必要がある。サーバー上で学習して放置するならサーバー機から直接コンペとやり取りできた方が楽。
 
 ### Kaggle API Tokenの入手
 
@@ -65,9 +58,9 @@
 
 4. `kaggle.json`ファイルのDLが始まるので適当なところにDL。
 
-5. そのファイルをどうにかしてRaspberry Pi内の`~/.kaggle`ディレクトリ内に入れる。
+5. そのファイルをどうにかしてサーバー機の中の`~/.kaggle`ディレクトリ内に入れる。
 
-   自分の場合はメインPCで`kaggle.json`を開き中身（たった1行だけ）をコピー。Raspberry Pi上で`kaggle.json`を新規作成しNanoエディタで開きペーストして直接入力した。
+   自分の場合はメインPCで`kaggle.json`を開き中身（たった1行だけ）をコピー。サーバー上で`kaggle.json`を新規作成しNanoエディタで開きペーストして直接入力した。
 
    ~~~shell
    $ mkdir ~/.kaggle
@@ -80,7 +73,7 @@
    $ chmod 600 ~/.kaggle/kaggle.json
    ~~~
 
-### Raspberry PiにKaggle APIをインストール
+### サーバー機にKaggle APIをインストール
 
 1. 必要であれば仮想環境に入っておく。
 

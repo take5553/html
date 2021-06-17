@@ -1,20 +1,13 @@
 # Python（Kaggle）編
 
-Raspberry Piで機械学習に挑む。
+機械学習に挑む。
+
+今回はRaspberry Piに限定しない。
 
 ## 準備
 
 * [環境構築（Jupyter Notebook）](devenv.html)
 * [Kaggleに登録しコンペに参加する手順](register.html)
-* [Pythonのライブラリの導入](libraries.html)
-
-### ディープラーニング
-
-* [予測について](predict.html)
-* [微分について](differential.html)
-* [活性化関数について](activate_function.html)
-* [ニューラルネットワーク（2層ver）](nural_network1.html)
-* ニューラルネットワークを使って学習＆予測
 
 ## タイタニックコンペ
 

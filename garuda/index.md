@@ -41,5 +41,5 @@ Garuda Dragonized Editionのイメージ（公式HPより）
   * [12日目　今更ながらファイアーウォールの設定　（※失敗）](day12_firewall.html)
   * [13日目　ファイアーウォールの設定再び](day13_firewall_with_ufw.html)
   * [14日目　VSCodeをセットアップ](day14_code.html)
-  * 
+* [まとめ　〜使い始めから2ヶ月後〜](matome.html)
 

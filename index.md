@@ -30,7 +30,7 @@
   
 * [Python（Kaggle）編](kaggle/)
 
-  相棒のRaspberry Piと共にデータ分析コンペティション「Kaggle」に挑む。
+  データ分析コンペティション「Kaggle」に挑む。
 
 ## やってみた
 
@@ -46,11 +46,9 @@
   
 * [PCにGPIOを編](ft232h/)
 
-  Raspberry PiにあるGPIOをPCに持たせる
+  Raspberry PiにあるGPIOをPCにも持たせる。
 
-## 他のLinux
-
-Raspberry Pi以外のLinuxについて。
+## やってみた（OS編）
 
 * [Garuda Linux編](garuda/)
 
@@ -79,12 +77,12 @@ Raspberry Pi以外のLinuxについて。
 * [オブジェクト指向練習編](oop/)
 
   オブジェクト指向を習得する。
+  
+* [Deep Learning編](deeplearning/)
+
+  Deep Learningの仕組みの勉強をした跡。
 
 ### スマホアプリ
-
-* Android編
-
-  Androidアプリを作成する。
 
 * [Flutter編](flutter/index.html)
 

@@ -1,6 +1,6 @@
 # 環境構築
 
-Raspberry Pi上でJupyter Notebookをサーバーとして動かし、メインPCからアクセスする。これでJupyter Notebook上でのコード（つまりPythonのコード）は全てRaspberry Piが動かすことになる。
+Raspberry PiなどメインPCではないところでJupyter Notebookをサーバーとして動かし、メインPCからアクセスする。
 
 ## 環境
 
@@ -54,7 +54,7 @@ $ . .venv/bin/activate
 (.venv) $ nano ~/.jupyter/jupyter_notebook_config.py
 ~~~
 
-以下を検索して変更。Nanoエディタでの検索は`ctrl + W`。気になる人は`c.NotebookApp.port
+以下を検索して変更。Nanoエディタでの検索は`ctrl + W`。
 
 ~~~python
 c.NotebookApp.ip = '*'
