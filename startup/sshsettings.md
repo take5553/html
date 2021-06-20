@@ -59,6 +59,8 @@ PasswordAuthentication no
 
 せっかくなので他の項目も知りたいという人は「sshd_config 解説」とかでググろう。最初は必要そうな項目について全部書こうかと思ったけど、結局初期値のままで良かったり、実際に使う人が自分しかいないのであれば必要ない設定項目ばっかりだった。
 
+一応このページの最後に追加の設定を書いておくので、もっとセキュアにしたい人はそちらを参照。
+
 ### 設定ファイルの保存＆終了
 
 `ctrl + S`で保存、`ctrl + X`で終了。
@@ -84,3 +86,24 @@ $ sudo reboot
 ```
 
 ちゃんと設定できていればログインできるはず。ポート番号を変えた人は`-p`オプションが必要。秘密鍵の場所がデフォルトじゃない人は`-i`オプションで秘密鍵の指定も必要。
+
+## よりセキュアな設定
+
+~~~
+#SyslogFacility AUTH
+↓
+SyslogFacility AUTHPRIV
+
+#LogLevel INFO
+↓
+LogLevel VERBOSE
+
+#AllowTcpForwarding yes
+↓
+AllowTcpForwarding no
+
+#X11Forwarding yes
+↓
+X11Forwarding no
+~~~
+
