@@ -149,3 +149,59 @@ $ sudo noip2 -S
 家の中でやってたらおそらくは繋がらない。
 
 どうしても家の中でやりたい！という人は[前回](portforwarding.html)の最後で紹介したスマホのやり方で、AddressをIPから今取得したドメインに変えてつなげてみる。
+
+## 設定変更
+
+Raspberry Piの接続をWifiから有線LANに切り替えたりドメインを設定し直したりして環境が変わると上記の設定が上手く動かなくなる。
+
+そんなときは再設定する訳だけど、ちょっとステップを踏む必要がある。
+
+* 設定ファイルの場所を確認
+* `noip2`を強制終了
+* 設定ファイルを削除
+* `sudo noip2 -C`で設定ファイル作成
+
+### 設定ファイルの内容を確認
+
+~~~shell
+$ sudo noip2 -S
+1 noip2 process active.
+
+Process 30720, started as noip2, (version 2.1.9)
+Using configuration from /usr/local/etc/no-ip2.conf
+Last IP Address set 116.82.179.51
+Account 
+configured for:
+host  arctic-street.ddns.net
+Updating every 30 minutes via /dev/wlan0 with NAT enabled.
+~~~
+
+これにより
+
+* PID・・・`30720`
+* 設定ファイル・・・`/usr/local/etc/no-ip2.conf`
+* NIC・・・`/dev/wlan0`（Wifiのこと）
+
+が分かる。
+
+適当に調べた結果、上手に設定を変更するやり方が見つからなかったので強引に設定を変更する。
+
+### `noip2`を強制終了
+
+~~~shell
+$ sudo kill -9 30720
+~~~
+
+`-9`は強制終了のシグナルを送る、という意味。
+
+### 設定ファイルの削除
+
+~~~shell
+$ sudo rm /usr/local/etc/no-ip2.conf
+~~~
+
+### `sudo noip2 -C`で設定ファイル作成
+
+インストール時に聞かれたような質問を再度されるので、それに従えば自動で最新の状態を取り込んで設定ファイルを作ってくれる。
+
+ちゃんとできたかどうかは`sudo noip2 -S`でチェックできる。
