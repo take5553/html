@@ -47,6 +47,10 @@
 * [PCにGPIOを編](ft232h/)
 
   Raspberry PiにあるGPIOをPCにも持たせる。
+  
+* [Jetson AI Certification編](jetsoncert/)
+
+  Jetsonにも手を出してみた。
 
 ## やってみた（OS編）
 
