@@ -8,4 +8,8 @@
   * Image Classification
     * [フォーム部](03.html)
     * [Deep Learning部](04.html)
+  * Image Regression
+  * 課題提出
+    * [課題の概要](05.html)
+    * 作成したプロジェクト
 
