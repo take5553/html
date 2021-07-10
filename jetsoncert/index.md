@@ -13,7 +13,7 @@
 
 自分には技術が全然足りないので、武者修行に出ることにした。
 
-* Hello AI World
+* [Hello AI World](https://github.com/dusty-nv/jetson-inference)
 * Jetson Community Projects
 * 
 
