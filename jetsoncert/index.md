@@ -9,7 +9,16 @@
     * [フォーム部](03.html)
     * [Deep Learning部](04.html)
   * Image Regression
-  * 課題提出
-    * [課題の概要](05.html)
-    * 作成したプロジェクト
+  * [課題の概要](05.html)
 
+自分には技術が全然足りないので、武者修行に出ることにした。
+
+* Hello AI World
+* Jetson Community Projects
+* 
+
+## メモ
+
+* [Jetson NanoとVNCで接続](vnc.html)
+
+* [参考サイト](referrence.html)
