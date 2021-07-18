@@ -5,4 +5,6 @@
 * [Catalog | NVIDIA NGC](https://ngc.nvidia.com/catalog)
   * [DLI Getting Started with AI on Jetson Nano | NVIDIA NGC](https://ngc.nvidia.com/catalog/containers/nvidia:dli:dli-nano-ai)
   * [Orientation and setup | Docker Documentation](https://docs.docker.com/get-started/)
+* [エッジAI(Jetson Nano 2GB)でTensorRTを用いて推論高速化をしてみました | GMOインターネットグループ 次世代システム研究室](https://recruit.gmo.jp/engineer/jisedai/blog/jetson_nano_tensorrt/)
+* [Pythonでつくる雑VTuber ~Jetson Nanoで顔認識~ - Qiita](https://qiita.com/soymushroom/items/5ce3e1c4fd1050819c7c)
 
