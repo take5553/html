@@ -8,3 +8,10 @@
 * [エッジAI(Jetson Nano 2GB)でTensorRTを用いて推論高速化をしてみました | GMOインターネットグループ 次世代システム研究室](https://recruit.gmo.jp/engineer/jisedai/blog/jetson_nano_tensorrt/)
 * [Pythonでつくる雑VTuber ~Jetson Nanoで顔認識~ - Qiita](https://qiita.com/soymushroom/items/5ce3e1c4fd1050819c7c)
 
+## Linux・Docker関係
+
+* [bash: 標準出力、標準エラー出力をファイル、画面それぞれに出力する方法 - Qiita](https://qiita.com/laikuaut/items/e1cc312ffc7ec2c872fc)
+* [クライアント・サーバシステム](http://www.ep.sci.hokudai.ac.jp/~inex/y2019/0628/practical/07_X.html)
+* [Bash on Ubuntu on Windows + XmingによるGUI - Qiita](https://qiita.com/makky0620/items/e31edc90f22340d791ff)
+* [SSH 接続先で走っている Docker コンテナ内で実行した X アプリの GUI を SSH クライアントで表示する - Qiita](https://qiita.com/aoksh/items/1a386ee87594e67784c4)
+

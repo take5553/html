@@ -118,3 +118,9 @@ objectName = net.GetClassDesc(detection.ClassID)
 detections = net.Detect(img, overlay=False)
 ~~~
 
+## モデルのカスタマイズ
+
+### ネット上の素材を使用する
+
+[Open Images Dataset V6](https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=detection&c=%2Fm%2F0fp6w)から画像をDLして再学習に使う。
+
