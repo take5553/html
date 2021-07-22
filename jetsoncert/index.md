@@ -17,6 +17,7 @@
   * [セットアップとカメラの動作確認](hello-ai-world-01.html)
   * [Classifying Images with ImageNet](hello-ai-world-02.html)
   * [Locating Objects with DetectNet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/detectnet-console-2.md)
+  * [Semantic Segmentation with SegNet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/segnet-console-2.md)（特筆することが無かったので公式へのリンク）
 * Jetson Community Projects
 * 
 

@@ -15,3 +15,7 @@
 * [Bash on Ubuntu on Windows + XmingによるGUI - Qiita](https://qiita.com/makky0620/items/e31edc90f22340d791ff)
 * [SSH 接続先で走っている Docker コンテナ内で実行した X アプリの GUI を SSH クライアントで表示する - Qiita](https://qiita.com/aoksh/items/1a386ee87594e67784c4)
 
+## Deep Leaning関係
+
+* [セマンティックセグメンテーションをざっくり学ぶ - Qiita](https://qiita.com/fujiya228/items/ea30dac6ef827d608a56)
+
