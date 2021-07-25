@@ -7,6 +7,7 @@
   * [Orientation and setup | Docker Documentation](https://docs.docker.com/get-started/)
 * [エッジAI(Jetson Nano 2GB)でTensorRTを用いて推論高速化をしてみました | GMOインターネットグループ 次世代システム研究室](https://recruit.gmo.jp/engineer/jisedai/blog/jetson_nano_tensorrt/)
 * [Pythonでつくる雑VTuber ~Jetson Nanoで顔認識~ - Qiita](https://qiita.com/soymushroom/items/5ce3e1c4fd1050819c7c)
+* [Jetson nanoで、オリジナルの学習モデルを使った物体検出[1/5] 　〜IBM Cloud Annotationsを使ったアノテーション編〜 | 育児×家事×IoT](https://dream-soft.mydns.jp/blog/developper/smarthome/2020/12/2471/)
 
 ## Linux・Docker関係
 

@@ -18,8 +18,10 @@
   * [Classifying Images with ImageNet](hello-ai-world-02.html)
   * [Locating Objects with DetectNet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/detectnet-console-2.md)
   * [Semantic Segmentation with SegNet](https://github.com/dusty-nv/jetson-inference/blob/master/docs/segnet-console-2.md)（特筆することが無かったので公式へのリンク）
-* Jetson Community Projects
-* 
+* [Jetson Community Projects](https://developer.nvidia.com/embedded/community/jetson-projects)
+  * [CUDACAM](community-project-01.html)
+  * [POSTURE ANALYSIS APPLICATION USING JETSON NANO](community-project-02.html)
+* 気になる技術
 
 ## メモ
 
