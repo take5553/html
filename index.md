@@ -28,7 +28,15 @@
 
   掲示板システムを自作する。
   
-* [Python（Kaggle）編](kaggle/)
+* [Jetson AI Certification編](jetsoncert/)
+
+  Jetsonにも手を出してみた。
+
+* [Docker編](docker/)
+
+  Jetsonで動くアプリの環境作り。
+
+* [Python（Kaggle）編](kaggle/)（保留中）
 
   データ分析コンペティション「Kaggle」に挑む。
 
@@ -48,11 +56,8 @@
 
   Raspberry PiにあるGPIOをPCにも持たせる。
   
-* [Jetson AI Certification編](jetsoncert/)
 
-  Jetsonにも手を出してみた。
-
-## やってみた（OS編）
+### OS編
 
 * [Garuda Linux編](garuda/)
 

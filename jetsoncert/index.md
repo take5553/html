@@ -21,7 +21,11 @@
 * [Jetson Community Projects](https://developer.nvidia.com/embedded/community/jetson-projects)
   * [CUDACAM](community-project-01.html)
   * [POSTURE ANALYSIS APPLICATION USING JETSON NANO](community-project-02.html)
-* 気になる技術
+  * [AI Home Monitoring with Nvidia Jetson Nano](community-project-03.html)
+
+アイディアが思いついて来たので制作に取り掛かり始める。
+
+* [Dockerの練習](../docker/)
 
 ## メモ
 
