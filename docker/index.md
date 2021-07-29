@@ -11,6 +11,8 @@
 
 ちなみにDocker自体はすでにJetPackにインストールされている。
 
+参考：[Orientation and setup | Docker Documentation](https://docs.docker.com/get-started/)
+
 ## 目標
 
 Deep Leaning技術を使用したアプリを作成し、Dockerイメージと一緒に配布する。
@@ -19,5 +21,7 @@ Deep Leaning技術を使用したアプリを作成し、Dockerイメージと�
 
 * [とにかくコンテナを動かす](getting_started.html)
 * [Dockerイメージの作り方](create_an_image.html)
-* 
+* [イメージファイルの共有とアーキテクチャーの罠](share_the_image.html)
+* [Ubuntuコンテナでマウント](mount_in_ubuntu.html)
+* 複数コンテナ
 
