@@ -62,7 +62,17 @@ $ sudo docker run -it --rm --network host ubuntu
 
 あれー？`php-fpm`入れてNginxの設定ファイル書き換えて、と自分の指示どおりにやったけど動かない。
 
-調べてみるとPHPはPHP用に別のコンテナを用意するっぽい。今回のテーマはそこではないので、一旦保留。PHPを動かさない状態で次に移る。
+調べてみると普通PHPはPHP用に別のコンテナを用意するっぽい。今回のテーマはそこではないので、一旦保留。PHPを動かさない状態で次に移る。
+
+※後で調べてみると、単純に`php-fpm`がバックグラウンドで動いてないだけだった。以下で`php-fpm`を起動すれば良い。
+
+~~~shell
+# /etc/init.d/php7.4-fpm start
+~~~
+
+後は[ここ](../webserver/nginx.html)の指示通りで良い。
+
+![image-20210731100420416](image/mount_in_ubuntu/image-20210731100420416.png)
 
 ## マウント
 
