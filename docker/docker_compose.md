@@ -2,13 +2,38 @@
 
 ## 準備1：Docker-Composeをインストール
 
-Jetson Nanoでは`apt`コマンドでインストールするっぽい。
+### 最新版を入れる場合（`pip3`経由）
+
+`pip3`で入れるとロクなことが無いとよく言われるので、避けたいなら後述の`apt`を使う方法でやる。ただし、古いバージョンしか入らず、後でGPUを使うときに困るのでできれば最新バージョンを入れたい。GPU使わないならお任せ。
+
+~~~shell
+$ sudo apt update && sudo apt upgrade
+$ sudo apt install curl
+$ curl -sSL https://bootstrap.pypa.io/get-pip.py | sudo python3
+$ sudo apt -y install libffi-dev python-openssl libssl-dev
+$ sudo pip install docker-compose
+~~~
+
+バージョン確認。
+
+~~~shell
+$ sudo docker-compose version
+~~~
+
+~~~
+docker-compose version 1.29.2, build unknown
+docker-py version: 5.0.0
+CPython version: 3.6.9
+OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
+~~~
+
+### `apt`経由で入れる場合
 
 ~~~shell
 $ sudo apt install docker-compose
 ~~~
 
-インストール確認。
+バージョン確認。
 
 ~~~shell
 $ sudo docker-compose version
@@ -20,8 +45,6 @@ docker-py version: 2.5.1
 CPython version: 2.7.17
 OpenSSL version: OpenSSL 1.1.1  11 Sep 2018
 ~~~
-
-1.17が古いのでソースからインストールしようとしたけど何故か上手くいかない。まあJetPackのベースのUbuntuが18.04だからもうええか。
 
 ## 準備2：必要なファイル類を整理
 
@@ -88,7 +111,7 @@ $ sudo docker run --name nginx -d -p 80:80 -v ~/my-docker/sample-app/src:/usr/sh
 上記2つのコマンドを`docker-compose.yml`に書く。
 
 ~~~yaml
-version: "3"
+version: "3"  #←docker-composeがv1.27.0（または最新版）を使っているなら書かなくてよし
 
 services:
     nginx:
@@ -108,9 +131,9 @@ services:
 
 * `version:`
 
-  これは`docker-compose.yml`の書式のバージョニングということになるらしい。とりあえず`"3"`って書いとけばOK。
+  これは`docker-compose.yml`の書式のバージョニングということになるらしい。古いバージョンのDocker-Composeを使うならとりあえず`"3"`って書いとけばOK。最新版なら不要。
 
-  `docker-compose`のバージョンがもっと高ければもっと高いバージョンを書いてもいいらしいけど、よく分からん。詳しくは[公式ドキュメント](https://matsuand.github.io/docs.docker.jp.onthefly/compose/compose-file/)へ。
+  詳しくは[公式ドキュメント](https://matsuand.github.io/docs.docker.jp.onthefly/compose/compose-file/)へ。
 
 * `services:`
 

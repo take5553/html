@@ -31,6 +31,6 @@
 ## メモ
 
 * [Jetson NanoとVNCで接続](vnc.html)
-
+* [`jetson-stats`（`jtop`）とその注意点](jetson-stats.html)
 * [参考サイト](referrence.html)
 

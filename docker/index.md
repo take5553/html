@@ -40,5 +40,18 @@ Jetson Nano上で進めるけど、特にJetson Nanoでないといけないわ�
 
 Jetson Nanoにバリバリ依存した内容。
 
-* 公式イメージのDL
+* [公式イメージ](jetson_containers.html)
+* [NVIDIA L4T Baseイメージ1](l4t_base1.html)
+* [NVIDIA L4T Baseイメージ2](l4t_base2.html)
+* 
+
+## 関連リンク
+
+### アーキテクチャーの壁を乗り越える
+
+[Jetson 上で Docker イメージをビルドするのが辛かったので EC2 上にビルド環境を作った - ABEJA Tech Blog](https://tech-blog.abeja.asia/entry/environment-of-building-docker-image-for-jetson)
+[multiarch/qemu-user-static: `/usr/bin/qemu-*-static`](https://github.com/multiarch/qemu-user-static)
+[docker + qemu で raspberry pi の開発環境構築 - Plamo Linux 日記](https://toshi-mtk.hatenablog.com/entry/2020/07/20/200643)
+[ARM環境のRaspbianイメージをx86上のDockerで動かす - Qiita](https://qiita.com/hishi/items/61652e2d9755e17630de)
+[QEMUのユーザーモードをDockerコンテナ上で使う - Qiita](https://qiita.com/FGtatsuro/items/c5dd8fdb028fe8948c2e)
 
