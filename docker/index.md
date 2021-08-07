@@ -16,10 +16,6 @@
 
 [Orientation and setup | Docker Documentation](https://docs.docker.com/get-started/)
 
-## 目標
-
-Deep Leaning技術を使用したアプリを作成し、Dockerイメージと一緒に配布する。
-
 ## 目次
 
 ### 入門編
@@ -43,7 +39,7 @@ Jetson Nanoにバリバリ依存した内容。
 * [公式イメージ](jetson_containers.html)
 * [NVIDIA L4T Baseイメージ1](l4t_base1.html)
 * [NVIDIA L4T Baseイメージ2](l4t_base2.html)
-* 
+* [NVIDIA L4T PyTorchイメージ](pytorch_container.html)
 
 ## 関連リンク
 

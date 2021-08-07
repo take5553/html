@@ -3,6 +3,9 @@
 [Jetson AI Courses and Certification | NVIDIA Developer](https://developer.nvidia.com/embedded/learn/jetson-ai-certification-programs)に申し込んだので、その勉強メモ。
 
 * Getting Started with AI on Jetson Nano
+
+  ※このコースの履修を前提としているので、一部説明が不十分なところ有り。
+
   * [Introduction And Setup](01.html)
   * [Headless Device Mode](02.html)
   * Image Classification
@@ -23,7 +26,7 @@
   * [POSTURE ANALYSIS APPLICATION USING JETSON NANO](community-project-02.html)
   * [AI Home Monitoring with Nvidia Jetson Nano](community-project-03.html)
 
-アイディアが思いついて来たので制作に取り掛かり始める。
+アイディアを思いついたので制作に取り掛かり始める。
 
 * [Dockerの練習](../docker/)
 * [調査1　顔検出モデル](planning1.html)
