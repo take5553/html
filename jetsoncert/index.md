@@ -30,6 +30,8 @@
 
 * [Dockerの練習](../docker/)
 * [調査1　顔検出モデル](planning1.html)
+* 
+* 
 
 ## メモ
 

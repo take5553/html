@@ -778,9 +778,50 @@ General configuration for OpenCV 4.1.1 =====================================
 >>>
 ~~~
 
-うそやん。まだ？
+うそやん。まだ？と思ったらこれは気にしなくてもいいっぽい。なぜかはよく分からないけど、動いている。
 
+### 動作確認
 
+まず自分のカメラの対応サイズを調べる。Jetson Nano上（コンテナ外）で以下を打つ。
 
+~~~shell
+$ v4l2-ctl -d /dev/video0 --list-formats-ext
+~~~
 
+次に、コンテナ内に戻り、適当な場所に`test.py`を以下の内容で作る。`capture_width`と`capture_height`は自分のWebカメラの対応サイズから適当に選ぶ。
 
+参考：[[Kinesis Video Streams] OpenCVのビデオソースにGStreamerを使用してみました。 | DevelopersIO](https://dev.classmethod.jp/articles/gstreamer-opencv/)
+
+多分シュッとしたコードじゃないけど。
+
+~~~python
+import cv2
+from jetcam.usb_camera import USBCamera
+
+cap = USBCamera(capture_device=0, capture_width=352, capture_height=288, width=352, height=288)
+cap.running = True
+
+while(True):
+    frame = cap.value
+    if frame is None:
+    	break
+    cv2.imshow('frame', frame)
+    cv2.waitKey(1)
+
+cap.release()
+cv2.destroyAllWindows()
+~~~
+
+これをPythonで動かす。
+
+~~~shell
+# python3 test.py
+~~~
+
+するとコンテナ内で起動したスクリプトがローカルPCにまで飛んできてカメラの画像を映す。
+
+![image-20210809002045345](image/gui_development/image-20210809002045345.png)
+
+キター！
+
+ちなみに終了はターミナル上で`ctrl + C`を2回。
