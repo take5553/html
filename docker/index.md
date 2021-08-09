@@ -42,7 +42,7 @@ Jetson Nanoにバリバリ依存した内容。
 * [NVIDIA L4T PyTorchイメージ](pytorch_container.html)
 * [コンテナ上でGUIアプリ開発　環境構築1](gui_development.html)
 * [コンテナ上でGUIアプリ開発　アプリ試作](opencv_and_tkinter.html)
-* コンテナ上でGUIアプリ開発　環境構築2
+* [コンテナ上でGUIアプリ開発　環境構築2](gui_development2.html)
 * コンテナ上でGUIアプリ開発　環境構築まとめ
 
 ## 関連リンク
