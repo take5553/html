@@ -55,7 +55,6 @@
 * [PCにGPIOを編](ft232h/)
 
   Raspberry PiにあるGPIOをPCにも持たせる。
-  
 
 ### OS編
 
@@ -82,6 +81,10 @@
 * [Python編](python/)
 
   文法以外の知っておくべき知識置き場。
+
+* [PyTorch編](pytorch/)
+
+  ディープラーニングのフレームワーク。
 
 * [オブジェクト指向練習編](oop/)
 
