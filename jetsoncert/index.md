@@ -30,7 +30,8 @@
 
 * [Dockerの練習](../docker/)
 * [調査1　顔検出モデル](planning1.html)
-* 
+* [調査2　Tkinter](planning2_tkinter.html)
+* [調査3　Video4Linux(V4L)](planning3_camera.html)
 * 
 
 ## メモ
