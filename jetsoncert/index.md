@@ -32,7 +32,9 @@
 * [調査1　顔検出モデル](planning1.html)
 * [調査2　Tkinter](planning2_tkinter.html)
 * [調査3　Video4Linux(V4L)](planning3_camera.html)
-* 
+* [調査4　GStreamer](planning4_camera2.html)
+* [調査5　Jetson Nano用カメラライブラリ（Python）](planning5_camera3.html)
+* [調査6　nVIDIA公式Jetsonマニュアル](planning6_official.html)
 
 ## メモ
 

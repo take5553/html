@@ -2,8 +2,6 @@
 
 Linuxのカーネルに組み込まれているカメラを扱うためのAPI。詳しいことはよく分からん。
 
-参考：https://leico.github.io/TechnicalNote/Linux/webcam-usage
-
 ## ユーティリティーのインストール
 
 ~~~shell
@@ -189,16 +187,50 @@ ioctl: VIDIOC_ENUM_FMT
 ## カメラの解像度を変更
 
 ~~~shell
-$ v4l2-ctl -d 0 -v width=800,height=600
+$ v4l2-ctl -d 0 -v width=800,height=600,pixelformat=MJPG
 ~~~
+
+`pixelformat`は番号で指定することも可。その番号は上の`--list-formats-ext`で表示された`Index`の番号。
 
 ## カメラのフレームレートを変更
 
 ~~~shell
-$ v4l2-ctl -d 0 --set-parm=10
+$ v4l2-ctl -d 0 --set-parm=30
 ~~~
 
 `--set-parm`の代わりに`-p 10`でも可
+
+## FPSを計測
+
+~~~shell
+$ v4l2-ctl --stream-mmap --stream-count=300
+~~~
+
+~~~
+<<<<<<<<<<<<<<<<<<<<<<<<<<<< 26.21 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.61 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.41 fps
+<<<<<<<<<<<<<<<<<<<<<<<< 25.25 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.20 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.16 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.14 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.12 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.11 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.10 fps
+<<<<<<<<<<<<<<<<<<<<<<<<< 25.09 fps
+<<<<<<<<<<<<<<<<<<<<<<<
+~~~
+
+`--stream-mmap`について
+
+> ~~~
+> capture video using mmap() [VIDIOC_(D)QBUF]
+> count: the number of buffers to allocate. The default is 3.
+> ~~~
+>
+> `v4l2-ctl --help-all`より（後述）
+
+ざっくりと「メモリ上にキャプチャーする」ということだと思う。`mmap()`について調べたけど、うっかり足を踏み入れてはいけないような低レベル層の話だったので詳細は不明。
 
 ## 全てのオプション
 
@@ -786,3 +818,8 @@ EDID options:
                      If specified then any checksum errors will be fixed silently.
 ~~~
 
+## 参考
+
+[Linux: 利用できるWebカメラの情報を取得する](https://leico.github.io/TechnicalNote/Linux/webcam-usage)
+[raspberrry pi と USBカメラ で30fps出すのは難しかったという話 | tnoho.com](https://tnoho.com/web/webrtc/689)
+[mmapというファイルやデバイスをメモリーにマップするシステムコールの解説 - ncaq](https://www.ncaq.net/2018/01/19/10/27/30/)
