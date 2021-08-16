@@ -20,3 +20,7 @@
 
 * [セマンティックセグメンテーションをざっくり学ぶ - Qiita](https://qiita.com/fujiya228/items/ea30dac6ef827d608a56)
 
+## カメラ
+
+[NVIDIA Jetson Nano 開発者キットに Raspberry Pi Camera Module V2 RaspiCamを接続する方法 (Jetson Nanoは Raspberry Pi Camera Module V2の IMX219 800万画素カメラモジュールを接続できます)](http://www.neko.ne.jp/~freewing/raspberry_pi/nvidia_jetson_nano_setup_raspberry_pi_camera_module_v2/)
+

@@ -232,6 +232,98 @@ $ v4l2-ctl --stream-mmap --stream-count=300
 
 ざっくりと「メモリ上にキャプチャーする」ということだと思う。`mmap()`について調べたけど、うっかり足を踏み入れてはいけないような低レベル層の話だったので詳細は不明。
 
+## Raspberry Pi Camera Module V2で同じことをしてみる
+
+~~~shell
+$ v4l2-ctl --all
+~~~
+
+~~~
+Driver Info (not using libv4l2):
+	Driver name   : tegra-video
+	Card type     : vi-output, imx219 6-0010
+	Bus info      : platform:54080000.vi:0
+	Driver version: 4.9.201
+	Capabilities  : 0x84200001
+		Video Capture
+		Streaming
+		Extended Pix Format
+		Device Capabilities
+	Device Caps   : 0x04200001
+		Video Capture
+		Streaming
+		Extended Pix Format
+Priority: 2
+Video input : 0 (Camera 0: no power)
+Format Video Capture:
+	Width/Height      : 1280/720
+	Pixel Format      : 'RG10'
+	Field             : None
+	Bytes per Line    : 2560
+	Size Image        : 1843200
+	Colorspace        : sRGB
+	Transfer Function : Default (maps to sRGB)
+	YCbCr/HSV Encoding: Default (maps to ITU-R 601)
+	Quantization      : Default (maps to Full Range)
+	Flags             : 
+
+Camera Controls
+
+                     group_hold 0x009a2003 (bool)   : default=0 value=0 flags=execute-on-write
+                    sensor_mode 0x009a2008 (int64)  : min=0 max=0 step=0 default=0 value=5 flags=slider
+                           gain 0x009a2009 (int64)  : min=0 max=0 step=0 default=0 value=170 flags=slider
+                       exposure 0x009a200a (int64)  : min=0 max=0 step=0 default=0 value=29999 flags=slider
+                     frame_rate 0x009a200b (int64)  : min=0 max=0 step=0 default=0 value=30000001 flags=slider
+                    bypass_mode 0x009a2064 (intmenu): min=0 max=1 default=0 value=1
+                override_enable 0x009a2065 (intmenu): min=0 max=1 default=0 value=1
+                   height_align 0x009a2066 (int)    : min=1 max=16 step=1 default=1 value=1
+                     size_align 0x009a2067 (intmenu): min=0 max=2 default=0 value=0
+               write_isp_format 0x009a2068 (bool)   : default=0 value=0
+       sensor_signal_properties 0x009a2069 (u32)    : min=0 max=0 step=0 default=0 flags=read-only, has-payload
+        sensor_image_properties 0x009a206a (u32)    : min=0 max=0 step=0 default=0 flags=read-only, has-payload
+      sensor_control_properties 0x009a206b (u32)    : min=0 max=0 step=0 default=0 flags=read-only, has-payload
+              sensor_dv_timings 0x009a206c (u32)    : min=0 max=0 step=0 default=0 flags=read-only, has-payload
+               low_latency_mode 0x009a206d (bool)   : default=0 value=0
+               preferred_stride 0x009a206e (int)    : min=0 max=65535 step=1 default=0 value=0
+                   sensor_modes 0x009a2082 (int)    : min=0 max=30 step=1 default=30 value=6 flags=read-only
+~~~
+
+~~~shell
+$ v4l2-ctl --list-devices
+~~~
+
+~~~
+vi-output, imx219 6-0010 (platform:54080000.vi:0):
+	/dev/video0
+
+HD Webcam eMeet C960 (usb-70090000.xusb-3.1):
+	/dev/video1
+~~~
+
+~~~shell
+$ v4l2-ctl -d 0 --list-formats-ext
+~~~
+
+~~~
+ioctl: VIDIOC_ENUM_FMT
+	Index       : 0
+	Type        : Video Capture
+	Pixel Format: 'RG10'
+	Name        : 10-bit Bayer RGRG/GBGB
+		Size: Discrete 3264x2464
+			Interval: Discrete 0.048s (21.000 fps)
+		Size: Discrete 3264x1848
+			Interval: Discrete 0.036s (28.000 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.033s (30.000 fps)
+		Size: Discrete 1640x1232
+			Interval: Discrete 0.033s (30.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.017s (60.000 fps)
+~~~
+
+FPSの計測はなぜかできなかった。
+
 ## 全てのオプション
 
 ~~~shell
