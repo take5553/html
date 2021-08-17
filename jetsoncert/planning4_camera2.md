@@ -63,6 +63,14 @@ $ gst-launch-1.0 videotestsrc ! autovideosink
 $ gst-launch-1.0 videotestsrc ! ximagesink
 ~~~
 
+また、`videotestsrc`には`pattern`という引数があって、
+
+~~~shell
+$ gst-launch-1.0 videotestsrc pattern=18 ! ximagesink
+~~~
+
+とすると、ボールが動く映像が映る。
+
 ## V4Lをソースにする
 
 ~~~shell
@@ -167,4 +175,40 @@ ioctl: VIDIOC_ENUM_FMT
 		(略)
 ~~~
 
+## nVIDIA製のプラグイン
 
+Jetson Nanoに入っている、GStreamerで使えるプラグイン。全容は以下を参照。
+
+https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#
+
+動いた例1（[参考](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0FR0HA)）
+
+~~~
+$ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv ! ximagesink
+~~~
+
+動いた例2（[前処理でCUDAを使うらしい](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0BI0HA)）
+
+~~~
+$ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nvivafilter cuda-process=true customer-lib-name="libnvsample_cudaprocess.so" !  'video/x-raw(memory:NVMM), format=(string)NV12' ! nvvidconv ! ximagesink
+~~~
+
+1. ディスプレイの大きさ以上の解像度を指定するとエラーが起きるらしい。
+
+2. `nvvidconv`を通せば何でもいける気がする。
+3. 他の`~~~sink`もあるけど、~~今の所`ximagesink`しか成功しない。~~GUI上でやったら`nv3dsink`、`nveglglessink`でもテスト映像を映すことに成功した。
+
+素晴らしく素晴らしい解説をしているサイトを見つけた。
+
+[NVIDIA JetsonのGStreamerでの4画面表示 – senooken.jp](https://senooken.jp/post/2020/11/18/)
+
+`(memory:NVMM)`の意味。
+
+[What is the difference between 'video/x-raw(memory:NVMM)' and video/x-raw? - Jetson & Embedded Systems / Jetson TX2 - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/what-is-the-difference-between-video-x-raw-memory-nvmm-and-video-x-raw/72424)
+
+[DMA対応と言われたら（1） | 学校では教えてくれないこと | [技術コラム集]組込みの門 | ユークエスト株式会社](https://www.uquest.co.jp/embedded/learning/lecture15-1.html)
+
+## 参考リンク
+
+[GStreamer Advent Calendar 2015 - Qiita](https://qiita.com/advent-calendar/2015/gstreamer)
+[GStreamer Advent Calendar 2016 - Qiita](https://qiita.com/advent-calendar/2016/gstreamer)

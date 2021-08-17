@@ -915,3 +915,6 @@ EDID options:
 [Linux: 利用できるWebカメラの情報を取得する](https://leico.github.io/TechnicalNote/Linux/webcam-usage)
 [raspberrry pi と USBカメラ で30fps出すのは難しかったという話 | tnoho.com](https://tnoho.com/web/webrtc/689)
 [mmapというファイルやデバイスをメモリーにマップするシステムコールの解説 - ncaq](https://www.ncaq.net/2018/01/19/10/27/30/)
+
+[Jetsonで使えるカメラ - Qiita](https://qiita.com/akira-sasaki/items/7465f6cfd6ab5977f1c9)
+
