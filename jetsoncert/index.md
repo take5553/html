@@ -40,5 +40,6 @@
 
 * [Jetson NanoとVNCで接続](vnc.html)
 * [`jetson-stats`（`jtop`）とその注意点](jetson-stats.html)
+* [GUIの有効無効のスイッチ](cui_gui_switch.html)
 * [参考サイト](referrence.html)
 
