@@ -43,7 +43,6 @@ Jetson Nanoにバリバリ依存した内容。
 * [コンテナ上でGUIアプリ開発　環境構築1](gui_development.html)
 * [コンテナ上でGUIアプリ開発　アプリ試作](opencv_and_tkinter.html)
 * [コンテナ上でGUIアプリ開発　環境構築2](gui_development2.html)
-* コンテナ上でGUIアプリ開発　環境構築まとめ
 
 ### トラブルシューティング
 
