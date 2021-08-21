@@ -212,3 +212,6 @@ $ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, 
 
 [GStreamer Advent Calendar 2015 - Qiita](https://qiita.com/advent-calendar/2015/gstreamer)
 [GStreamer Advent Calendar 2016 - Qiita](https://qiita.com/advent-calendar/2016/gstreamer)
+
+[cropping image using nvvidconv - Jetson & Embedded Systems / Jetson TX1 - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/cropping-image-using-nvvidconv/48489)
+
