@@ -71,7 +71,7 @@ $ gst-launch-1.0 videotestsrc pattern=18 ! ximagesink
 
 とすると、ボールが動く映像が映る。
 
-## V4Lをソースにする
+## V4Lをソースにする（USBカメラ）
 
 ~~~shell
 $ gst-launch-1.0 v4l2src device=/dev/video0 ! ximagesink
@@ -130,7 +130,7 @@ Flags             :
 
 どうも`video/x-raw`を指定すると`Pixel Format : 'YUYV'`になるらしい。
 
-## MJPG（Motion-JPEG）を指定する
+## MJPG（Motion-JPEG）を指定する（USBカメラ）
 
 ~~~shell
 $ gst-launch-1.0 v4l2src device=/dev/video0 ! jpegdec ! videoconvert ! ximagesink
@@ -175,19 +175,19 @@ ioctl: VIDIOC_ENUM_FMT
 		(略)
 ~~~
 
-## nVIDIA製のプラグイン
+## nVIDIA製のプラグイン（CSIカメラ）
 
 Jetson Nanoに入っている、GStreamerで使えるプラグイン。全容は以下を参照。
 
 https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#
 
-動いた例1（[参考](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0FR0HA)）
+動いた例1（Raspberry Pi Camera Module v2使用）（[参考](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0FR0HA)）
 
 ~~~
 $ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv ! ximagesink
 ~~~
 
-動いた例2（[前処理でCUDAを使うらしい](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0BI0HA)）
+動いた例2（Raspberry Pi Camera Module v2使用）（[前処理でCUDAを使うらしい](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/accelerated_gstreamer.html#wwpID0E0BI0HA)）
 
 ~~~
 $ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nvivafilter cuda-process=true customer-lib-name="libnvsample_cudaprocess.so" !  'video/x-raw(memory:NVMM), format=(string)NV12' ! nvvidconv ! ximagesink
@@ -208,6 +208,48 @@ $ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, 
 
 [DMA対応と言われたら（1） | 学校では教えてくれないこと | [技術コラム集]組込みの門 | ユークエスト株式会社](https://www.uquest.co.jp/embedded/learning/lecture15-1.html)
 
+## nVIDIA製のプラグインで画面の切り取り（CSIカメラ）
+
+~~~
+$ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nvvidconv flip-method=2 left=320 right=960 top=0 bottom=720 ! 'video/x-raw(memory:NVMM), width=(int)600, height=(int)720, format=(string)NV12, framerate=(fraction)30/1' ! nv3dsink -e
+~~~
+
+1. `nvarguscamerasrc`
+2. フォーマット情報でカメラソースの解像度を指定
+3. `nvvidconv`で「上下反転（Raspberry Piカメラモジュールは天地逆さまのキャプチャーがデフォなので）」をしてから、「X軸`320`から`960`の範囲、Y軸`0`から`720`の範囲（つまり全体）を切り取り」をする
+4. フォーマット情報で出力映像の解像度を指定（受け取った解像度と出力解像度が一致しない場合、勝手に拡大縮小するらしい）
+5. `nv3dsink`で映像出力。（`-e`はパイプライン終了の合図）
+
+`nvvidconv`のCropping（切り取り）の指定がGStreamer標準の`videocrop`のやり方と違って混乱した。
+
+* `nvvidconv`
+
+  左右：`left`の座標から`right`の座標までの範囲で切り取り。
+
+  上下：`top`の座標から`bottom`の座標までの範囲で切り取り。
+
+* `videocrop`
+
+  左：`left`のピクセル分切り取り
+
+  右：`right`のピクセル分切り取り
+
+  上：`top`のピクセル分切り取り
+
+  下：`bottom`のピクセル分切り取り
+
+また、`nvvidconv`で切り取りした後はフォーマット指定で切り取り幅を明示してあげないと勝手に拡大縮小と判断してしまう。
+
+## USBカメラでも`nvarguscamerasrc`は使えないのか
+
+使えないらしい。
+
+https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-3231/index.html#page/Tegra%2520Linux%2520Driver%2520Package%2520Development%2520Guide%2Fjetson_xavier_camera_soft_archi.html%23wwpID0E0AC0HA
+
+CSIカメラでは`v4l2src`と`nvarguscamerasrc`のどちらでも取り込めるらしいけど、`nvarguscamerasrc`を使いつつ途中も`nv~`系のプラグインを良いような雰囲気のことを言っている人が居た（かなり曖昧）。
+
+https://forums.developer.nvidia.com/t/gstreamer-nvarguscamerasrc-and-v4l2src-elements-comparison-on-flowchart/74875/3
+
 ## 参考リンク
 
 [GStreamer Advent Calendar 2015 - Qiita](https://qiita.com/advent-calendar/2015/gstreamer)
@@ -215,3 +257,8 @@ $ gst-launch-1.0 nvarguscamerasrc ! 'video/x-raw(memory:NVMM), width=(int)1280, 
 
 [cropping image using nvvidconv - Jetson & Embedded Systems / Jetson TX1 - NVIDIA Developer Forums](https://forums.developer.nvidia.com/t/cropping-image-using-nvvidconv/48489)
 
+[【第1回】色の世界 (1/3)：CodeZine（コードジン）](https://codezine.jp/article/detail/3749)（無料の会員登録が必要だけどPixel Formatの基礎知識として有用）
+[YUVをちゃんと理解してからRGBにコンバートしましょうね | Technology | KLablog | KLab株式会社](https://www.klab.com/jp/blog/tech/2016/1054828175.html)
+[YUV - Wikipedia](https://ja.wikipedia.org/wiki/YUV)
+
+https://docs.nvidia.com/jetson/archives/l4t-archived/l4t-3231/index.html#page/Tegra%2520Linux%2520Driver%2520Package%2520Development%2520Guide%2Fjetson_xavier_camera_soft_archi.html%23wwpID0E0OC0HA
