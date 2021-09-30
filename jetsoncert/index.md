@@ -43,5 +43,6 @@
 * [GUIの有効無効のスイッチ](cui_gui_switch.html)
 * [ディスプレイを縦にする](rotate_display.html)
 * [H.264について](h264.html)
+* [音が出ないとき](https://jweb.asia/26-it/ai/60-jetspeech.html)（外部リンク）
 * [参考サイト](referrence.html)
 
