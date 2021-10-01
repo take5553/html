@@ -58,3 +58,7 @@ Jetson Nanoにバリバリ依存した内容。
 [ARM環境のRaspbianイメージをx86上のDockerで動かす - Qiita](https://qiita.com/hishi/items/61652e2d9755e17630de)
 [QEMUのユーザーモードをDockerコンテナ上で使う - Qiita](https://qiita.com/FGtatsuro/items/c5dd8fdb028fe8948c2e)
 
+## コンテナ内の音声ファイルを再生する
+
+[こちら](sound.html)
+
