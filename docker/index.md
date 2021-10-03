@@ -58,7 +58,12 @@ Jetson Nanoにバリバリ依存した内容。
 [ARM環境のRaspbianイメージをx86上のDockerで動かす - Qiita](https://qiita.com/hishi/items/61652e2d9755e17630de)
 [QEMUのユーザーモードをDockerコンテナ上で使う - Qiita](https://qiita.com/FGtatsuro/items/c5dd8fdb028fe8948c2e)
 
-## コンテナ内の音声ファイルを再生する
+### コンテナ内の音声ファイルを再生する
 
 [こちら](sound.html)
+
+### Dockerコンテナ内でGUIアプリを立ち上げる
+
+[Dockerコンテナの中でGUIアプリケーションを起動させる | Unskilled?](https://unskilled.site/docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AE%E4%B8%AD%E3%81%A7gui%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%95%E3%81%9B%E3%82%8B/)
+[Docker コンテナ内のGUIアプリを起動してホスト側に表示する](https://zukucode.com/2019/07/docker-gui-show.html)
 

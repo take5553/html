@@ -44,5 +44,6 @@
 * [ディスプレイを縦にする](rotate_display.html)
 * [H.264について](h264.html)
 * [音が出ないとき](https://jweb.asia/26-it/ai/60-jetspeech.html)（外部リンク）
+* [`docker`コマンドを`sudo`無しで動かす](https://qiita.com/yamamo-to/items/33f57f9a059cc95b9c08)（外部リンク）
 * [参考サイト](referrence.html)
 
