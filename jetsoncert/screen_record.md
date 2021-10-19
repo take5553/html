@@ -124,5 +124,7 @@ $ pactl list | grep alsa_input
 
 `pactl`はPulseAudio controlのことらしい。深追いはやめとこ。
 
+とりあえずWebカメラ以外のマイクを持っていたとしても同じ方法で調べれば出てくるということか。
+
 参考：[pactl(1) - Linux man page](https://linux.die.net/man/1/pactl)
 
