@@ -69,6 +69,8 @@
 * [Red Hat Enterprise Linux（RHEL）編](rhel/)
 
   完全に興味本位。
+  
+* [Kali Linux編](kali/)
 
 ## 未分類
 
