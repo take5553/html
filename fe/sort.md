@@ -125,3 +125,36 @@ def quick(arr):
     qsort(arr, 0, len(arr)-1)
 ~~~
 
+~~~python
+def msort(arr, l, r, buff):
+    if l < r:
+        c = (l + r) // 2
+        msort(arr, l, c, buff)
+        msort(arr, c+1, r, buff)
+        
+        blen = bidx = 0
+        i = j = l
+        while i <= c:
+            buff[blen] = arr[i]
+            blen += 1
+            i += 1
+        while i <= r and bidx < blen:
+            if buff[bidx] <= arr[i]:
+                arr[j] = buff[bidx]
+                bidx += 1
+            else:
+                arr[j] = arr[i]
+                i += 1
+            j += 1
+        while bidx < blen:
+            arr[j] = buff[bidx]
+            j += 1
+            bidx += 1
+            
+def merge(arr):
+    n = len(arr)
+    buff = [None] * n
+    msort(arr, 0, n-1, buff)
+    del buff
+~~~
+
