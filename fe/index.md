@@ -6,7 +6,8 @@
 2. [アルゴリズムとプログラミング](02_algorithm.html)
 3. [コンピューターシステム](03_computer_system.html)
 4. [データベース](04_database.html)
-5. 
+5. [ネットワーク](05_network.html)
+6. 
 
 ## ソート
 
