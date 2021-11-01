@@ -36,6 +36,10 @@
 * [調査5　Jetson Nano用カメラライブラリ（Python）](planning5_camera3.html)
 * [調査6　nVIDIA公式Jetsonマニュアル](planning6_official.html)
 
+## 作品
+
+[take5553/face-check: face recognition app for Jetson Nano](https://github.com/take5553/face-check)
+
 ## メモ
 
 * [Jetson NanoとVNCで接続](vnc.html)
