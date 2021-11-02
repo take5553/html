@@ -4,7 +4,7 @@
 
 * Getting Started with AI on Jetson Nano
 
-  ※このコースの履修を前提としているので、一部説明が不十分なところ有り。
+  ※以下のページの説明はこのコースの履修を前提としているので、一部説明が不十分なところ有り。
 
   * [Introduction And Setup](01.html)
   * [Headless Device Mode](02.html)
@@ -39,6 +39,10 @@
 ## 作品
 
 [take5553/face-check: face recognition app for Jetson Nano](https://github.com/take5553/face-check)
+
+## 合格
+
+![certification](image/index/certification.png)
 
 ## メモ
 
