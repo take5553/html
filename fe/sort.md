@@ -158,3 +158,26 @@ def merge(arr):
     del buff
 ~~~
 
+~~~python
+def hsort(arr, l, r):
+    tmp = arr[l]
+    p = l
+    while p <= (r - 1) // 2:
+        cl = p * 2 + 1
+        cr = cl + 1
+        c = cr if cr <= r and arr[cr] > arr[cl] else cl
+        if tmp >= arr[c]:
+            break
+        arr[p] = arr[c]
+        p = c
+    arr[p] = tmp
+    
+def heap(arr):
+    n = len(arr)
+    for i in range((n-1) // 2, -1, -1):
+        hsort(arr, i, n-1)
+    for i in range(n-1, 0, -1):
+        arr[0], arr[i] = arr[i], arr[0]
+        hsort(arr, 0, i-1)
+~~~
+
