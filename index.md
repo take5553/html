@@ -66,6 +66,10 @@
 
   一家に1サーバー時代到来。ファイルサーバーと、ついでに色々。
   
+* [Ubuntu Desktop編](ubuntudesktop/)
+
+  メインPCのOS、3代目
+
 * [Red Hat Enterprise Linux（RHEL）編](rhel/)
 
   完全に興味本位。
