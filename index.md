@@ -18,7 +18,7 @@
 
 ## やってみよう
 
-環境構築から、ある程度のものを作るまでの開発記録。Progate等で入門を終えた人用。
+環境構築から、ある程度のものを作るまでの開発記録。
 
 * [PHP（WordPress）編](wordpress/)
 
@@ -35,6 +35,10 @@
 * [Docker編](docker/)
 
   Jetsonで動くアプリの環境作り。
+
+* [Jetson Nano サーバー編](jetsonlab/)
+
+  Jetson上でJupyter Labを動かしてサーバー化して、実験室にする。
 
 * [Python（Kaggle）編](kaggle/)（保留中）
 
