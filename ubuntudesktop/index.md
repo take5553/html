@@ -65,6 +65,8 @@ Liveインストール中にパーティションを設定するけど、
   
 * HTMLフォルダのPull
 
+  `git`をインストールして行う。
+
 ## Garuda Linuxの環境と合わせに行く
 
 ### Firefoxのアドオン
@@ -72,4 +74,41 @@ Liveインストール中にパーティションを設定するけど、
 * Markdown Link
 * Bitwarden
 * Dark Reader
+
+### 色温度
+
+~~~shell
+$ sudo apt install redshift redshift-gtk
+~~~
+
+`~/.config/redshift.conf`を作成し、以下の様に記入。
+
+~~~
+[redshift]
+temp-day=6500
+temp-night=4900
+
+transition=1
+gamma=1
+location-provider=manual
+adjustment-method=randr
+
+[manual]
+lat=35
+lon=135
+~~~
+
+緯度、軽度は適当に自分家に合わせる。
+
+その後、「Show Applications」（画面左下）のアプリ一覧からRedshiftを起動する。
+
+![image-20211113182934325](image/index/image-20211113182934325.png)
+
+でもなんかちょっと色味がGaruda Linuxのものとちょっと違うなー。目には優しいけど。
+
+## その他インストールするソフト
+
+* `flameshot`（スクリーンショットソフト）
+* `typora`（マークダウンエディタ　要リポジトリ追加）
+* 
 
