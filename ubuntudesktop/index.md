@@ -106,9 +106,27 @@ lon=135
 
 でもなんかちょっと色味がGaruda Linuxのものとちょっと違うなー。目には優しいけど。
 
+## 自作コマンド
+
+### `syncgit`
+
+~~~shell
+TARGET_DIRECTORY="/home/takeshi/html"
+COMMIT-MESSAGE=$(date +%Y/%m/%d-%H:%M:%S)
+REMOTE="upload@192.168.1.201"
+PRIVATE_KEY="/home/takeshi/.ssh/id_rsa_upload"
+PORT=51234
+COMMAND="cd /home/takeshi/www/html && git pull github master"
+
+cd ${TARGET_DIRECTORY}
+git add .
+git commit -m ${COMMIT-MESSAGE}
+git push origin master
+ssh -i ${PRIVATE_KEY} -p ${PORT} $REMOTE $COMMAND
+~~~
+
 ## その他インストールするソフト
 
 * `flameshot`（スクリーンショットソフト）
 * `typora`（マークダウンエディタ　要リポジトリ追加）
-* 
-
+* `imagemagick`（画像加工ソフト）
