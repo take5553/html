@@ -13,9 +13,11 @@
 7. [システム開発技術](07_development.html)
 8. [プロジェクトマネジメント・サービスマネジメント](08_management.html)
 9. [経営戦略・システム戦略](09_strategy.html)
-10. 企業と法務
+10. [企業と法務](10_legal.html)
 
-## ソート
+## プログラム
 
 [ソートアルゴリズム](sort.html)
+
+[Make 10](make10.html)
 
