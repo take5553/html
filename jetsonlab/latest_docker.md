@@ -45,7 +45,7 @@ nVidiaの実験的リポジトリというところから`nvidia-container-toolk
    $ sudo apt install curl
    ~~~
 
-2. 以下を打つ。これで実験的リポジトリが`apt`のリポジトリリストに追加されるらしい。
+2. 以下を打つ。これで実験的リポジトリが`apt`のリポジトリリストに追加されるらしい。2つ目の`curl`の行は要らんかも。
 
    ~~~shell
    $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
