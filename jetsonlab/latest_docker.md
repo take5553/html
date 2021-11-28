@@ -31,7 +31,70 @@ Docker version 20.10.7, build 20.10.7-0ubuntu5~18.04.3
 
 ## 解決策
 
-### 古いバージョンを入れる
+### 1. `nvidia-container-toolkit`を更新する
+
+※2021/11/28現在の最新解決策
+
+詳しい議論は[こちら](https://github.com/NVIDIA/libnvidia-container/issues/148)（英語）
+
+nVidiaの実験的リポジトリというところから`nvidia-container-toolkit=1.7.0~rc.1-1`を入手すれば良いらしい。
+
+1. `curl`をインストール。
+
+   ~~~shell
+   $ sudo apt install curl
+   ~~~
+
+2. 以下を打つ。これで実験的リポジトリが`apt`のリポジトリリストに追加されるらしい。
+
+   ~~~shell
+   $ distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+      && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \
+      && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list \
+      && curl -s -L https://nvidia.github.io/nvidia-container-runtime/experimental/$distribution/nvidia-container-runtime.list | sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+   ~~~
+
+3. `apt`アップデート。
+
+   ~~~shell
+   $ sudo apt update
+   ~~~
+
+4. 入手できる`nvidia-container-toolkit`の確認。`1.7.0~rc.1-1`が見えていればOK。
+
+   ~~~shell
+   $ apt show nvidia-container-toolkit
+   ~~~
+
+   ~~~
+   Package: nvidia-container-toolkit
+   Version: 1.7.0~rc.1-1
+   Priority: optional
+   Section: utils
+   Maintainer: NVIDIA CORPORATION <cudatools@nvidia.com>
+   Installed-Size: 4,324 kB
+   Depends: libnvidia-container-tools (>= 1.7.0~rc.1-1), libnvidia-container-tools (<< 2.0.0), libseccomp2
+   Breaks: nvidia-container-runtime (<= 3.5.0-1), nvidia-container-runtime-hook
+   Replaces: nvidia-container-runtime (<= 3.5.0-1), nvidia-container-runtime-hook
+   Homepage: https://github.com/NVIDIA/nvidia-container-runtime/wiki
+   Download-Size: 854 kB
+   APT-Manual-Installed: yes
+   APT-Sources: https://nvidia.github.io/libnvidia-container/experimental/ubuntu18.04/arm64  Packages
+   Description: NVIDIA container runtime hook
+     Provides a OCI hook to enable GPU support in containers.
+   ~~~
+
+5. `nvidia-container-toolkit`のインストール。
+
+   ~~~shell
+   $ sudo apt install nvidia-container-toolkit
+   ~~~
+
+これで動くようになる。
+
+### 2. 古いバージョンを入れる
+
+上記1.の解決策を避けたい時。
 
 どのバージョンがインストールできるのかは以下でチェックできる。
 
