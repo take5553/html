@@ -6,3 +6,4 @@
 
 [※最新のDockerが動かない可能性（2021/11現在）](latest_docker.html)
 
+[memo: jupyterlab](https://zenn.dev/ningensei848/scraps/e2494c30e57c08)
