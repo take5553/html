@@ -78,6 +78,10 @@
 
   完全に興味本位。
   
+* [VMWareでCentOS編](vmware/)
+
+  訳あってVMWareでCentOSを動かす。
+  
 * [Kali Linux編](kali/)
 
 ## 未分類
