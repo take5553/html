@@ -10,6 +10,7 @@
 * `matplotlib.pyplot`
 * `pandas`
 * `sklearn.preprocessing.StandardScaler`
+* `statsmodels.stats.proportion.proportions_ztest`
 
 ## 準備
 
@@ -155,6 +156,7 @@
 
 1. `df`のうち50個の標本をとり、`tip`の平均の区間推定値を正規分布を用いて計算することを100回繰り返したとき、それらの区間に実際の母平均が入っている場合の数を求めよ。
 2. 自由度が1, 6, 11であるt分布を描き、同じ図の中に標準正規分布も描け。
+2. `df`のうち50個の標本をとり、`tip`の平均の区間推定値を正規分布とt分布を用いて算出し比べよ。
 
 ### 比率の差の検定（Z検定とカイ二乗検定）
 
