@@ -14,7 +14,7 @@
 8. [プロジェクトマネジメント・サービスマネジメント](08_management.html)
 9. [経営戦略・システム戦略](09_strategy.html)
 10. [企業と法務](10_legal.html)
-10. [予想問題より](yosou.md)
+11. [予想問題より](yosou.html)
 10. [過去問より](kako.html)
 
 ## プログラム
