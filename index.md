@@ -36,6 +36,10 @@
 
   Jetsonで動くアプリの環境作り。
 
+* [DockerでLAMP編](docker-lamp/)
+
+  Docker編の番外編
+
 * [Jetson Nano サーバー編](jetsonlab/)
 
   Jetson上でJupyter Labを動かしてサーバー化して、実験室にする。
