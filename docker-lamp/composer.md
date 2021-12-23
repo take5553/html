@@ -19,6 +19,8 @@ RUN apt-get update \
     zip \
     gd
 COPY --from=composer:(指定のバージョン) /usr/bin/composer /usr/bin/composer
+WORKDIR /var/www/html
+RUN composer install
 ~~~
 
 Composerのバージョンなんて気にしなければ`latest`でOK。
