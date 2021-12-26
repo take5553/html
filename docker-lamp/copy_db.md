@@ -21,11 +21,11 @@ $ mysqldump -u (ユーザー名) -p db2 > db2.dump.sql
 
 こんな感じ。
 
-おそらくファイルサイズが大きいことが予想されるので、必要に応じて圧縮などして自分の環境に移しておく。自分は`mysqldump`というディレクトリを作ってその中に入れた。
+おそらくファイルサイズが大きいことが予想されるので、必要に応じて圧縮などして自分の環境に移しておく。自分は`mysql/init_data`というディレクトリを作ってその中に入れた。
 
 ## 動作確認で使用したDB内のデータをきれいにしておく
 
-`mysql`ディレクトリの中にすべて収まっているので、これを全部消せばきれいになるはず。
+`mysql/data`ディレクトリの中にすべて収まっているので、これを全部消せばきれいになるはず。
 
 ## MySQLコンテナに複数のDBを作成する
 
@@ -35,22 +35,28 @@ $ mysqldump -u (ユーザー名) -p db2 > db2.dump.sql
 
 ### 新たにMySQLセッティング用ディレクトリを作成
 
-`mysql`ディレクトリはDBの中身を置いておく場所ということで統一したいので、`mysql`と同じ階層に`mysqlsettings`ディレクトリを作成し、その中に`init.sql`というファイルを作成する。
+`mysql`ディレクトリに`init.sql`というファイルを作成する。
 
 こんな感じ。
 
 ~~~
 docker
 ├── docker-compose.yml
-├── html(空ディレクトリ)
-├── mysql(空ディレクトリ)
-├── mysqldump
-│   └── (DBからのDumpファイル)
-├── mysqlsettings
-│   └── init.sql
-├── php
-│   └── Dockerfile
-└── php.ini
+├── source
+|   └── test
+|       ├── venderディレクトリ
+|       ├── composer.json
+|       ├── composer.lock
+|       └── index.php
+├── mysql
+|   ├── dataディレクトリ
+|   ├── init_data
+|   |   ├── db1.dump.sql
+|   |   └── db2.dump.sql
+|   └── init.sql
+└── php
+    ├── php.ini
+    └── Dockerfile
 ~~~
 
 ### `init.sql`の中身
@@ -71,9 +77,9 @@ services:
   mysql:
     image: mysql:(指定のバージョン)
     volumes:
-      - ./mysql:/var/lib/mysql
-      - ./mysqlsettings:/docker-entrypoint-initdb.d  # ←これを追加
-      - ./mysqldump:/mysqldump # ←これは後で使う
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql  # ←これを追加
+      - ./mysql/init_data:/mysql_init_data # ←これは後で使う
     ports:
       - 3306:3306
     environment:
@@ -84,8 +90,8 @@ services:
   php:
     build: ./php
     volumes:
-      - ./php.ini:/usr/local/etc/php/php.ini
-      - ./html:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./source/test:/var/www/html
     ports:
       - 80:80
     depends_on:
@@ -127,6 +133,7 @@ $ sudo docker exec -it (MySQLコンテナ名) bash
 そしてコンテナ内で以下を打つ。
 
 ~~~shell
+# cd mysql_init_data
 # mysql -u (指定ユーザー名) -p db1 < db1.dump.sql
 # mysql -u (指定ユーザー名) -p db2 < db2.dump.sql
 ~~~

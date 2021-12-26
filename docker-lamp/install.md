@@ -58,11 +58,13 @@ Docker Compose version 2.2.2
 ~~~
 docker
 ├── docker-compose.yml
-├── html(空ディレクトリ)
-├── mysql(空ディレクトリ)
-├── php
-│   └── Dockerfile
-└── php.ini
+├── source
+|   └── test(空ディレクトリ)
+├── mysql
+|   └── data(空ディレクトリ)
+└── php
+    ├── php.ini
+    └── Dockerfile
 ~~~
 
 ホームディレクトリ（もしくはどこか適当なところ）に移動して以下を打つ。
@@ -75,9 +77,12 @@ $ mkdir php
 $ touch php/Dockerfile
 
 $ mkdir mysql
-$ mkdir html
+$ mkdir mysql/data
+
+$ mkdir source
+$ mkdir source/test
+
 $ touch docker-compose.yml
-$ touch php.ini
 ~~~
 
 ### `docker-compose.yml`の中身
@@ -89,7 +94,7 @@ services:
   mysql:
     image: mysql:(指定のバージョン)
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./mysql/data:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
@@ -100,8 +105,8 @@ services:
   php:
     build: ./php
     volumes:
-      - ./php.ini:/usr/local/etc/php/php.ini
-      - ./html:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./source/test:/var/www/html
     ports:
       - 80:80
     depends_on:
@@ -140,7 +145,7 @@ $ sudo docker ps
 
 ### HTMLのみ
 
-`html`ディレクトリに、以下の内容で`index.html`を作成する。
+`source/test`ディレクトリに、以下の内容で`index.html`を作成する。
 
 ~~~html
 <!DOCTYPE html>
@@ -159,7 +164,7 @@ $ sudo docker ps
 
 ### HTML+PHP
 
-`html`ディレクトリの`index.html`を`index.php`にリネームして、内容を以下のように変更する。
+`source/test`ディレクトリの`index.html`を`index.php`にリネームして、内容を以下のように変更する。
 
 ~~~php+HTML
 <!DOCTYPE html>
@@ -220,7 +225,7 @@ mysql>
 > exit
 ~~~
 
-出てきたら`html`ディレクトリ内の`index.php`を以下のように変更する。
+出てきたら`source/test`ディレクトリ内の`index.php`を以下のように変更する。
 
 ~~~php+HTML
 <?php

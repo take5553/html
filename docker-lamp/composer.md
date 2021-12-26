@@ -23,8 +23,6 @@ RUN apt-get update \
     zip \
     gd
 COPY --from=composer:(指定のバージョン) /usr/bin/composer /usr/bin/composer
-WORKDIR /var/www/html
-RUN composer install
 ~~~
 
 Composerのバージョンなんて気にしなければ`latest`でOK。
@@ -37,7 +35,7 @@ $ sudo docker-compose build
 
 ## `composer.json`と`composer.lock`
 
-直属の偉い人からもらえるであろう`composer.json`と`composer.lock`を`html`ディレクトリに入れておく。こうすることでコンテナ起動時にこれら2つのファイルもコンテナ内で見えるようになる。
+直属の偉い人からもらえるであろう`composer.json`と`composer.lock`を`source/test`ディレクトリに入れておく。こうすることでコンテナ起動時にこれら2つのファイルもコンテナ内で見えるようになる。
 
 ## Composerの実行
 
