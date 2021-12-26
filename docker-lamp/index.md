@@ -4,5 +4,6 @@
 
 以下、実務で環境を指定されたものとして進める。
 
-1. [とにかくインストール](install.html)
+1. [とにかくPHPとMySQLを動かす](install.html)
+2. [PHPのコンテナにComposerを入れてライブラリをインストール](composer.html)
 2. 

@@ -1,4 +1,4 @@
-# とにかくインストール
+# とにかくPHPとMySQLを動かす
 
 ## 前提
 
@@ -15,7 +15,7 @@ LAMPといえば
 
 つまり頑張るのは`M`と`P(+A)`の2つ。
 
-もしこれでエラーが出たら泣きながら頑張る。
+もし将来これでエラーが出たら泣きながら頑張る。
 
 ## 参考
 
@@ -120,7 +120,7 @@ RUN apt-get update && apt-get install -y libonig-dev && \
 
 ### `php.ini`の中身
 
-自分よりも直属の偉い人に「`php.ini`が欲しい」と言えばくれるのではないか。それをコピーしてくる。
+自分の直属の偉い人に「`php.ini`が欲しい」と言えばくれるのではないか。それをコピーしてくる。
 
 ### コンテナの立ち上げ
 
@@ -199,13 +199,10 @@ $ sudo docker ps
 mysql>
 ~~~
 
-とりあえず`docker-compose.yml`の中に書いた指定のDB名はできているはずなので、それを使う。嫌だったら適当にDBを新規作成する。
+とりあえず`docker-compose.yml`の中に書いた指定のDB名はできているはずなので、それを使う。
 
 ~~~mysql
 > use (指定のDB名);
-
-# 新規作成する場合
-> create database (適当なDB名);
 ~~~
 
 さらに以下を打つ。
@@ -230,13 +227,13 @@ mysql>
 $db["host"] = "mysql";
 $db["user"] = "(指定のユーザー名)";
 $db["pass"] = "(指定のユーザーのパスワード)";
-$db["dbname"] = "(指定のDB名またはさっき作ったDB名)";
+$db["dbname"] = "(指定のDB名)";
 $mysqli = new mysqli("mysql", "(指定のユーザー名)", "(指定のユーザーのパスワード)");
 if ($mysqli->connect_errno) {
     print("failed connecting... " . $mysqli->connect_error);
     exit();
 }
-$mysqli->select_db("(指定のDB名またはさっき作ったDB名)");
+$mysqli->select_db("(指定のDB名)");
 $query = "SELECT * FROM test;";
 $result = $mysqli->query($query);
 while ($row = $result->fetch_assoc()){
