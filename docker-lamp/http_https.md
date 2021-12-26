@@ -1,4 +1,4 @@
-# CSSや画像が読み込まれない（httpsとhttp）
+# CSSや画像が読み込まれない（httpsアクセス）
 
 ## 症状
 
@@ -45,3 +45,153 @@ HTTPでリクエストしたページから、さらにHTTPSでリソースを�
 
 ### PHP-ApacheコンテナにHTTPSでアクセスできるようにする
 
+参考：[Docker php-apacheを自己証明書でSSL対応（自分メモ） - Qiita](https://qiita.com/ukei2021/items/9fd5a46253f0a43f7ddb#docker-composeyml%E3%81%AE%E7%B7%A8%E9%9B%86)
+
+#### 証明書ファイルの作成
+
+`php`ディレクトリ以下に`ssl`ディレクトリを作成し以下のように作成していく。
+
+~~~
+docker
+├── docker-compose.yml
+├── source
+|   └── test
+|       ├── venderディレクトリ
+|       ├── composer.json
+|       ├── composer.lock
+|       └── index.php
+├── mysql
+|   ├── dataディレクトリ
+|   ├── init_data
+|   |   ├── db1.dump.sql
+|   |   └── db2.dump.sql
+|   └── init.sql
+└── php
+    ├── php.ini
+    ├── Dockerfile
+    ├── ssl.conf
+    └── ssl
+        ├── ssl.key
+        ├── ssl.csr
+        ├── san.txt
+        └── ssl.crt
+~~~
+
+以下、`openssl`が必要。
+
+秘密鍵作成。
+
+~~~shell
+$ openssl genrsa -out ssl.key 2048
+~~~
+
+CSR作成。色々聞かれるけど`Common Name`だけ`localhost`にしておけば大丈夫らしい。
+
+~~~shell
+$ oepnssl req -new -sha256 -key ssl.key -out ssl.csr
+~~~
+
+`san.txt`はChromeで必要らしい
+
+~~~shell
+$ echo "subjectAltName = DNS:localhost" > san.txt
+~~~
+
+証明書の作成。
+
+~~~shell
+$ openssl x509 -req -sha256 -days 365 -signkey ssl.key -in ssl.csr -out ssl.crt -extfile san.txt
+~~~
+
+#### Apacheの設定
+
+`php`ディレクトリに戻り、コンテナが立ち上がっていることを確認してから以下を打つ。
+
+~~~shell
+$ sudo docker cp (phpのコンテナ名):/etc/apache2/sites-available/default-ssl.conf ssl.conf
+~~~
+
+中の`SSLCertificateFile`、`SSLCertificatekeyFile`をそれぞれ以下のように変更する。それ以外はそのままとする。
+
+~~~
+SSLCertificateFile    /etc/httpd/ssl/ssl.crt
+SSLCertificateKeyFile /etc/httpd/ssl/ssl.key
+~~~
+
+#### `Dockerfile`の編集
+
+以下のように変更する。
+
+~~~dockerfile
+FROM php:7.2.23-apache
+RUN apt-get update \
+&& apt-get install -y \
+libonig-dev \
+libzip-dev \
+unzip \
+libpng-dev \
+&& docker-php-ext-install \
+pdo_mysql \
+mysqli \
+mbstring \
+zip \
+gd
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN a2enmod headers
+#以下を追加
+RUN mkdir -p /etc/httpd/ssl
+RUN a2enmod ssl
+COPY ./ssl.conf /etc/apache2/sites-available/ssl.conf
+COPY ./ssl/ssl.key /etc/httpd/ssl/ssl.key
+COPY ./ssl/ssl.crt /etc/httpd/ssl/ssl.crt
+RUN a2ensite ssl
+~~~
+
+#### `docker-compose.yml`の編集
+
+443番ポートを開けておく。
+
+~~~yaml
+services:
+  mysql:
+    image: mysql:(指定のバージョン)
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql/init_data:/mysql_init_data
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=(rootのパスワード何でも)
+      - MYSQL_DATABASE=(指定のDB名)
+      - MYSQL_USER=(指定のユーザー名)
+      - MYSQL_PASSWORD=(指定のユーザーのパスワード)
+  php:
+    build: ./php
+    volumes:
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./source/test:/var/www/html
+    ports:
+      - 80:80
+      - 443:443 # ←追加
+    depends_on:
+      - mysql
+~~~
+
+これでいけるはず。
+
+## 動作確認
+
+~~~shell
+$ sudo docker-compose down
+$ sudo docker-compose build
+$ sudo docker-compose up -d
+~~~
+
+そして`https://localhost`にアクセスしてちゃんと表示されたらOK。
+
+## これ、オレオレ証明書やでって怒られた
+
+アクセスするとブラウザが「これ、オレオレ証明書やで」って言ってきて、警告出してきた。まあ確かにその通りだし、無視すりゃいいんだけど、なんかちょっとしょんぼり。
+
+結局自分にとってはソースコードいじる方が早かったからHTTPS化は戻した。この記事はいつか役に立つ日が来ると信じて残しておく。
