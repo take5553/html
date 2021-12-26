@@ -72,6 +72,8 @@ services:
     image: mysql:(指定のバージョン)
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./mysqlsettings:/docker-entrypoint-initdb.d  # ←これを追加
+      - ./mysqldump:/mysqldump # ←これは後で使う
     ports:
       - 3306:3306
     environment:
@@ -79,9 +81,6 @@ services:
       - MYSQL_DATABASE=(指定のDB名)
       - MYSQL_USER=(指定のユーザー名)
       - MYSQL_PASSWORD=(指定のユーザーのパスワード)
-    volumes:
-      - ./mysqlsettings:/docker-entrypoint-initdb.d  # ←これを追加
-      - ./mysqldump:/mysqldump # ←これは後で使う
   php:
     build: ./php
     volumes:
