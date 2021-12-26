@@ -6,4 +6,5 @@
 
 1. [とにかくPHPとMySQLを動かす](install.html)
 2. [PHPのコンテナにComposerを入れてライブラリをインストール](composer.html)
+2. [DBをコピーする](copy_db.html)
 2. 
