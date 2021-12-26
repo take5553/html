@@ -156,6 +156,8 @@ $ sudo docker exec -it (MySQLコンテナ名) bash
 > select * from hogehoge;
 ~~~
 
+カラムとして`hoge1`と`hoge2`があったとする。
+
 中身を確認し一旦ログアウト。
 
 `index.php`を編集する。
@@ -179,11 +181,13 @@ if ($mysqli->connect_errno) {
     exit();
 }
 $mysqli->select_db("(指定のDB名)");
-$query = "SELECT * FROM test;";
+<!-- ----------以下を変更---------- -->
+$query = "SELECT hoge1 FROM hogehoge WHERE hoge2 = '(hoge2の値)';";
 $result = $mysqli->query($query);
 while ($row = $result->fetch_assoc()){
-    $content = $row["name"];
+    $content = $row["hoge1"];
 }
+<!-- ----------変更ここまで---------- -->
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -204,3 +208,4 @@ while ($row = $result->fetch_assoc()){
 </html>
 ~~~
 
+中身が出ていればOK。
