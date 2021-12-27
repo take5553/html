@@ -215,3 +215,5 @@ while ($row = $result->fetch_assoc()){
 ~~~
 
 中身が出ていればOK。
+
+[DBの出力が文字化けする場合](db_charset.html)
