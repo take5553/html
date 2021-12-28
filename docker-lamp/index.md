@@ -18,4 +18,5 @@
 2. [CSSや画像が読み込まれない（httpsアクセス）](http_https.html)
 2. [DBから取得した日本語文字列が文字化けする（DBの文字セットを指定）](db_charset.html)
 2. [メールが送信できない（メール送信機能テスト）](sendmail.html)
+2. [デバッグ機能を準備する（VSCode + XDebug）](php_debug.html)
 2. 

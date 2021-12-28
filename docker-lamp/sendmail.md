@@ -170,3 +170,7 @@ $ sudo docker-compose up -d
 メールのソースも確認できる。
 
 ![image-20211227224921721](image/sendmail/image-20211227224921721.png)
+
+## 余談
+
+RubyのGemで[MailCatcher](https://mailcatcher.me/)というものがあるらしい。[それを使った構築](https://goodlife.tech/posts/mailcatcher)もあるらしい。
