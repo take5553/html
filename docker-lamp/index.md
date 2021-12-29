@@ -21,3 +21,9 @@
 2. [デバッグ機能を準備する（VSCode + XDebug）](php_debug.html)
 2. [PHPのエラーがHTML上に表示されてしまう（PHPのエラーレベル設定）](disable_notice.html)
 2. 
+
+
+
+## まとめ
+
+（自分の環境が安定後に作成予定）
