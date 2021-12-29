@@ -79,7 +79,7 @@ docker
         └── ssl.crt
 ~~~
 
-以下、`openssl`が必要。
+以下、`openssl`が必要。インストールされてるかどうかは`openssl help`と打てば何か出てくるはず。出てこなかったらインストールする。
 
 秘密鍵作成。
 
@@ -91,6 +91,7 @@ CSR作成。色々聞かれるけど`Common Name`だけ`localhost`にしてお�
 
 ~~~shell
 $ oepnssl req -new -sha256 -key ssl.key -out ssl.csr
+(色々聞かれるのでCommon Nameだけ注意)
 ~~~
 
 `san.txt`はChromeで必要らしい
@@ -113,7 +114,7 @@ $ openssl x509 -req -sha256 -days 365 -signkey ssl.key -in ssl.csr -out ssl.crt 
 $ sudo docker cp (phpのコンテナ名):/etc/apache2/sites-available/default-ssl.conf ssl.conf
 ~~~
 
-中の`SSLCertificateFile`、`SSLCertificatekeyFile`をそれぞれ以下のように変更する。それ以外はそのままとする。
+コンテナの中から`default-ssl.conf`を`ssl.conf`という名前にリネームしつつ取り出せるので、その中の`SSLCertificateFile`、`SSLCertificatekeyFile`をそれぞれ以下のように変更する。それ以外はそのままとする。
 
 ~~~
 SSLCertificateFile    /etc/httpd/ssl/ssl.crt
