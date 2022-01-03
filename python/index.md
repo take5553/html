@@ -17,3 +17,6 @@
   * [Frameに背景色をつける](https://stackoverflow.com/questions/54476511/setting-background-color-of-a-tkinter-ttk-frame)
   * [`.grid()`の`stiky`オプション](https://www.pytry3g.com/entry/grid-widget)
 
+## Pythonチュートリアル
+
+[こちらへ](tutorial/)
