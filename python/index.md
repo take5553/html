@@ -20,3 +20,7 @@
 ## Pythonチュートリアル
 
 [こちらへ](tutorial/)
+
+## 練習
+
+[こちらへ](practise.html)
