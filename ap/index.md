@@ -9,4 +9,5 @@
    2. [アルゴリズムとプログラミング](01_02_algorithm.html)
 2. コンピューターシステム
    1. [コンピューター構成要素](02_01_computer_components.html)
+   2. [システム構成要素](02_02_system_components.html)
    2. 
