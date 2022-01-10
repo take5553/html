@@ -183,12 +183,12 @@ $db["host"] = "mysql";
 $db["user"] = "(指定のユーザー名)";
 $db["pass"] = "(指定のユーザーのパスワード)";
 $db["dbname"] = "(指定のDB名)";
-$mysqli = new mysqli("mysql", "(指定のユーザー名)", "(指定のユーザーのパスワード)");
+$mysqli = new mysqli($db["host"], $db["user"], $db["pass"]);
 if ($mysqli->connect_errno) {
     print("failed connecting... " . $mysqli->connect_error);
     exit();
 }
-$mysqli->select_db("(指定のDB名)");
+$mysqli->select_db($db["dbname"]);
 <!-- ----------以下を変更---------- -->
 $query = "SELECT hoge1 FROM hogehoge WHERE hoge2 = '(hoge2の値)';";
 $result = $mysqli->query($query);

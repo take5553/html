@@ -37,9 +37,15 @@ $ sudo pacman -S docker-compose
 
 #### Windowsの場合
 
-（作成中）
+Windows 10 Home：[Windows Home に Docker Desktop をインストール — Docker-docs-ja 19.03 ドキュメント](https://docs.docker.jp/docker-for-windows/install-windows-home.html)
+
+Windows 10 Pro：[Windows に Docker Desktop をインストール — Docker-docs-ja 19.03 ドキュメント](https://docs.docker.jp/docker-for-windows/install.html)
+
+Docker Composeは一緒に付いてくる模様。
 
 #### インストール確認
+
+Linuxでは以下。
 
 ~~~shell
 $ docker -v
@@ -50,6 +56,8 @@ Docker version 20.10.12, build e91ed5707e
 $ docker-compose -v
 Docker Compose version 2.2.2
 ~~~
+
+WindowsではPowerShell上で以下と同様のコマンドを打てば同じような結果が返ってくるはず。ただし、バージョンはちょっと違う。
 
 ### 作業ディレクトリを作成
 
@@ -233,12 +241,12 @@ $db["host"] = "mysql";
 $db["user"] = "(指定のユーザー名)";
 $db["pass"] = "(指定のユーザーのパスワード)";
 $db["dbname"] = "(指定のDB名)";
-$mysqli = new mysqli("mysql", "(指定のユーザー名)", "(指定のユーザーのパスワード)");
+$mysqli = new mysqli($db["host"], $db["user"], $db["pass"]);
 if ($mysqli->connect_errno) {
     print("failed connecting... " . $mysqli->connect_error);
     exit();
 }
-$mysqli->select_db("(指定のDB名)");
+$mysqli->select_db($db["dbname"]);
 $query = "SELECT * FROM test;";
 $result = $mysqli->query($query);
 while ($row = $result->fetch_assoc()){

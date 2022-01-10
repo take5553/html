@@ -104,12 +104,12 @@ $db["host"] = "mysql";
 $db["user"] = "(指定のユーザー名)";
 $db["pass"] = "(指定のユーザーのパスワード)";
 $db["dbname"] = "(指定のDB名)";
-$mysqli = new mysqli("mysql", "(指定のユーザー名)", "(指定のユーザーのパスワード)");
+$mysqli = new mysqli($db["host"], $db["user"], $db["pass"]);
 if ($mysqli->connect_errno) {
     print("failed connecting... " . $mysqli->connect_error);
     exit();
 }
-$mysqli->select_db("(指定のDB名)");
+$mysqli->select_db($db["dbname"]);
 $query = "SELECT * FROM test;";
 $result = $mysqli->query($query);
 while ($row = $result->fetch_assoc()){
