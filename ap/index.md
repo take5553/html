@@ -18,3 +18,6 @@
    3. [データベース](03_03_database.html)
    4. [ネットワーク](03_04_network.html)
    5. [セキュリティ](03_05_security.html)
+4. 開発技術
+   1. [システム開発技術](04_01_system_development.html)
+   2. ソフトウェア開発管理技術
