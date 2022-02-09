@@ -111,6 +111,10 @@
 * [Deep Learning編](deeplearning/)
 
   Deep Learningの仕組みの勉強をした跡。
+  
+* [Git編](git/)
+
+  備忘録
 
 ### スマホアプリ
 
