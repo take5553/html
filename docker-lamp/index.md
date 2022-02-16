@@ -20,9 +20,8 @@
 2. [メールが送信できない（メール送信機能テスト）](sendmail.html)
 2. [デバッグ機能を準備する（VSCode + XDebug）](php_debug.html)
 2. [PHPのエラーがHTML上に表示されてしまう（PHPのエラーレベル設定）](disable_notice.html)
+2. [コンテナ内で日本語を打ち込むとすぐ消える（ロケールの設定）](locale.html)
 2. 
-
-
 
 ## まとめ
 

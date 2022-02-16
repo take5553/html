@@ -23,3 +23,9 @@
    2. [ソフトウェア開発管理技術](04_02_development_management.html)
 5. プロジェクトマネジメント
    1. [プロジェクトマネジメント](05_01_project_management.html)
+6. サービスマネジメント
+   1. [サービスマネジメント](06_01_service_management.html)
+   2. [システム監査](06_02_system_audit.html)
+7. システム戦略
+   1. [システム戦略](07_01_system_strategy.html)
+   2. システム企画
