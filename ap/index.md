@@ -31,8 +31,8 @@
    2. [システム企画](07_02_systematization_plannning.html)
 8. 経営戦略
    1. [経営戦略マネジメント](08_01_business_strategy_management.html)
-   2. 技術戦略マネジメント
-   3. ビジネスインダストリ
+   2. [技術戦略マネジメント](08_02_technology_strategy_management.html)
+   3. [ビジネスインダストリ](08_03_business_industry.html)
 9. 企業と法務
    1. 企業活動
    2. 法務
