@@ -34,5 +34,5 @@
    2. [技術戦略マネジメント](08_02_technology_strategy_management.html)
    3. [ビジネスインダストリ](08_03_business_industry.html)
 9. 企業と法務
-   1. 企業活動
+   1. [企業活動](09_01_business_activity.html)
    2. 法務
