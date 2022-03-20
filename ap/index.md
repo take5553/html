@@ -35,4 +35,4 @@
    3. [ビジネスインダストリ](08_03_business_industry.html)
 9. 企業と法務
    1. [企業活動](09_01_business_activity.html)
-   2. 法務
+   2. [法務](09_02_legal.html)
