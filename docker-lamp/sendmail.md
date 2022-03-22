@@ -92,7 +92,7 @@ services:
 `php/Dockerfile`を以下のように編集。
 
 ~~~dockerfile
-FROM php:7.2.23-apache
+FROM php:(指定のバージョン)-apache
 RUN apt-get update \
   && apt-get install -y \
     libonig-dev \

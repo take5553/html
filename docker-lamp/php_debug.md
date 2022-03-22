@@ -9,7 +9,7 @@
 以下のように追記する。
 
 ~~~dockerfile
-FROM php:7.2.23-apache
+FROM php:(指定のバージョン)-apache
 RUN apt-get update \
   && apt-get install -y \
     libonig-dev \
@@ -177,7 +177,7 @@ $ sudo docker exec (PHPのコンテナ名) php -v
 ~~~
 
 ~~~
-PHP 7.2.23 (cli) (built: Oct 24 2019 03:18:57) ( NTS )
+PHP (指定のバージョン) (cli) (built: Oct 24 2019 03:18:57) ( NTS )
 Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
     with Xdebug v3.1.2, Copyright (c) 2002-2021, by Derick Rethans

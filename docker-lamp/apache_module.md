@@ -35,7 +35,7 @@ Apacheの`headers`モジュールが有効化されていないからそうな�
 ということで`php/Dockerfile`に以下を追加。
 
 ~~~dockerfile
-FROM php:7.2.23-apache
+FROM php:(指定のバージョン)-apache
 RUN apt-get update \
 && apt-get install -y \
 libonig-dev \
