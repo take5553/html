@@ -28,7 +28,7 @@
    2. [システム監査](06_02_system_audit.html)
 7. システム戦略
    1. [システム戦略](07_01_system_strategy.html)
-   2. [システム企画](07_02_systematization_plannning.html)
+   2. [システム企画](07_02_systematization_planning.html)
 8. 経営戦略
    1. [経営戦略マネジメント](08_01_business_strategy_management.html)
    2. [技術戦略マネジメント](08_02_technology_strategy_management.html)
