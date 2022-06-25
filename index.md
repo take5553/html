@@ -63,6 +63,10 @@
 * [PCにGPIOを編](ft232h/)
 
   Raspberry PiにあるGPIOをPCにも持たせる。
+  
+* [Windowsでターミナル生活](win_terminal/)
+
+  LinuxにハマったらWindowsでもターミナルを使いたくなる
 
 ### OS編
 
