@@ -31,13 +31,31 @@ call plug#end()
 
 ### vim-fugitive
 
+[tpope/vim-fugitive: fugitive.vim: A Git wrapper so awesome, it should be illegal](https://github.com/tpope/vim-fugitive)
+
+Vim上でGitが使えるようになる
+
 ~~~
 Plug 'tpope/vim-fugitive'
 ~~~
 
+便利そうなのは`:Gvdiff`。色が見にくければWindows Terminalのsettings.jsonで色を調整すること。
 
+### vim-fugitive -blame-ext
+
+[tommcdo/vim-fugitive-blame-ext: Extend tpope/vim-fugitive to show commit message on statusline in :Gblame](https://github.com/tommcdo/vim-fugitive-blame-ext)
+
+上記vim-fugitiveで`:Git blame`した時の画面にコミットメッセージを表示する
+
+~~~
+Plug 'tommcdo/vim-fugitive-blame-ext'
+~~~
 
 ### vim-airline
+
+[vim-airline/vim-airline: lean & mean status/tabline for vim that's light as air](https://github.com/vim-airline/vim-airline)
+
+見た目をよろしくするプラグイン。
 
 ~~~
 Plug 'vim-airline/vim-airline'
@@ -55,5 +73,23 @@ nmap <C-n> <Plug>AirlineSelectNextTab
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dark'
 let g:airline#extensions#whitespace#enabled = 0
+~~~
+
+### ack.vim
+
+[mileszs/ack.vim: Vim plugin for the Perl module / CLI script 'ack'](https://github.com/mileszs/ack.vim)
+
+高速な複数ファイル検索。
+
+まず`ack`コマンドをインストール。
+
+~~~powershell
+> scoop install ack
+~~~
+
+次にプラグインを追加
+
+~~~
+Plug 'mileszs/ack.vim'
 ~~~
 
