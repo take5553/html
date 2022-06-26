@@ -162,6 +162,17 @@ Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+function OnViModeChange {
+    if ($args[0] -eq 'Command') {
+        # Set the cursor to a blinking block.
+        Write-Host -NoNewLine "`e[1 q"
+    } else {
+        # Set the cursor to a blinking line.
+        Write-Host -NoNewLine "`e[5 q"
+    }
+}
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler $Function:OnViModeChange
 
 # Fzf
 Import-Module PSFzf
@@ -179,4 +190,25 @@ function which ($command) {
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 ~~~
+
+## `touch`コマンドを追加
+
+~~~powershell
+function touch ($path) {
+    if (-not(Test-Path $path)) {
+        # It does not exist. Create it.
+        New-Item -ItemType File -Name $path
+    } else {
+        # It exists. Update the timestamp.
+        (Get-ChildItem $path).LastWriteTime = Get-Date
+        Get-ChildItem $path
+    }
+}
+~~~
+
+## `ctrl+c`と`ctrl+v`をキーバインドから消しておく
+
+Windows Terminalの設定からできる。
+
+これをしないと色々と被る。
 
