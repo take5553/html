@@ -67,6 +67,10 @@
 * [Windowsでターミナル生活](win_terminal/)
 
   LinuxにハマったらWindowsでもターミナルを使いたくなる
+  
+* [Laravel](laravel/)
+
+  Laravelの環境構築
 
 ### OS編
 
