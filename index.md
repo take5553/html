@@ -135,11 +135,11 @@
 * [基本情報技術者（FE）](fe/index.html)
 
   勉強メモ1。
-  
+
 * [応用情報技術者（AP）](ap/index.html)
 
   勉強メモ3。
-  
+
 * [統計学](statics/index.html)
 
   勉強メモ2。
@@ -147,18 +147,22 @@
 * [1000本ノック的な練習素材](exercises/index.html)
 
   ひたすらやる。
-  
+
 * [Vim](vim/index.html)
 
   宗教の一つ。
-  
+
 * [技術調査](technical_survey/index.html)
 
   会社として、そして個人として技術を採用する判断要素。
-  
+
 * [読書記録](books/index.html)
 
   読んだ本の記録。
+
+* [競技プログラミング](atcoder/index.html)
+
+    日々精進。
 
 ### その他
 
