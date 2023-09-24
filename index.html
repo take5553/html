@@ -3,10 +3,11 @@
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -86,12 +87,14 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -129,6 +132,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 }
 a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
 .footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 code, pre, samp, tt { font-family: var(--monospace); }
@@ -167,7 +171,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -198,6 +202,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
 
 
 :root {
@@ -205,7 +210,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
     --control-text-color: #777;
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
 
 /* open-sans-regular - latin-ext_latin */
   /* open-sans-italic - latin-ext_latin */
@@ -588,7 +593,7 @@ header, .context-menu, .megamenu-content, footer{
 
 </style><title>index</title>
 </head>
-<body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='たけしのページ'><span>たけしのページ</span></h1><p><span>自分のやったこと。原理主義的。</span></p><p><a href='php-bbs/'><span>掲示板（質問はこちらへ）</span></a></p><h2 id='raspberry-piでwebサーバー'><span>Raspberry PiでWebサーバー</span></h2><p><span>このサイトはRaspberry Piで動いている。</span></p><ul><li><p><a href='startup/'><span>Raspberry Pi立ち上げ編</span></a></p><p><span>買ってきたRaspberry Piを立ち上げ、外部ネットワークから遠隔操作できるようにする。</span></p></li><li><p><a href='webserver/'><span>Webサーバー立ち上げ編</span></a></p><p><span>Webサーバー（Nginx）を導入し、HTMLファイルを作ってアップロードする。</span></p></li></ul><h2 id='やってみよう'><span>やってみよう</span></h2><p><span>環境構築から、ある程度のものを作るまでの開発記録。</span></p><ul><li><p><a href='wordpress/'><span>PHP（WordPress）編</span></a></p><p><span>WordPressを導入してカスタムテーマを自作する。</span></p></li><li><p><a href='php/'><span>PHP（掲示板作成）編</span></a></p><p><span>掲示板システムを自作する。</span></p></li><li><p><a href='jetsoncert/'><span>Jetson AI Certification編</span></a></p><p><span>Jetsonにも手を出してみた。</span></p></li><li><p><a href='docker/'><span>Docker編</span></a></p><p><span>Jetsonで動くアプリの環境作り。</span></p></li><li><p><a href='docker-lamp/'><span>DockerでLAMP編</span></a></p><p><span>Docker編の番外編</span></p></li><li><p><a href='jetsonlab/'><span>Jetson Nano サーバー編</span></a></p><p><span>Jetson上でJupyter Labを動かしてサーバー化して、実験室にする。</span></p></li><li><p><a href='kaggle/'><span>Python（Kaggle）編</span></a><span>（保留中）</span></p><p><span>データ分析コンペティション「Kaggle」に挑む。</span></p></li></ul><h2 id='やってみた'><span>やってみた</span></h2><p><span>こちらはやってみた結果をざっくりと公開。</span></p><ul><li><p><a href='bbs-led/'><span>Python（GPIO）編</span></a></p><p><span>掲示板に書き込みがあったらLEDでお知らせ。</span></p></li><li><p><a href='python_gui/'><span>Python（GUIアプリ）編</span></a></p><p><span>15分ルールを実践するためのアプリ。</span></p></li><li><p><a href='ft232h/'><span>PCにGPIOを編</span></a></p><p><span>Raspberry PiにあるGPIOをPCにも持たせる。</span></p></li><li><p><a href='win_terminal/'><span>Windowsでターミナル生活</span></a></p><p><span>LinuxにハマったらWindowsでもターミナルを使いたくなる</span></p></li><li><p><a href='laravel/'><span>Laravel</span></a></p><p><span>Laravelの環境構築</span></p></li></ul><h3 id='os編'><span>OS編</span></h3><ul><li><p><a href='garuda/'><span>Garuda Linux編</span></a></p><p><span>かっこよさに惹かれて手を出してみる。</span></p></li><li><p><a href='ubuntuserver/'><span>Ubuntu Server編</span></a></p><p><span>一家に1サーバー時代到来。ファイルサーバーと、ついでに色々。</span></p></li><li><p><a href='ubuntudesktop/'><span>Ubuntu Desktop編</span></a></p><p><span>メインPCのOS、3代目</span></p></li><li><p><a href='rhel/'><span>Red Hat Enterprise Linux（RHEL）編</span></a></p><p><span>完全に興味本位。</span></p></li><li><p><a href='vmware/'><span>VMWareでCentOS編</span></a></p><p><span>訳あってVMWareでCentOSを動かす。</span></p></li><li><p><a href='kali/'><span>Kali Linux編</span></a></p></li></ul><h2 id='未分類'><span>未分類</span></h2><h3 id='プログラミング'><span>プログラミング</span></h3><ul><li><p><a href='htmlcss/'><span>HTML/CSS編</span></a></p><p><span>知り得た知見置き場。</span></p></li><li><p><a href='python/'><span>Python編</span></a></p><p><span>文法以外の知っておくべき知識置き場。</span></p></li><li><p><a href='pytorch/'><span>PyTorch編</span></a></p><p><span>ディープラーニングのフレームワーク。</span></p></li><li><p><a href='oop/'><span>オブジェクト指向練習編</span></a></p><p><span>オブジェクト指向を習得する。</span></p></li><li><p><a href='deeplearning/'><span>Deep Learning編</span></a></p><p><span>Deep Learningの仕組みの勉強をした跡。</span></p></li><li><p><a href='git/'><span>Git編</span></a></p><p><span>備忘録</span></p></li></ul><h3 id='スマホアプリ'><span>スマホアプリ</span></h3><ul><li><p><a href='flutter/index.html'><span>Flutter編</span></a></p><p><span>AndroidアプリとiOSアプリが一つのコードで作成できる（らしい）Flutterを使ってアプリ開発をする。</span></p></li></ul><h3 id='勉強'><span>勉強</span></h3><ul><li><p><a href='fe/'><span>基本情報技術者（FE）</span></a></p><p><span>勉強メモ1。</span></p></li><li><p><a href='ap/'><span>応用情報技術者（AP）</span></a></p><p><span>勉強メモ3。</span></p></li><li><p><a href='statics/'><span>統計学</span></a></p><p><span>勉強メモ2。</span></p></li><li><p><a href='exercises/'><span>1000本ノック的な練習素材</span></a></p><p><span>ひたすらやる。</span></p></li><li><p><a href='vim/'><span>Vim</span></a></p><p><span>宗教の一つ。</span></p></li><li><p><a href='technical_survey/'><span>技術調査</span></a></p><p><span>会社として、そして個人として技術を採用する判断要素。</span></p></li><li><p><a href='books/'><span>読書記録</span></a></p><p><span>読んだ本の記録。</span></p></li></ul><h3 id='その他'><span>その他</span></h3><ul><li><p><a href='memo/'><span>メモ</span></a></p><p><span>気になったことのメモ。将来のコンテンツ候補。</span></p></li><li><p><a href='poem/'><span>思いついたこと</span></a></p><p><span>自作ポエム</span></p></li></ul></div></div>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='たけしのページ'><span>たけしのページ</span></h1><p><span>自分のやったこと。原理主義的。</span></p><p><a href='php-bbs/'><span>掲示板（質問はこちらへ）</span></a></p><h2 id='raspberry-piでwebサーバー'><span>Raspberry PiでWebサーバー</span></h2><p><span>このサイトはRaspberry Piで動いている。</span></p><ul><li><p><a href='startup/index.html'><span>Raspberry Pi立ち上げ編</span></a></p><p><span>買ってきたRaspberry Piを立ち上げ、外部ネットワークから遠隔操作できるようにする。</span></p></li><li><p><a href='webserver/index.html'><span>Webサーバー立ち上げ編</span></a></p><p><span>Webサーバー（Nginx）を導入し、HTMLファイルを作ってアップロードする。</span></p></li></ul><h2 id='やってみよう'><span>やってみよう</span></h2><p><span>環境構築から、ある程度のものを作るまでの開発記録。</span></p><ul><li><p><a href='wordpress/index.html'><span>PHP（WordPress）編</span></a></p><p><span>WordPressを導入してカスタムテーマを自作する。</span></p></li><li><p><a href='php/index.html'><span>PHP（掲示板作成）編</span></a></p><p><span>掲示板システムを自作する。</span></p></li><li><p><a href='jetsoncert/index.html'><span>Jetson AI Certification編</span></a></p><p><span>Jetsonにも手を出してみた。</span></p></li><li><p><a href='docker/index.html'><span>Docker編</span></a></p><p><span>Jetsonで動くアプリの環境作り。</span></p></li><li><p><a href='docker-lamp/index.html'><span>DockerでLAMP編</span></a></p><p><span>Docker編の番外編</span></p></li><li><p><a href='jetsonlab/index.html'><span>Jetson Nano サーバー編</span></a></p><p><span>Jetson上でJupyter Labを動かしてサーバー化して、実験室にする。</span></p></li><li><p><a href='kaggle/index.html'><span>Python（Kaggle）編</span></a><span>（保留中）</span></p><p><span>データ分析コンペティション「Kaggle」に挑む。</span></p></li></ul><h2 id='やってみた'><span>やってみた</span></h2><p><span>こちらはやってみた結果をざっくりと公開。</span></p><ul><li><p><a href='bbs-led/index.html'><span>Python（GPIO）編</span></a></p><p><span>掲示板に書き込みがあったらLEDでお知らせ。</span></p></li><li><p><a href='python_gui/index.html'><span>Python（GUIアプリ）編</span></a></p><p><span>15分ルールを実践するためのアプリ。</span></p></li><li><p><a href='ft232h/index.html'><span>PCにGPIOを編</span></a></p><p><span>Raspberry PiにあるGPIOをPCにも持たせる。</span></p></li><li><p><a href='win_terminal/index.html'><span>Windowsでターミナル生活</span></a></p><p><span>LinuxにハマったらWindowsでもターミナルを使いたくなる</span></p></li><li><p><a href='laravel/index.html'><span>Laravel</span></a></p><p><span>Laravelの環境構築</span></p></li></ul><h3 id='os編'><span>OS編</span></h3><ul><li><p><a href='garuda/index.html'><span>Garuda Linux編</span></a></p><p><span>かっこよさに惹かれて手を出してみる。</span></p></li><li><p><a href='ubuntuserver/index.html'><span>Ubuntu Server編</span></a></p><p><span>一家に1サーバー時代到来。ファイルサーバーと、ついでに色々。</span></p></li><li><p><a href='ubuntudesktop/index.html'><span>Ubuntu Desktop編</span></a></p><p><span>メインPCのOS、3代目</span></p></li><li><p><a href='rhel/index.html'><span>Red Hat Enterprise Linux（RHEL）編</span></a></p><p><span>完全に興味本位。</span></p></li><li><p><a href='vmware/index.html'><span>VMWareでCentOS編</span></a></p><p><span>訳あってVMWareでCentOSを動かす。</span></p></li><li><p><a href='kali/index.html'><span>Kali Linux編</span></a></p></li></ul><h2 id='未分類'><span>未分類</span></h2><h3 id='プログラミング'><span>プログラミング</span></h3><ul><li><p><a href='htmlcss/index.html'><span>HTML/CSS編</span></a></p><p><span>知り得た知見置き場。</span></p></li><li><p><a href='python/index.html'><span>Python編</span></a></p><p><span>文法以外の知っておくべき知識置き場。</span></p></li><li><p><a href='pytorch/index.html'><span>PyTorch編</span></a></p><p><span>ディープラーニングのフレームワーク。</span></p></li><li><p><a href='oop/index.html'><span>オブジェクト指向練習編</span></a></p><p><span>オブジェクト指向を習得する。</span></p></li><li><p><a href='deeplearning/index.html'><span>Deep Learning編</span></a></p><p><span>Deep Learningの仕組みの勉強をした跡。</span></p></li><li><p><a href='git/index.html'><span>Git編</span></a></p><p><span>備忘録</span></p></li></ul><h3 id='スマホアプリ'><span>スマホアプリ</span></h3><ul><li><p><a href='flutter/index.html'><span>Flutter編</span></a></p><p><span>AndroidアプリとiOSアプリが一つのコードで作成できる（らしい）Flutterを使ってアプリ開発をする。</span></p></li></ul><h3 id='勉強'><span>勉強</span></h3><ul><li><p><a href='fe/index.html'><span>基本情報技術者（FE）</span></a></p><p><span>勉強メモ1。</span></p></li><li><p><a href='ap/index.html'><span>応用情報技術者（AP）</span></a></p><p><span>勉強メモ3。</span></p></li><li><p><a href='statics/index.html'><span>統計学</span></a></p><p><span>勉強メモ2。</span></p></li><li><p><a href='exercises/index.html'><span>1000本ノック的な練習素材</span></a></p><p><span>ひたすらやる。</span></p></li><li><p><a href='vim/index.html'><span>Vim</span></a></p><p><span>宗教の一つ。</span></p></li><li><p><a href='technical_survey/index.html'><span>技術調査</span></a></p><p><span>会社として、そして個人として技術を採用する判断要素。</span></p></li><li><p><a href='books/index.html'><span>読書記録</span></a></p><p><span>読んだ本の記録。</span></p></li></ul><h3 id='その他'><span>その他</span></h3><ul><li><p><a href='memo/index.html'><span>メモ</span></a></p><p><span>気になったことのメモ。将来のコンテンツ候補。</span></p></li><li><p><a href='poem/index.html'><span>思いついたこと</span></a></p><p><span>自作ポエム</span></p></li></ul></div></div>
 </body>
 </html>
