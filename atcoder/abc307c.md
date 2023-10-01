@@ -4,91 +4,156 @@
 
 解説：https://atcoder.jp/contests/abc307/editorial/6690
 
-提出：https://atcoder.jp/contests/abc307/submissions/45926221
+提出：https://atcoder.jp/contests/abc307/submissions/46146628
+
+※ `MyBoard` クラスを使用（スニペット登録済み、後述）
 
 ```c++
 int main () {
-    // 設問に書いてある範囲
-    int h = 10, w = 10;
-
-    // 最後の評価をbitsetでやりたいけど、定数で記述する必要がある
-    // 900 = 30 * 30
-    //     = (h * 3) * (w * 3)
-    bitset<900> boardx, boardc;
-
-
-    // 以下、入力さえ合えば全自動
-
-
-    // 上下左右の余白
-    int marginh = h, marginw = w;
-    // 余白を合わせた全体のサイズ
-    int hall = h + 2 * marginh, wall = w + 2 * marginw;
-
-    // 入力:a
     int ha, wa;
     cin >> ha >> wa;
-    vector<vector<int>> boarda(ha, vector<int>(wa));
-    rep(i, ha) rep(j, wa)
-    {
-        char c;
-        cin >> c;
-        if(c == '#') boarda.at(i).at(j) = 1;
-    }
-
-    // 入力:b
+    MyBoard boarda = MyBoard(ha, wa);
+    boarda.stdinput();
+    
     int hb, wb;
     cin >> hb >> wb;
-    vector<vector<int>> boardb(hb, vector<int>(wb));
-    rep(i, hb) rep(j, wb)
-    {
-        char c;
-        cin >> c;
-        if(c == '#') boardb.at(i).at(j) = 1;
-    }
+    MyBoard boardb = MyBoard(hb, wb);
+    boardb.stdinput();
 
-    // 入力:x
     int hx, wx;
     cin >> hx >> wx;
-    rep(i, hx) rep(j, wx)
+    MyBoard boardx = MyBoard(hx, wx);
+    boardx.stdinput();
+
+    MyBoard boardy = MyBoard(30, 30);
+    rep(i, hx) rep(j, wx) boardy.at(10 + i, 10 + j) = boardx.at(i, j);
+
+    for(int oxa = 0; oxa <= 30 - wa; ++oxa)
+    for(int oya = 0; oya <= 30 - ha; ++oya)
+    for(int oxb = 0; oxb <= 30 - wb; ++oxb)
+    for(int oyb = 0; oyb <= 30 - hb; ++oyb)
     {
-        char c;
-        cin >> c;
-        if(c == '#') boardx.set(wall * (marginh + i) + marginw + j, 1);
+        MyBoard boardc = MyBoard(30, 30);
+        rep(i, ha) rep(j, wa) boardc.at(oya + i, oxa + j) = boarda.at(i, j);
+        rep(i, hb) rep(j, wb) boardc.at(oyb + i, oxb + j) |= boardb.at(i, j);
+
+        if(boardc.board == boardy.board)
+        {
+            cout << "Yes" << endl;
+            return 0;
+        }
+
+    }
+    cout << "No" << endl;
+}
+```
+
+```c++
+class MyBoard {
+public:
+    int h, w;
+    int top = -1, bottom = -1, left = -1, right = -1;
+
+    vector<int> board;
+
+    MyBoard(int height, int width)
+    {
+        h = height;
+        w = width;
+        board.assign(h * w, 0);
     }
 
-    // 計算量はo((9hw)^2)
-    rep(i, hall - (ha - 1)) rep(j, wall - (wa - 1))
+    int& at(int y, int x)
     {
-        rep(s, hall - (hb - 1)) rep(t, wall - (wb - 1))
+        return board.at(y * w + x);
+    }
+    
+    void stdinput()
+    {
+        rep(i, h) rep(j, w)
         {
-            // aは左上を(i, j) bは左上を(s, t)に配置
-            //これをcに転記
-            boardc.reset();
-            rep(ii, ha) rep(jj, wa)
-                boardc.set
-                (
-                    (i + ii) * wall + (j + jj),
-                    boarda.at(ii).at(jj)
-                );
-            rep(ss, hb) rep(tt, wb)
-                boardc.set
-                (
-                    (s + ss) * wall + (t + tt),
-                    boardc[(s + ss) * wall + (t + tt)] | boardb.at(ss).at(tt)
-                );
-
-            // 評価
-            if(boardx == boardc)
-            {
-                cout << "Yes" << endl;
-                return 0;
-            }
+            char c;
+            cin >> c;
+            if(c == '#') at(i, j) = 1;
         }
     }
 
-    cout << "No" << endl;
+    void print()
+    {
+        rep(i, h)
+        {
+            rep(j, w) cout << at(i, j);
+            cout << endl;
+        }
+    }
 
-}
+    void updateArea()
+    {
+        int t = intinf, l = intinf, b = -intinf, r = -intinf;
+        rep(i, h)
+        {
+            bool f = false;
+            rep(j, w)
+            {
+                if (at(i, j) == 1)
+                {
+                    chmin(l, (int)j);
+                    chmax(r, (int)j);
+                    f = true;
+                }
+            }
+            if (f)
+            {
+                chmin(t, (int)i);
+                chmax(b, (int)i);
+            }
+        }
+
+        top = t;
+        left = l;
+        bottom = b;
+        right = r;
+    }
+
+    void offset(int y, int x)
+    {
+        vector<int> r(h * w);
+        rep(i, h) rep(j, w)
+        {
+            int p = (i + y) * w + (j + x);
+            if (p < 0 || h * w <= p)
+                continue;
+            r.at(p) = at(i, j);
+        }
+        board = r;
+    }
+
+    void tume()
+    {
+        updateArea();
+        offset(-top, -left);
+    }
+
+    void rotate(bool ccw = false)
+    {
+        vector<int> r(h * w);
+        if (ccw == false) rep(i, h) rep(j, w) r.at(j * h + (h - 1) - i) = at(i, j);
+        else rep(i, h) rep(j, w) r.at(((w - 1) - j) * h + i) = at(i, j);
+        board = r;
+        int t = h; h = w; w = t;
+    }
+
+    void flip(bool x, bool y)
+    {
+        vector<int> r(h * w);
+        rep(i, h) rep(j, w)
+        {
+            int p = y ? (h - 1) - i : i;
+            int q = x ? (w - 1) - j : j;
+            r.at(p * w + q) = at(i, j);
+        }
+        board = r;
+    }
+};
 ```
 

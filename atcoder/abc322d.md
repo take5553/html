@@ -4,7 +4,7 @@
 
 解説：https://atcoder.jp/contests/abc322/editorial/7302
 
-提出：https://atcoder.jp/contests/abc322/submissions/46144384
+提出：https://atcoder.jp/contests/abc322/submissions/46146731
 
 ※ `MyBoard` クラスを使用（スニペット登録済み、後述）
 
@@ -49,16 +49,19 @@ int main () {
                 poco.offset(oyc, oxc);
 
                 // まっさらのボードに各ポリオミノを重ねていく
-                vector<int> ans(16);
-                rep(i, 16) ans.at(i) += poao.board.at(i);
-                rep(i, 16) ans.at(i) += pobo.board.at(i);
-                rep(i, 16) ans.at(i) += poco.board.at(i);
+                MyBoard ans = MyBoard(4, 4);
+                rep(i, 4) rep(j, 4)
+                {
+                    ans.at(i, j) += poao.at(i, j);
+                    ans.at(i, j) += pobo.at(i, j);
+                    ans.at(i, j) += poco.at(i, j);
+                }
                 
                 // 条件を満たすか確認
                 bool clear = true;
-                rep(i, 16)
+                rep(i, 4) rep(j, 4)
                 {
-                    if(ans.at(i) != 1)
+                    if(ans.at(i, j) != 1)
                     {
                         clear = false;
                         break;
@@ -92,6 +95,11 @@ public:
         w = width;
         board.assign(h * w, 0);
     }
+
+    int& at(int y, int x)
+    {
+        return board.at(y * w + x);
+    }
     
     void stdinput()
     {
@@ -99,7 +107,7 @@ public:
         {
             char c;
             cin >> c;
-            if(c == '#') board.at(i * w + j) = 1;
+            if(c == '#') at(i, j) = 1;
         }
     }
 
@@ -107,7 +115,7 @@ public:
     {
         rep(i, h)
         {
-            rep(j, w) cout << board.at(i * w + j);
+            rep(j, w) cout << at(i, j);
             cout << endl;
         }
     }
@@ -120,7 +128,7 @@ public:
             bool f = false;
             rep(j, w)
             {
-                if (board.at(i * w + j) == 1)
+                if (at(i, j) == 1)
                 {
                     chmin(l, (int)j);
                     chmax(r, (int)j);
@@ -148,7 +156,7 @@ public:
             int p = (i + y) * w + (j + x);
             if (p < 0 || h * w <= p)
                 continue;
-            r.at(p) = board.at(i * w + j);
+            r.at(p) = at(i, j);
         }
         board = r;
     }
@@ -162,8 +170,8 @@ public:
     void rotate(bool ccw = false)
     {
         vector<int> r(h * w);
-        if (ccw == false) rep(i, h) rep(j, w) r.at(j * h + (h - 1) - i) = board.at(i * w + j);
-        else rep(i, h) rep(j, w) r.at(((w - 1) - j) * h + i) = board.at(i * w + j);
+        if (ccw == false) rep(i, h) rep(j, w) r.at(j * h + (h - 1) - i) = at(i, j);
+        else rep(i, h) rep(j, w) r.at(((w - 1) - j) * h + i) = at(i, j);
         board = r;
         int t = h; h = w; w = t;
     }
@@ -175,7 +183,7 @@ public:
         {
             int p = y ? (h - 1) - i : i;
             int q = x ? (w - 1) - j : j;
-            r.at(p * w + q) = board.at(i * w + j);
+            r.at(p * w + q) = at(i, j);
         }
         board = r;
     }
